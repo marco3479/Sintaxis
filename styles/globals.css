@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -10,6 +14,16 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+a:hover {
+  text-decoration: underline;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+
 
 * {
   box-sizing: border-box;
