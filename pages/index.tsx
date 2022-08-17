@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Button from '../components/Button';
+import HomePagePicture from '../public/images/63490-Granada-Cathedral.webp'
 
 const Home: NextPage = () => {
 
@@ -20,7 +21,7 @@ const Home: NextPage = () => {
         
         objectFit="cover" 
         objectPosition='50% 0%'
-        src='/../public/images/63490-Granada-Cathedral.webp'
+        src={HomePagePicture}
         />
         <div
         className='z-[2] m-24 absolute bg-brown rounded-md bottom-16 p-5 shadow-black shadow-lg'
