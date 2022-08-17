@@ -12,6 +12,7 @@ const Home: NextPage = () => {
   return (
         <>
         <Image 
+        alt='SintaxisMainPic'
         className='relative scale-x-[-1]'
         //width='100%'
         //height='100%'
