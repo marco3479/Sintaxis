@@ -1,4 +1,4 @@
-import { Dispatch, useCallback, useState } from "react";
+import { useState } from "react";
 import Button from "../components/Button";
 
 const Inscripcion = () => {
