@@ -38,3 +38,4 @@ next-env.d.ts
 # dotenv environment variables file
 .env
 .env.test
+password='zdcxsrvxhdmgbfdg'

@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from 'nodemailer'
 import { generalData } from "../inscripcion";
+require('dotenv').config()
+const PASSWORD = process.env.password
 
 export default function handler (req: NextApiRequest, res: NextApiResponse) {
     
@@ -13,7 +15,7 @@ export default function handler (req: NextApiRequest, res: NextApiResponse) {
         secure: true,
         auth: {
             user: 'sintaxisacademy@gmail.com',
-            pass: 'zdcxsrvxhdmgbfdg'
+            pass: PASSWORD
         }
     });
 
