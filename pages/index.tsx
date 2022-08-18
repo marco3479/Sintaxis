@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         src={HomePagePicture}
         />
         <div
-        className='z-[2] m-24 absolute bg-brown rounded-md bottom-16 p-5 shadow-black shadow-lg'
+        className='z-[2] m-24 absolute bg-blue rounded-md bottom-16 p-5 shadow-black shadow-lg'
         >
           <h1
           className='text-5xl'
