@@ -1,7 +1,5 @@
 import { useState } from "react";
 import Button from "../components/Button";
-import CheckoutForm from "../components/CheckoutForm";
-import Stripe from "../components/CheckoutForm";
 
 
 export interface generalData {
