@@ -7,6 +7,7 @@ export default function Layout ({ children }:any) {
         <>
         <Head>
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         </Head>
         <div
         style={{position: 'absolute', display: 'flex', flexDirection: 'column', width: '100vw', height: '100vh'}}
@@ -18,7 +19,7 @@ export default function Layout ({ children }:any) {
                 {children}
             </main>
             <div
-            className='hidden p-5 text-3xl z-2 text-right flex-col sm:hidden h-full bg-opacity-90 bg-black min-w-min right-0'
+            className='hidden p-5 text-3xl z-[3] text-right flex-col sm:hidden h-full bg-opacity-90 bg-black min-w-min right-0'
             id='menuOptions'
             >
                 <br/>

@@ -2,8 +2,9 @@ import type { NextPage } from 'next';
 //import Head from 'next/head'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Button from '../components/Button';
-import HomePagePicture from '../public/images/63490-Granada-Cathedral.webp'
+import HomePagePicture from '../public/images/Apoyo.jpg'
 
 const Home: NextPage = () => {
 
@@ -17,34 +18,45 @@ const Home: NextPage = () => {
     )
   }
 
+
+  const [screenSize, setScreenSize] = useState<number|undefined>()
+
+
+  useEffect(() => {
+      window.addEventListener('resize', () => {
+          setScreenSize(window.innerWidth)
+      })
+  }, [])
+
+
   return (
         <div className='overflow-y-auto bg-white p-3'>
           <Image 
           alt='SintaxisMainPic'
-          className='scale-x-[-1] relative'
+          className=' relative' // to flip scale-x-[-1]
           //width='100%'
           //height='100%'
           layout='fill'
           
           objectFit="cover" 
-          objectPosition='50% 0%'
+          objectPosition={screenSize! > 1000 ? '50% 100%' : 'right'}
           src={HomePagePicture}
           />
           <div    // First Banner
-          className='z-[2] m-24 absolute bg-blue rounded-md bottom-16 p-5 shadow-black shadow-lg'
+          className='z-[2] m-8 absolute bg-blue bg-opacity-80 rounded-md bottom-0 p-5 shadow-black shadow-lg'
           >
             <h1
-            className='text-5xl'
+            className='text-3xl sm:text-5xl'
             >
               Aprende a programar
             </h1>
             <br/>
             <p
-            className='text-lg'
+            className='text-lg sm:w-[30rem]'
             >
-              Conoce los cursos que tenemos para ti.
-              <br/>
-              Prepárate para tu próximo reto.
+              Somos la primera academia de <i>coding</i> en Nicaragua. 
+              Te enseñamos todo lo que necesitás para sumergirte 
+              en un mundo de posibilidades.
             </p>
             <Button
             onClick={() => {
@@ -57,7 +69,7 @@ const Home: NextPage = () => {
           <div className='relative h-[95vh] w-1'>
           </div>
 
-          <div className='flex justify-center flex-col text-black'>
+          <div className='flex justify-center text-center flex-col text-black'>
             <h1 className='text-3xl self-center'>Lo que ofrecemos</h1>
             <br/>
             <div className='relative self-center flex flex-row gap-4 text-white md:w-[70%]'>

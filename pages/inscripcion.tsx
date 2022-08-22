@@ -67,7 +67,7 @@ const Inscripcion = () => {
     }
 
     return (
-        <div className='p-3'>
+        <div className='p-3 h-full'>
             <br/>
             <ul
             className='flex flex-row justify-evenly '
