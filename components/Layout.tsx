@@ -13,7 +13,7 @@ export default function Layout ({ children }:any) {
         >
             <Navbar/>
             <main
-            className='bg-blue text-white w-full h-[93%]  relative overflow-y-auto p-3'
+            className='bg-blue text-white w-full h-[93%]  relative overflow-y-auto'
             >
                 {children}
             </main>

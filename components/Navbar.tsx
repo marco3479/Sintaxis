@@ -1,29 +1,49 @@
 import Link from "next/link"
 import Image from 'next/image'
-import Logo from '../public/images/LogoType.png'
+import LogoType from '../public/images/LogoType.png'
+import LogoMark from '../public/images/LogoMark.png'
+import { useEffect, useState } from "react"
 
 
 const Navbar = () => {
+
+
+    const [screenSize, setScreenSize] = useState<number|undefined>()
+
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setScreenSize(window.innerWidth)
+        })
+    }, [])
+
+
     return (
       <div
-      className=' bg-black z-[3] text-white w-full font-semibold h-[7%] relative flex flex-row text-2xl justify-between items-center drop-shadow-lg '
+      className=' bg-black z-[3] overflow-hidden text-white w-full font-semibold h-[7%] relative flex flex-row text-2xl justify-between items-center drop-shadow-lg '
       >
         <div
         className='justify-self-start ml-8'
         >
-            <Link href='/'>
+           {screenSize! < 750       // small screen
+           ? <Link href='/'>
                 <Image 
                 alt='Logo'
                 className='relative translate-y-1 hover:cursor-pointer'
                 width='60%'
                 height='60%'
-                //layout='fill'
-                
-                //objectFit="cover" 
-                //objectPosition='0% 30%'
-                src={Logo}
+                src={LogoType}
                 />
-            </Link>
+            </Link>             // larger screens
+            : <Link href='/'>       
+                <Image 
+                alt='Logo'
+                className='relative translate-y-[2px] translate-x-[-6px]  hover:cursor-pointer'
+                width='200%'
+                height='200%'
+                src={LogoMark}
+                />
+            </Link> }
         </div>
         <div
         className="flex flex-row justify-end "
