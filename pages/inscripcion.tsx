@@ -135,13 +135,11 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                         </div>
-                        <div
-                        className=''
-                        >
+                        <div className='flex flex-col relative'>
                             <label className="text-lg font-semibold" htmlFor='Domicilio'>
                                 Domicilio
                                 <br/>
-                                <textarea className='p-2 resize-none mt-2 w-[420px] h-[100px] rounded-md '  id='Domicilio'
+                                <textarea className='p-2 resize-y mt-2 h-[100px] rounded-md '  id='Domicilio'
                                 value={generalData.address}
                                 onChange={(e) => setGeneralData((dD:generalData) => ({
                                     ...dD, 
@@ -178,6 +176,7 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <Button
+                            className="max-w-min"
                             onClick={() => { setPhase('Programas'); console.log(generalData) }}
                             >
                                 Siguiente
@@ -190,11 +189,11 @@ const Inscripcion = () => {
                     {phase == 'Programas'
                     ? <>
                     <div className="flex flex-col">
-                        <div className='grid justify-center' style={{gridTemplateAreas: "'programs description'", gridTemplateColumns: '30% 50%', columnGap: '20px'}}>
-                            <div style={{gridArea: 'programs'}}
-                            className=" flex flex-col  text-black "
+                        <div className='flex flex-col sm:flex-row gap-2 justify-center'>
+                            <div 
+                            className=" flex flex-col sm:w-[30%] text-black "
                             >
-                                <div className='grid bg-white rounded-md' style={{gridTemplateAreas: "'CPRadio CP' 'APRadio AP' 'FNRadio FN'", gridTemplateRows: 'auto auto auto' }}>
+                                <div className='grid bg-white rounded-md min-w-min' style={{gridTemplateAreas: "'CPRadio CP' 'APRadio AP' 'FNRadio FN'", gridTemplateRows: 'auto auto auto' }}>
                                     <div className=" p-3 " style={{gridArea: 'CPRadio'}}>
                                         <input checked={programSelected === 'CompleteProgrammer' ? true : false} onClick={() => setProgramSelected('CompleteProgrammer')} name='programs' type='radio' id='CompleteProgrammer'/>
                                     </div>
@@ -246,7 +245,9 @@ const Inscripcion = () => {
                                     </label>
                                 </div>
                             </div>
-                            <div  style={{gridArea: 'description'}}>
+                            <div 
+                            className='sm:w-[70%]'
+                            >
                                 {programSelected === 'CompleteProgrammer' && lvlSelected === 'lvl1'
                                 ? <div className="grid bg-white rounded-md p-3 text-black">
                                 Nuestro programa más completo y el más recomendado para principiantes. El estudiante aprenderá desde Python y sus diversas librerías, hasta Desarrollo Web con HTML y CSS. 

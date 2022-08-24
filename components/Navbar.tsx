@@ -13,6 +13,7 @@ const Navbar = () => {
 
 
     useEffect(() => {
+        setScreenSize(window.innerWidth);
         window.addEventListener('resize', () => {
             setScreenSize(window.innerWidth)
         })
@@ -26,7 +27,7 @@ const Navbar = () => {
         <div
         className='justify-self-start ml-8'
         >
-           {screenSize! < 640       // small screen
+           {screenSize! < 720       // small screen
            ?
             <Image 
             alt='Logo'
