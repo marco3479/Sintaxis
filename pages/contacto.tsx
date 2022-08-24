@@ -1,8 +1,10 @@
 
 const ContactoPage = () => {
     return (
-        <div className='grid grid-flow-row-dense place-items-center h-full '>
+        <div className='grid grid-flow-row-dense justify-center h-full '>
             <div>
+                <br/>
+                <br/>
                 <h2 className="text-2xl font-semibold self-center w-[18rem] text-center">Contactanos por cualquiera de estas vías</h2>
                 <br/>
                 <br/>

@@ -3,11 +3,12 @@ import Image from 'next/image'
 import LogoType from '../public/images/LogoType.png'
 import LogoMark from '../public/images/LogoMark.png'
 import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
 
 
 const Navbar = () => {
 
-
+    const router = useRouter();
     const [screenSize, setScreenSize] = useState<number|undefined>()
 
 
@@ -26,24 +27,29 @@ const Navbar = () => {
         className='justify-self-start ml-8'
         >
            {screenSize! < 750       // small screen
-           ? <Link href='/'>
-                <Image 
-                alt='Logo'
-                className='relative translate-y-1 hover:cursor-pointer'
-                width='60%'
-                height='60%'
-                src={LogoType}
-                />
-            </Link>             // larger screens
-            : <Link href='/'>       
-                <Image 
-                alt='Logo'
-                className='relative translate-y-[2px] translate-x-[-6px]  hover:cursor-pointer'
-                width='200%'
-                height='200%'
-                src={LogoMark}
-                />
-            </Link> }
+           ?
+            <Image 
+            alt='Logo'
+            className='relative translate-y-1 hover:cursor-pointer'
+            width='60%'
+            height='60%'
+            onClick={() => {router.push('/')}}
+            src={LogoType}
+            priority
+            />
+
+            // larger screens
+            :       
+            <Image 
+            alt='Logo'
+            className='relative translate-y-[2px] translate-x-[-6px]  hover:cursor-pointer'
+            width='200%'
+            height='200%'
+            onClick={() => {router.push('/')}}
+            src={LogoMark}
+            priority
+            />
+            }
         </div>
         <div
         className="flex flex-row justify-end "

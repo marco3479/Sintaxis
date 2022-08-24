@@ -1,10 +1,13 @@
 import type { NextPage } from 'next';
 //import Head from 'next/head'
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import HomePagePicture from '../public/images/Apoyo.jpg'
+import FotoInstructores from '../public/images/instructores-1.jpg'
+
 
 const Home: NextPage = () => {
 
@@ -12,7 +15,7 @@ const Home: NextPage = () => {
 
   const Highlighted = ({children}:any) => {
     return (
-      <b className='bg-blue text-white rounded-sm'>
+      <b className='bg-blue text-white '>
         &nbsp;{children}&nbsp;
       </b>
     )
@@ -67,11 +70,11 @@ const Home: NextPage = () => {
               Inscribirse
             </Button>
           </div>
-          <div className='relative h-[95vh] w-1'>
+          <div className='relative h-[93vh] w-1'>
           </div>
-
+          <br/>
           <div className='flex justify-center text-center flex-col text-black'>
-            <h1 className='text-3xl self-center'>Lo que ofrecemos</h1>
+            <h1 className='text-3xl self-center font-semibold'>Lo que ofrecemos</h1>
             <br/>
             <div className='relative self-center flex flex-row gap-4 text-white md:w-[70%]'>
               <div className='bg-black p-3 rounded-md'>
@@ -80,11 +83,32 @@ const Home: NextPage = () => {
                 y monitoreado ante cualquier duda.
               </div>
               <div className='bg-black p-3 rounded-md'>
-                Clases pequeñas de hasta 16 estudiantes para una <Highlighted>atención y enseñanza personalizados</Highlighted>.
+                Clases pequeñas de hasta 16 estudiantes para una <Highlighted>atención y enseñanza personalizada</Highlighted>.
               </div>
               <div className='bg-black p-3 rounded-md'>
                 <Highlighted>Entrega de certificado de aprobación</Highlighted> al terminar el curso. 
               </div>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <div className='text-center text-black'>
+            <h2 className='text-3xl font-semibold' >
+              <Link href={'/instructores'}>
+                Conoce a tus instructores 
+              </Link>
+            </h2>
+              
+            <br/>
+            <div className='relative h-[500px] w-full border-4 border-blue border-opacity-0 hover:border-opacity-100 hover:cursor-pointer'>
+              <Image
+              src={FotoInstructores}
+              layout='fill'
+              objectFit='cover'
+              onClick={() => router.push('/instructores')}
+              objectPosition={'top'}
+              alt='Foto de instructores'
+              />
             </div>
           </div>
         </div>
