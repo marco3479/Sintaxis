@@ -26,7 +26,7 @@ const Navbar = () => {
         <div
         className='justify-self-start ml-8'
         >
-           {screenSize! < 750       // small screen
+           {screenSize! < 640       // small screen
            ?
             <Image 
             alt='Logo'
@@ -80,10 +80,10 @@ const Navbar = () => {
             </Link>
             </h2>
             <button
+            className='grid place-content-center'
             onClick={(e) => {
                 const menu = document.getElementById('menuOptions') as HTMLElement;
                 menu.classList.toggle('hidden');
-                menu.classList.toggle('absolute');
                 menu.classList.toggle('flex');
             }}
             >

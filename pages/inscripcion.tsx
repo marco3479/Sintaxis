@@ -96,7 +96,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='NombreCompleto'>
                                 Nombre Completo
                                 <br/>
-                                <input size={40} value={generalData.name} className='p-2 mt-2 rounded-md ' type='text' id='NombreCompleto' 
+                                <input value={generalData.name} className='p-2 mt-2  rounded-md ' type='text' id='NombreCompleto' 
                                 onChange={(e) => {setGeneralData((dD: generalData) => (
                                 {
                                     ...dD,
@@ -123,7 +123,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Ciudad'>
                                 Ciudad
                                 <br/>
-                                <input size={40} value={generalData.city} className='p-2 mt-2 rounded-md ' type='text' id='Ciudad' 
+                                <input value={generalData.city} className='p-2 mt-2 rounded-md ' type='text' id='Ciudad' 
                                 onChange={(e) => {setGeneralData((dD: generalData) => (
                                 {
                                     ...dD,
@@ -154,7 +154,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Email'>
                                 Correo Electrónico
                                 <br/>
-                                <input size={40} className=' p-2 mt-2 rounded-md ' type='email' id='Email'
+                                <input  className=' p-2 mt-2 rounded-md ' type='email' id='Email'
                                 value={generalData.email}
                                 onChange={(e) => setGeneralData((dD:generalData) => ({
                                     ...dD,
@@ -199,7 +199,7 @@ const Inscripcion = () => {
                                         <input checked={programSelected === 'CompleteProgrammer' ? true : false} onClick={() => setProgramSelected('CompleteProgrammer')} name='programs' type='radio' id='CompleteProgrammer'/>
                                     </div>
                                     <details
-                                    className='bg-white p-3 rounded-md' style={{gridArea: 'CP'}}
+                                    className='p-3 rounded-md' style={{gridArea: 'CP'}}
                                     >
                                         <summary  onClick={() => setProgramSelected('CompleteProgrammer')} >
                                             &nbsp;&nbsp;&nbsp;

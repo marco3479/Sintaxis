@@ -73,10 +73,10 @@ const Home: NextPage = () => {
           <div className='relative h-[93vh] w-1'>
           </div>
           <br/>
-          <div className='flex justify-center text-center flex-col text-black'>
+          <div className='flex justify-center  text-center flex-col text-black'>
             <h1 className='text-3xl self-center font-semibold'>Lo que ofrecemos</h1>
             <br/>
-            <div className='relative self-center flex flex-row gap-4 text-white md:w-[70%]'>
+            <div className='relative self-center flex flex-col sm:flex-row gap-4 text-white md:w-[70%]'>
               <div className='bg-black p-3 rounded-md'>
                 Todas nuestras clases son <Highlighted>en vivo</Highlighted> con instructores
                 especializados. Así, tu progreso estará acompañado

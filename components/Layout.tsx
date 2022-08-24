@@ -1,8 +1,9 @@
-import Head from "next/head";
 import Link from "next/link";
 import Navbar from "./Navbar";
 
 export default function Layout ({ children }:any) {
+
+
     return (
         <div
         style={{position: 'absolute', display: 'flex', flexDirection: 'column', width: '100vw', height: '100vh'}}
@@ -14,13 +15,19 @@ export default function Layout ({ children }:any) {
                 {children}
             </main>
             <div
-            className='hidden p-5 text-3xl z-[3] text-right flex-col sm:hidden h-full bg-opacity-90 bg-black min-w-min right-0'
+            className='hidden absolute p-5 text-3xl z-[3] text-right flex-col sm:hidden h-full bg-opacity-90 bg-black min-w-min right-0'
             id='menuOptions'
             >
                 <br/>
                 <br/>
                 <h2
                 className='font-semibold right-2'
+                onClick={() => {
+                    const menu = document.getElementById('menuOptions') as HTMLElement;
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                    }
+                }
                 >
                     <Link 
                     href='cursos'
@@ -31,6 +38,13 @@ export default function Layout ({ children }:any) {
                 <br/>
                 <h2
                 className='font-semibold right-2'
+                onClick={() => {
+                    const menu = document.getElementById('menuOptions') as HTMLElement;
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                    }
+                }
+
                 >
                     <Link 
                     href='instructores'
@@ -41,6 +55,13 @@ export default function Layout ({ children }:any) {
                 <br/>
                 <h2
                 className='font-semibold right-2'
+                onClick={() => {
+                    const menu = document.getElementById('menuOptions') as HTMLElement;
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                    }
+                }
+
                 >
                     <Link href='contacto'>
                         Contacto
