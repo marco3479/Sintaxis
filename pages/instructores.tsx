@@ -9,7 +9,7 @@ const InstructoresPage = () => {
 
 
     useEffect(() => {
-      setScreenSize(window.innerWidth)
+      setScreenSize(window.innerWidth);
       window.addEventListener('resize', () => {
         setScreenSize(window.innerWidth)
       });
@@ -36,19 +36,27 @@ const InstructoresPage = () => {
                         objectPosition={screenSize! >= 640 ? 'center top' : 'center bottom'}
                         />
                     </div>
-                    <div className="flex flex-col bg-white place-content-center  p-5 rounded-b-md sm:rounded-none sm:rounded-r-md relative sm:max-w-[70%] ">
+                    <div className="flex flex-col bg-white place-content-center p-5 rounded-b-md sm:rounded-none sm:rounded-r-md relative sm:max-w-[500px] ">
                         <b>
                             <h2 className='text-lg sm:text-2xl text-center'>
                                 Edmundo Miranda Guillén
                             </h2>
                         </b>
                         <br/>
-                        <p>
-                            Estudiante de Economía Aplicada.
+                        <p className='text-left'>
+                            Estudiante de Economía Aplicada y co-fundador de Sintaxis.
                             <br/>
-                            Experiencia en análisis estadístico y
-                            visualización de datos con Python
                             <br/>
+                            Experiencia en el manejo, análisis y visualización de
+                            datos con Python, Excel y STATA. Sus áreas de interés 
+                            profesional incluyen Macroeconomía, Política Monetaria
+                            y Análisis Estadístico.
+                            <br/>
+                            <br/>
+                            <blockquote className=' text-center font-serif'>
+                                <i>"En mis ratos libres me gusta pasar con las personas que quieran
+                                y ver Youtuve por más tiempo del que debería."</i>
+                            </blockquote>
                         </p>
                     </div>
 
@@ -66,19 +74,30 @@ const InstructoresPage = () => {
                         objectPosition={screenSize! >= 640 ? 'center top' : 'center bottom'}
                         />
                     </div>
-                    <div className="flex flex-col bg-white place-content-center p-5 rounded-b-md sm:rounded-none sm:rounded-r-md relative sm:max-w-[70%] ">
+                    <div className="flex flex-col bg-white place-content-center p-5 rounded-b-md sm:rounded-none sm:rounded-r-md relative sm:max-w-[500px] ">
                         <b>
                             <h2 className='text-2xl whitespace-nowrap text-center'>
                                 Marco A. Mongalo III
                             </h2>
                         </b>
                         <br/>
-                        <p>
-                            Ingeniero de Conocimiento.
+                        <p className='text-left'>
+                            Ingeniero de Conocimiento y Software, co-fundador de Sintaxis, y fundador de Perignosia.
+                            <br/>
+                            <br/>
+                            Experiencia con desarrollo de sistemas de conocimiento,
+                            aplicaciones y páginas para la Web.
+                            Sus áreas de interés incluyen Lógica Fuzzy, Proceso de 
+                            Lenguage Natural, lenguajes de Representación de Conocimiento, 
+                            y Ontología.
+                            <br/>
                             <br/>
                             
-                            <br/>
-                        </p>
+                            <blockquote className=' text-center font-serif'>
+                                <i>"En una vida anterior fui un odontólogo. Ahora construyo
+                                    instrumentos para mejorar la calidad de comunicación humana."</i>
+                            </blockquote>
+                        </p>                    
                     </div>
                 </div>
             </div>
