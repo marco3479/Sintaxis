@@ -12,8 +12,8 @@ const Home: NextPage = () => {
 
   const Highlighted = ({children}:any) => {
     return (
-      <b className='bg-blue text-white'>
-        {children}
+      <b className='bg-blue text-white rounded-sm'>
+        &nbsp;{children}&nbsp;
       </b>
     )
   }
@@ -23,9 +23,10 @@ const Home: NextPage = () => {
 
 
   useEffect(() => {
-      window.addEventListener('resize', () => {
-          setScreenSize(window.innerWidth)
-      })
+    setScreenSize(window.innerWidth)
+    window.addEventListener('resize', () => {
+      setScreenSize(window.innerWidth)
+    });
   }, [])
 
 
@@ -79,10 +80,10 @@ const Home: NextPage = () => {
                 y monitoreado ante cualquier duda.
               </div>
               <div className='bg-black p-3 rounded-md'>
-                Clases pequeñas de hasta 16 estudiantes para una <Highlighted>atención y enseñanza personalizados.</Highlighted>
+                Clases pequeñas de hasta 16 estudiantes para una <Highlighted>atención y enseñanza personalizados</Highlighted>.
               </div>
               <div className='bg-black p-3 rounded-md'>
-                <Highlighted>Reuniones mensuales con padres</Highlighted> y alumnos para discutir el progreso de los estudiantes. 
+                <Highlighted>Entrega de certificado de aprobación</Highlighted> al terminar el curso. 
               </div>
             </div>
           </div>
