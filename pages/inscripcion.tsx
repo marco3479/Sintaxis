@@ -90,7 +90,7 @@ const Inscripcion = () => {
                     {phase == 'General'
                     ?             <>
                     <br/>
-                    <div className='flex flex-col items-center lg:flex-row justify-center gap-20 relative'>
+                    <div className='flex flex-col items-center lg:flex-row justify-center lg:gap-20 relative'>
                         <div className='grid  relative align-middle'>
                             <label className="text-lg font-semibold" htmlFor='NombreCompleto'>
                                 Nombre Completo
