@@ -22,7 +22,7 @@ const Navbar = () => {
 
     return (
       <div
-      className=' bg-black z-[4] overflow-hidden text-white w-full font-semibold h-[7%] relative flex flex-row text-2xl justify-between items-center drop-shadow-lg '
+      className=' bg-black z-[4] overflow-hidden text-white w-full font-semibold h-[7%] min-h-[58px] relative flex flex-row text-2xl justify-between items-center drop-shadow-lg '
       >
         <div
         className='justify-self-start ml-8'

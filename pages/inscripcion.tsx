@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import PythonPhoto from "../public/images/Python.jpg"
 import Image from 'next/image';
+import Link from "next/link";
 
 export interface generalData {
     name: string,
@@ -16,11 +17,8 @@ const Inscripcion = () => {
 
 
     const [phase, setPhase] = useState<string>('General');
-
-
     const phases = ['General', 'Programas', 'Pago'];
 
-        
  
 
     const [ generalData, setGeneralData] = useState<generalData>({
@@ -329,12 +327,18 @@ const Inscripcion = () => {
 
                     {phase == 'Pago'
                     ? <>
-                    <div className="flex flex-col">
+                    <div className="flex text-center flex-col">
+                        <Link  href='https://buy.stripe.com/7sIaHa2JVePPcwgcMM'>
+                            <a target="_blank" rel="noopener noreferrer">
+                                Pagar
+                            </a>
+                        </Link>
                         <input
                         className='bg-white hover:cursor-pointer max-w-min self-center text-blue font-semibold rounded-md p-2 text-lg border-none mt-5 hover:shadow-xl shadow-black'
                         type='submit'
                         onClick={SendEmail}
                         value='Inscribir'
+
                         />
                             
 
