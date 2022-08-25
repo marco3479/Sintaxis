@@ -204,43 +204,47 @@ const Inscripcion = () => {
                                             <b>Complete Programmer</b> 
                                         </summary>
                                             &nbsp;&nbsp;&nbsp;
-                                            <div>
+                                            <div className="p-3">
                                                 <input onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl1')}} name='lvls' type='radio' id='lvl1'/>
                                                 <label htmlFor="lvl1" className={`p-3 border-2 border-[transparent]`}>
                                                     &nbsp;&nbsp;&nbsp;
                                                     <b>Lvl 1 </b> &nbsp; Introducción a Programación con Python.
                                                 </label>
                                             </div>
-                                            <br/>
-                                            <div>
-                                                <input onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl2')}}  name='lvls' type='radio' id='lvl2'/>
-                                                <label htmlFor="lvl2" className={`p-3 border-2 border-[transparent]`}>
+                                            <div className="bg-gray-300 p-3">
+                                                <input disabled onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl2')}}  name='lvls' type='radio' id='lvl2'/>
+                                                <label htmlFor="lvl2" className={`p-3  border-2 border-[transparent]`}>
                                                     &nbsp;&nbsp;&nbsp;
                                                     <b>Lvl 2 </b> &nbsp; Desarrollo de Web con HTML, CSS y JavaScript, y Librerías de Python.
+                                                    <br/>
+                                                    <i>{'('}próximamente{')'}</i>
                                                 </label>
                                             </div>
-                                            <br/>
-                                            <div>
-                                                <input onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl3')}}  name='lvls' type='radio' id='lvl3'/>
-                                                <label htmlFor="lvl3" className={`p-3 border-2 border-[transparent]`}>
+                                            <div className="bg-gray-300 p-3">
+                                                <input disabled onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl3')}}  name='lvls' type='radio' id='lvl3'/>
+                                                <label htmlFor="lvl3" className={`p-3  border-2 border-[transparent]`}>
                                                     &nbsp;&nbsp;&nbsp;
                                                     <b>Lvl 3 </b> &nbsp; Frameworks con Python y Typescript.
+                                                    <br/>
+                                                    <i>{'('}próximamente{')'}</i>
                                                 </label>
                                             </div>
                                     </details>
-                                    <div className=" p-3" style={{gridArea: 'APRadio'}}>
-                                        <input onClick={() => setProgramSelected('AnalisisPython')}  name='programs' type='radio' id='AnalisisPython'/>
+                                    <div className=" p-3 bg-gray-300" style={{gridArea: 'APRadio'}}>
+                                        <input disabled onClick={() => setProgramSelected('AnalisisPython')}  name='programs' type='radio' id='AnalisisPython'/>
                                     </div>
-                                    <label htmlFor="AnalisisPython" className={`p-3 `} style={{gridArea: 'AP'}}>
+                                    <label htmlFor="AnalisisPython" className={`p-3 bg-gray-300`} style={{gridArea: 'AP'}}>
                                         &nbsp;&nbsp;&nbsp;
                                         <b>Análisis de datos con Python</b>
+                                        <br/> <i>{'('}próximamente{')'}</i>
                                     </label>
-                                    <div className="p-3 " style={{gridArea: 'FNRadio'}}>
-                                        <input onClick={() => setProgramSelected('FullstackNextjs')}  name='programs' type='radio' id='FullstackNextjs'/>
+                                    <div className="p-3 bg-gray-300 rounded-bl-md" style={{gridArea: 'FNRadio'}}>
+                                        <input disabled onClick={() => setProgramSelected('FullstackNextjs')}  name='programs' type='radio' id='FullstackNextjs'/>
                                     </div>
-                                    <label htmlFor="FullstackNextjs" className={`p-3 `} style={{gridArea: 'FN'}}>
+                                    <label htmlFor="FullstackNextjs" className={`p-3 bg-gray-300 rounded-br-md`} style={{gridArea: 'FN'}}>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Desarrollador de Web FullStack con Next js</b>
+                                        <b>Desarrollador de Web FullStack con Next js</b> 
+                                        <br/> <i>{'('}próximamente{')'}</i>
                                     </label>
                                 </div>
                             </div>

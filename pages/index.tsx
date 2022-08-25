@@ -94,8 +94,9 @@ const Home: NextPage = () => {
           <br/>
           <div className='text-center text-black'>
             <h2 className='text-3xl font-semibold' >
-              <Link href={'/instructores'}>
-                Conoce a tus instructores 
+              <Link href={'/instructores'} scroll={true}>
+                <a>
+                Conoce a tus instructores </a>
               </Link>
             </h2>
               

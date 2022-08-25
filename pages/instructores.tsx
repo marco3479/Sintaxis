@@ -54,8 +54,8 @@ const InstructoresPage = () => {
                             <br/>
                             <br/>
                             <blockquote className=' text-center font-serif'>
-                                <i>{'"'}En mis ratos libres me gusta pasar con las personas que quieran
-                                y ver Youtuve por más tiempo del que debería.{'"'}</i>
+                                <i>{'"'}En mis ratos libres me gusta pasar con las personas que quiero
+                                y ver películas.{'"'}</i>
                             </blockquote>
                         </p>
                     </div>
