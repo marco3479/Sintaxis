@@ -81,7 +81,7 @@ const Navbar = () => {
             </Link>
             </h2>
             <button
-            className='grid place-content-center'
+            className='grid place-content-center sm:hidden'
             onClick={(e) => {
                 const menu = document.getElementById('menuOptions') as HTMLElement;
                 menu.classList.toggle('hidden');
@@ -89,7 +89,7 @@ const Navbar = () => {
             }}
             >
                 <i
-                className='material-icons text-3xl sm:hidden mr-12 font-semibold'
+                className='material-icons text-3xl  mr-12 font-semibold'
                 >
                     menu
                 </i>
