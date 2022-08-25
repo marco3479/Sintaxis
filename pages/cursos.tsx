@@ -74,7 +74,8 @@ const CursosPage = () => {
                     </div>
                 </div>
                 <div  style={{gridArea: 'description'}}>
-                    {programSelected === 'CompleteProgrammer' && lvlSelected === 'lvl1'
+                    
+                    {programSelected === 'CompleteProgrammer'
                     ? <div className="grid bg-white rounded-md p-3 text-black">
                     Nuestro programa más completo y el más recomendado para principiantes. El estudiante aprenderá desde Python y sus diversas librerías, hasta Desarrollo Web con HTML y CSS. 
                     <br/>
@@ -82,6 +83,7 @@ const CursosPage = () => {
                     <b>Requisitos:</b> Ninguno. 
                     </div>
                     : null}
+
                     {programSelected === 'AnalisisPython'
                     ? <div className="grid bg-white rounded-md p-3 text-black">
                     Un programa de especialización para aquellos que quieran descubrir el mundo del análisis y ciencia de datos con Python. 

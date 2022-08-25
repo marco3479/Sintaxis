@@ -22,7 +22,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  text-decoration-color: blue;
+  text-decoration-color: #1F51FF;
 }
 
 button:hover {

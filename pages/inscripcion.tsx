@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Button from "../components/Button";
 
-
 export interface generalData {
     name: string,
     birthdate: string,
@@ -91,8 +90,8 @@ const Inscripcion = () => {
                     {phase == 'General'
                     ?             <>
                     <br/>
-                    <div className='flex flex-col items-center lg:flex-row justify-around relative'>
-                        <div className='flex flex-col relative'>
+                    <div className='flex flex-col items-center lg:flex-row justify-center gap-20 relative'>
+                        <div className='grid  relative align-middle'>
                             <label className="text-lg font-semibold" htmlFor='NombreCompleto'>
                                 Nombre Completo
                                 <br/>
@@ -246,16 +245,36 @@ const Inscripcion = () => {
                                 </div>
                             </div>
                             <div 
-                            className='sm:w-[70%]'
+                            className='sm:w-[70%] flex flex-col gap-2'
                             >
-                                {programSelected === 'CompleteProgrammer' && lvlSelected === 'lvl1'
+                                {programSelected === 'CompleteProgrammer'
                                 ? <div className="grid bg-white rounded-md p-3 text-black">
-                                Nuestro programa más completo y el más recomendado para principiantes. El estudiante aprenderá desde Python y sus diversas librerías, hasta Desarrollo Web con HTML y CSS. 
-                                <br/>
-                                <br/>
-                                <b>Requisitos:</b> Ninguno. 
+                                Nuestro programa más completo y el más recomendado para principiantes. El estudiante aprenderá desde Python y sus diversas librerías, hasta Desarrollo Web con HTML y CSS.  
                                 </div>
                                 : null}
+
+                                {programSelected === 'CompleteProgrammer' && lvlSelected === 'lvl1'
+                                ? <div className="grid bg-white rounded-md p-3 text-black">
+                                    poner AlGoasdasdfa sdf
+                                    <br/>
+                                    <br/>
+                                    <b>Requisitos:</b> Ninguno. 
+                                    <br/>
+                                    <br/>
+                                    <span className="text-right">
+                                        <a href='/curriculum/Complete_Programmer_Lvl_1_Curriculum.pdf' download>
+                                            <i className="material-icons translate-y-2 mr-2">
+                                                download
+                                            </i>
+                                        
+                                        <b>Descargar curriculum </b>
+                                        </a>
+                                    </span>
+                                </div>
+
+
+                                : null}
+
                                 {programSelected === 'AnalisisPython'
                                 ? <div className="grid bg-white rounded-md p-3 text-black">
                                 Un programa de especialización para aquellos que quieran descubrir el mundo del análisis y ciencia de datos con Python. 
