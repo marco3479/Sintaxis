@@ -35,17 +35,14 @@ const Home: NextPage = () => {
 
   return (
         <div className='overflow-y-auto bg-white p-3'>
-          <Image 
-          alt='SintaxisMainPic'
-          className=' relative' // to flip scale-x-[-1]
-          //width='100%'
-          //height='100%'
-          layout='fill'
-          
-          objectFit="cover" 
-          objectPosition={screenSize! > 1000 ? '50% 100%' : 'right'}
-          src={HomePagePicture}
-          />
+            <Image 
+            alt='SintaxisMainPic'
+            className=' relative' 
+            layout='fill'  
+            objectFit="cover" 
+            objectPosition={screenSize! > 1000 ? '50% 100%' : 'right'}
+            src={HomePagePicture}
+            />
           <div    // First Banner
           className='z-[2] m-8 absolute bg-blue bg-opacity-80 rounded-md bottom-0 p-5 shadow-black shadow-lg'
           >
@@ -94,9 +91,10 @@ const Home: NextPage = () => {
           <br/>
           <div className='text-center text-black'>
             <h2 className='text-3xl font-semibold' >
-              <Link href={'/instructores'} scroll={true}>
+              <Link href={'instructores'} scroll={true}>
                 <a>
-                Conoce a tus instructores </a>
+                  Conoce a tus instructores 
+                </a>
               </Link>
             </h2>
               

@@ -5,15 +5,15 @@ import { useEffect, useState } from 'react';
 
 const InstructoresPage = () => {
 
-    const [screenSize, setScreenSize] = useState<number|undefined>()
+    const [screenSize, setScreenSize] = useState<number>(1000);
 
 
     useEffect(() => {
-      setScreenSize(window.innerWidth);
-      window.addEventListener('resize', () => {
-        setScreenSize(window.innerWidth)
-      });
-    }, [])
+        setScreenSize(window.innerWidth);
+        window.addEventListener('resize', () => {
+            setScreenSize(window.innerWidth);
+        });
+    }, []);
   
 
     return (
@@ -29,11 +29,11 @@ const InstructoresPage = () => {
                         alt='Foto de Edmundo'
                         priority
                         src={EdmundoPhoto}
-                        width={'188'}
-                        height={'228'}
-                        layout={screenSize! >= 640 ? 'fill' : 'fixed'}
-                        objectFit={screenSize! >= 640 ?  'cover' : 'contain'}
-                        objectPosition={screenSize! >= 640 ? 'center top' : 'center bottom'}
+                        width={screenSize >= 640 ? undefined : '188'}
+                        height={screenSize >= 640 ? undefined : '228'}
+                        layout={screenSize >= 640 ? 'fill' : 'fixed'}
+                        objectFit={screenSize >= 640 ?  'cover' : 'contain'}
+                        objectPosition={screenSize >= 640 ? 'center top' : 'center bottom'}
                         />
                     </div>
                     <div className="flex flex-col bg-white place-content-center p-5 rounded-b-md sm:rounded-none sm:rounded-r-md relative sm:max-w-[500px] ">
@@ -53,11 +53,11 @@ const InstructoresPage = () => {
                             y Análisis Estadístico.
                             <br/>
                             <br/>
-                            <blockquote className=' text-center font-serif'>
-                                <i>{'"'}En mis ratos libres me gusta pasar con las personas que quiero
-                                y ver películas.{'"'}</i>
-                            </blockquote>
                         </p>
+                        <blockquote className=' text-center font-serif'>
+                            <i>{'"'}En mis ratos libres me gusta pasar con las personas que quiero
+                            y ver películas.{'"'}</i>
+                        </blockquote>
                     </div>
 
                 </div>
@@ -69,9 +69,9 @@ const InstructoresPage = () => {
                         priority
                         width={'188'}
                         height={'228'}
-                        layout={screenSize! >= 640 ? 'fill' : 'fixed'}
-                        objectFit={screenSize! >= 640 ?  'cover' : 'contain'}
-                        objectPosition={screenSize! >= 640 ? 'center top' : 'center bottom'}
+                        layout={screenSize >= 640 ? 'fill' : 'fixed'}
+                        objectFit={screenSize >= 640 ?  'cover' : 'contain'}
+                        objectPosition={screenSize >= 640 ? 'center top' : 'center bottom'}
                         />
                     </div>
                     <div className="flex flex-col bg-white place-content-center p-5 rounded-b-md sm:rounded-none sm:rounded-r-md relative sm:max-w-[500px] ">
@@ -92,12 +92,11 @@ const InstructoresPage = () => {
                             y Ontología.
                             <br/>
                             <br/>
-                            
-                            <blockquote className=' text-center font-serif'>
-                                <i>{'"'}En una vida anterior fui un odontólogo. Ahora construyo
-                                    instrumentos para mejorar la calidad de comunicación humana.{'"'}</i>
-                            </blockquote>
-                        </p>                    
+                        </p>                        
+                        <blockquote className=' text-center font-serif'>
+                            <i>{'"'}En una vida anterior fui un odontólogo. Ahora construyo
+                                instrumentos para mejorar la calidad de comunicación humana.{'"'}</i>
+                        </blockquote>
                     </div>
                 </div>
             </div>

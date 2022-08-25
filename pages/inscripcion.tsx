@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Button from "../components/Button";
+import PythonPhoto from "../public/images/Python.jpg"
+import Image from 'next/image';
 
 export interface generalData {
     name: string,
@@ -57,8 +59,8 @@ const Inscripcion = () => {
 
 
 
-    const [programSelected, setProgramSelected] = useState<string>('');
-    const [lvlSelected, setLvlSelected] = useState<string>('');
+    const [programSelected, setProgramSelected] = useState<string>('CompleteProgrammer');
+    const [lvlSelected, setLvlSelected] = useState<string>('lvl1');
     
     function styleMod(ClassSelected: string) {
         if (programSelected === ClassSelected) return 'border-blue border-dashed' 
@@ -188,15 +190,16 @@ const Inscripcion = () => {
                     {phase == 'Programas'
                     ? <>
                     <div className="flex flex-col">
-                        <div className='flex flex-col sm:flex-row gap-2 justify-center'>
+                        <div className='flex flex-col md:flex-row gap-2 justify-center'>
                             <div 
-                            className=" flex flex-col sm:w-[30%] text-black "
+                            className=" flex flex-col md:w-[30%] text-black "
                             >
                                 <div className='grid bg-white rounded-md min-w-min' style={{gridTemplateAreas: "'CPRadio CP' 'APRadio AP' 'FNRadio FN'", gridTemplateRows: 'auto auto auto' }}>
                                     <div className=" p-3 " style={{gridArea: 'CPRadio'}}>
                                         <input checked={programSelected === 'CompleteProgrammer' ? true : false} onClick={() => setProgramSelected('CompleteProgrammer')} name='programs' type='radio' id='CompleteProgrammer'/>
                                     </div>
                                     <details
+                                    open={programSelected === 'CompleteProgrammer' ? true : false}
                                     className='p-3 rounded-md' style={{gridArea: 'CP'}}
                                     >
                                         <summary  onClick={() => setProgramSelected('CompleteProgrammer')} >
@@ -205,7 +208,7 @@ const Inscripcion = () => {
                                         </summary>
                                             &nbsp;&nbsp;&nbsp;
                                             <div className="p-3">
-                                                <input onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl1')}} name='lvls' type='radio' id='lvl1'/>
+                                                <input checked={lvlSelected === 'lvl1' ? true : false} onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl1')}} name='lvls' type='radio' id='lvl1'/>
                                                 <label htmlFor="lvl1" className={`p-3 border-2 border-[transparent]`}>
                                                     &nbsp;&nbsp;&nbsp;
                                                     <b>Lvl 1 </b> &nbsp; Introducción a Programación con Python.
@@ -249,7 +252,7 @@ const Inscripcion = () => {
                                 </div>
                             </div>
                             <div 
-                            className='sm:w-[70%] flex flex-col gap-2'
+                            className='md:w-[70%] flex flex-col gap-2'
                             >
                                 {programSelected === 'CompleteProgrammer'
                                 ? <div className="grid bg-white rounded-md p-3 text-black">
@@ -258,14 +261,28 @@ const Inscripcion = () => {
                                 : null}
 
                                 {programSelected === 'CompleteProgrammer' && lvlSelected === 'lvl1'
-                                ? <div className="grid bg-white rounded-md p-3 text-black">
-                                    poner AlGoasdasdfa sdf
+                                ? <div className="grid grid-flow-row grid-rows-2"> 
+                                <div className="grid bg-white rounded-t-md p-3 text-black">
+                                    Nuestro primer curso. Una introducción a Python que te lleva
+                                    desde cero hasta nivel intermedio. El objetivo es que el estudiante
+                                    se sienta cómodo utilizando un lenguaje de programación a través de
+                                    proyectos interactivos.
                                     <br/>
                                     <br/>
-                                    <b>Requisitos:</b> Ninguno. 
+                                    <span>
+                                        <b>Inversión:</b> $49.99 al mes.
+                                    </span>
+                                    <span>
+                                        <b>Duración total:</b> 32 horas distribuidas en 16 semanas.
+                                    </span>
+                                    <span>
+                                        <b>Horario:</b> Miércoles y Viernes de 3-4 pm. 
+                                    </span>
                                     <br/>
-                                    <br/>
-                                    <span className="text-right">
+                                    <span>
+                                        <b>Requisitos:</b> Ninguno. 
+                                    </span>
+                                    <span >
                                         <a href='/curriculum/Complete_Programmer_Lvl_1_Curriculum.pdf' download>
                                             <i className="material-icons translate-y-2 mr-2">
                                                 download
@@ -275,8 +292,16 @@ const Inscripcion = () => {
                                         </a>
                                     </span>
                                 </div>
-
-
+                                <div className=' relative'>
+                                    <Image
+                                    src={PythonPhoto}
+                                    alt={'Foto de Python'}
+                                    layout='fill'
+                                    objectFit="cover"
+                                    objectPosition={"center"}
+                                    />
+                                </div>
+                                </div>
                                 : null}
 
                                 {programSelected === 'AnalisisPython'

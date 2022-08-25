@@ -1,5 +1,11 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const ContactoPage = () => {
+
+
+    const router = useRouter();
+
     return (
         <div className='grid grid-flow-row-dense justify-center h-full '>
             <div>
@@ -20,7 +26,11 @@ const ContactoPage = () => {
                     <div>
                         <i className="text-4xl fa fa-whatsapp"></i> 
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <i className="text-4xl fa fa-facebook"></i>
+                        <Link className="hover:cursor-pointer" href='https://www.facebook.com/sintaxisacademy/'>
+                            <a>
+                            <i className="text-4xl fa fa-facebook"></i>
+                            </a>
+                        </Link>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <i className="text-4xl fa fa-linkedin"></i>
                     </div>
