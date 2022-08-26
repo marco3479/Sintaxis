@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 const InstructoresPage = () => {
 
-    const [screenSize, setScreenSize] = useState<number>(1000);
+    const [screenSize, setScreenSize] = useState<number|undefined>();
 
 
     useEffect(() => {
@@ -29,11 +29,11 @@ const InstructoresPage = () => {
                         alt='Foto de Edmundo'
                         priority
                         src={EdmundoPhoto}
-                        width={screenSize >= 640 ? undefined : '188'}
-                        height={screenSize >= 640 ? undefined : '228'}
-                        layout={screenSize >= 640 ? 'fill' : 'fixed'}
-                        objectFit={screenSize >= 640 ?  'cover' : 'contain'}
-                        objectPosition={screenSize >= 640 ? 'center top' : 'center bottom'}
+                        width={screenSize! >= 640 ? undefined : '188'}
+                        height={screenSize! >= 640 ? undefined : '228'}
+                        layout={screenSize! >= 640 ? 'fill' : 'fixed'}
+                        objectFit={screenSize! >= 640 ?  'cover' : 'contain'}
+                        objectPosition={screenSize! >= 640 ? 'center top' : 'center bottom'}
                         />
                     </div>
                     <div className="flex flex-col bg-white place-content-center p-5 rounded-b-md sm:rounded-none sm:rounded-r-md relative sm:max-w-[500px] ">
@@ -69,9 +69,9 @@ const InstructoresPage = () => {
                         priority
                         width={'188'}
                         height={'228'}
-                        layout={screenSize >= 640 ? 'fill' : 'fixed'}
-                        objectFit={screenSize >= 640 ?  'cover' : 'contain'}
-                        objectPosition={screenSize >= 640 ? 'center top' : 'center bottom'}
+                        layout={screenSize! >= 640 ? 'fill' : 'fixed'}
+                        objectFit={screenSize! >= 640 ?  'cover' : 'contain'}
+                        objectPosition={screenSize! >= 640 ? 'center top' : 'center bottom'}
                         />
                     </div>
                     <div className="flex flex-col bg-white place-content-center p-5 rounded-b-md sm:rounded-none sm:rounded-r-md relative sm:max-w-[500px] ">

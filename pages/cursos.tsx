@@ -142,7 +142,7 @@ const CursosPage = () => {
                 </div>
             </div>
             <Button
-            className='max-w-min self-center'
+            className='max-w-min self-center mt-5'
                 onClick={() => { router.push('/inscripcion')}}
                 >
                     Inscribirse

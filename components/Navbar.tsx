@@ -4,6 +4,7 @@ import LogoType from '../public/images/LogoType.png'
 import LogoMark from '../public/images/LogoMark.png'
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
+import Button from "./Button"
 
 
 const Navbar = () => {
@@ -52,11 +53,21 @@ const Navbar = () => {
             />
             }
         </div>
+        <div className="grid place-content-center ">
+            <Button
+                className="m-0"
+                onClick={() => {
+                router.push('/inscripcion');
+                }}
+                >
+                Inscribirse
+            </Button>
+        </div>
         <div
         className="flex flex-row justify-end "
         >
             <h2
-            className='hidden sm:flex mr-12 '
+            className='hidden lg:flex mr-12 font-semibold'
             >
             <Link 
             href='cursos'
@@ -65,7 +76,7 @@ const Navbar = () => {
             </Link>
             </h2>
             <h2
-            className=' hidden sm:flex mr-12 font-semibold'
+            className=' hidden lg:flex mr-12 font-semibold'
             >
             <Link 
             href='instructores'
@@ -74,14 +85,14 @@ const Navbar = () => {
             </Link>
             </h2>
             <h2
-            className='hidden sm:flex  mr-12 font-semibold'
+            className='hidden lg:flex  mr-12 font-semibold'
             >
             <Link href='contacto'>
                 Contacto
             </Link>
             </h2>
             <button
-            className='grid place-content-center sm:hidden'
+            className='grid place-content-center lg:hidden'
             onClick={(e) => {
                 const menu = document.getElementById('menuOptions') as HTMLElement;
                 menu.classList.toggle('hidden');

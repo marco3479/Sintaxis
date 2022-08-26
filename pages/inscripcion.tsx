@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import PythonPhoto from "../public/images/Python.jpg"
 import Image from 'next/image';
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
 
 export interface generalData {
     name: string,
@@ -64,6 +65,20 @@ const Inscripcion = () => {
         if (programSelected === ClassSelected) return 'border-blue border-dashed' 
         else return 'border-[transparent]'
     }
+
+
+    const {data, refetch} = useQuery(['stripePay'], 
+        () => {
+            fetch('/api/webhooks/stripe')
+            .then((res:any) => res.json)
+            /*.then((data) => {
+
+            })*/
+        },
+        {
+            enabled: false
+        })
+
 
     return (
         <div className='p-3 h-full'>
@@ -175,7 +190,7 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <Button
-                            className="max-w-min"
+                            className="max-w-min mt-5"
                             onClick={() => { setPhase('Programas'); console.log(generalData) }}
                             >
                                 Siguiente
@@ -316,7 +331,7 @@ const Inscripcion = () => {
                             </div>
                         </div>
                         <Button
-                        className='max-w-min self-center'
+                        className='max-w-min self-center mt-5'
                             onClick={() => { setPhase('Pago') }}
                             >
                                 Siguiente
@@ -328,7 +343,7 @@ const Inscripcion = () => {
                     {phase == 'Pago'
                     ? <>
                     <div className="flex text-center flex-col">
-                        <Link  href='https://buy.stripe.com/7sIaHa2JVePPcwgcMM'>
+                        <Link /*onClick={() => refetch()}*/ href='https://buy.stripe.com/7sIaHa2JVePPcwgcMM'>
                             <a target="_blank" rel="noopener noreferrer">
                                 Pagar
                             </a>

@@ -60,6 +60,7 @@ const Home: NextPage = () => {
               en un mundo de posibilidades.
             </p>
             <Button
+            className='mt-5'
             onClick={() => {
               router.push('/inscripcion');
             }}
