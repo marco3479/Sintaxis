@@ -1,34 +1,73 @@
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import Button from "../components/Button";
 import PythonPhoto from "../public/images/Python.jpg"
 import Image from 'next/image';
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+import A from "../components/A";
 
-export interface generalData {
+export interface GeneralData {
+    //[key: string]: string
     name: string,
     birthdate: string,
     address: string,
     city: string,
+    country: string,
     email: string,
-    phoneNumber: string
+    phoneNumber: string,
+    acknowledgementSource: string
 }
 
 const Inscripcion = () => {
 
+    //const router = useRouter();
 
-    const [phase, setPhase] = useState<string>('General');
-    const phases = ['General', 'Programas', 'Pago'];
+    type Phase = 'General' | 'Programas' | 'Pago' | 'Confirmación'
+
+    const [phase, setPhase] = useState<Phase>('General');
+
+    type Phases = {
+        General: {
+            valid: boolean
+        },
+        Programas: {
+            valid: boolean
+        },
+        Pago: {
+            valid: boolean     
+        },
+        Confirmación: {
+            valid: boolean
+        }
+    }
+
+    const [phases, setPhases] = useState<Phases>({
+        General: {
+            valid: false
+        },
+        Programas: {
+            valid: false
+        },
+        Pago: {
+            valid: true     // EVENTUALLY START AS FALSE, ON SUCCESSFUL PAYMENT WEBHOOK EVENT
+        },
+        Confirmación: {
+            valid: true     // MAY NOT NEED CONFIRMACION AFTER ALL. WE'LL SEE.
+        }
+    });
 
  
 
-    const [ generalData, setGeneralData] = useState<generalData>({
+    const [ generalData, setGeneralData] = useState<GeneralData>({
         name: '',
         birthdate: '',
         address: '',
         city: '',
+        country: '',
         email: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        acknowledgementSource: ''
     })
 
     const SendEmail = async (e:any) => {
@@ -66,6 +105,8 @@ const Inscripcion = () => {
         else return 'border-[transparent]'
     }
 
+    //const [invalid, set]
+
 
     const {data, refetch} = useQuery(['stripePay'], 
         () => {
@@ -79,39 +120,91 @@ const Inscripcion = () => {
             enabled: false
         })
 
+    const checkData = () => {
+        let valid = true
+        const inputs = Array.from(document.getElementsByClassName('requiredInput') as HTMLCollectionOf<HTMLInputElement|HTMLTextAreaElement>)
+        for (let input of inputs) {
+            if (input.value === '') {
+                input.classList.add('invalid');
+                valid = false
+            } else {
+                input.classList.remove('invalid');
+            }
+        }
+        if (valid) phases[phase].valid = true
+        else {
+             if (phases[phase].valid) {
+                phases[phase].valid = false;
+                phases.Programas.valid = false;     // THIS IS TEMPORARY WHILE THERE IS ONLY ONE PROGRAM AVAILABLE TO CHOOSE FROM.
+            }
+        }
+    }
+
+    const Program = (): JSX.Element|null => {
+        let programa: JSX.Element|null = null;
+        switch (programSelected) {
+            case 'CompleteProgrammer':
+                switch (lvlSelected) {
+                    case 'lvl1':
+                        return programa = <>
+                        Complete Programmer
+                        <br/>
+                        Lvl 1
+                        </>
+                }
+            }
+        return programa
+    }
+
 
     return (
         <div className='p-3 h-full'>
             <br/>
-            <ul
-            className='flex flex-row justify-evenly '
-            >
-                {phases.map((Phase, index) => (
+                {phase === 'General' || phase === 'Programas' || phase === 'Pago' 
+                ? <ul
+                className='flex flex-row justify-evenly '
+                >
                     <li
-                    className={`border-white border- hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase == Phase ? 'bg-white text-blue' : ''}`}
-                    key={index}
-                    onClick={() => {
-                        setPhase(Phase)
-                    }}
+                    className={`border-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'General' ? 'bg-white text-blue' : ''}`}
+                    key={0}
+                    onClick={() => setPhase('General')}
                     >
-                        {Phase}
+                        General
                     </li>
-                ))}
-            </ul>
+                    <li
+                    className={`border-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Programas' ? 'bg-white text-blue' : phases.General.valid ? '' : 'bg-slate-500'}`}
+                    key={1}
+                    onClick={() => {
+                        if (phases.General.valid) {
+                            phases.Programas.valid = true; // THIS IS TEMPORARY WHILE THERE IS ONLY ONE PROGRAM AVAILABLE AND THE INPUTS CAN NOT BE CHANGED.
+                            setPhase('Programas')
+                        }}}
+                    >
+                        Programas
+                    </li>
+                    <li
+                    className={`border-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Pago' ? 'bg-white text-blue' : phases.Programas.valid ? '' : 'bg-slate-500'}`}
+                    key={2}
+                    onClick={() => {if (phases.Programas.valid) setPhase('Pago')}}
+                    >
+                        Pago
+                    </li>     
+                </ul>
+                : null}
             <div
             className="  mt-8 overflow-y-auto"
             >
-                <form>
+                <form onChange={checkData}> 
                     {phase == 'General'
-                    ?             <>
+                    ? <>
                     <br/>
                     <div className='flex flex-col items-center lg:flex-row justify-center lg:gap-20 relative'>
                         <div className='grid  relative align-middle'>
                             <label className="text-lg font-semibold" htmlFor='NombreCompleto'>
                                 Nombre Completo
                                 <br/>
-                                <input value={generalData.name} className='p-2 mt-2  rounded-md ' type='text' id='NombreCompleto' 
-                                onChange={(e) => {setGeneralData((dD: generalData) => (
+                                <input required value={generalData.name} className='p-2 mt-2 requiredInput rounded-md ' type='text' id='NombreCompleto' 
+                                onChange={(e) => {setGeneralData((dD: GeneralData) => (
                                 {
                                     ...dD,
                                     name: e.target.value
@@ -124,11 +217,24 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='FechaDeNac'>
                                 Fecha de Nacimiento
                                 <br/>
-                                <input  className='p-2 mt-2 rounded-md ' type='date' id='FechaDeNac'
+                                <input required className='p-2 mt-2 requiredInput rounded-md ' type='date' id='FechaDeNac'
                                 value={generalData.birthdate}
-                                onChange={(e) => setGeneralData((dD:generalData) => ({
+                                onChange={(e) => setGeneralData((dD:GeneralData) => ({
                                     ...dD, 
                                     birthdate: e.target.value
+                                }))}
+                                />
+                            </label>
+                            <br/>
+                            <br/>
+                            <label className="text-lg font-semibold" htmlFor='Domicilio'>
+                                Domicilio
+                                <br/>
+                                <textarea required className='p-2 resize-y requiredInput mt-2 h-[100px] rounded-md '  id='Domicilio'
+                                value={generalData.address}
+                                onChange={(e) => setGeneralData((dD:GeneralData) => ({
+                                    ...dD, 
+                                    address: e.target.value
                                 }))}
                                 />
                             </label>
@@ -137,8 +243,8 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Ciudad'>
                                 Ciudad
                                 <br/>
-                                <input value={generalData.city} className='p-2 mt-2 rounded-md ' type='text' id='Ciudad' 
-                                onChange={(e) => {setGeneralData((dD: generalData) => (
+                                <input required value={generalData.city} className='p-2 mt-2 requiredInput rounded-md ' type='text' id='Ciudad' 
+                                onChange={(e) => {setGeneralData((dD: GeneralData) => (
                                 {
                                     ...dD,
                                     city: e.target.value
@@ -150,15 +256,16 @@ const Inscripcion = () => {
                             <br/>
                         </div>
                         <div className='flex flex-col relative'>
-                            <label className="text-lg font-semibold" htmlFor='Domicilio'>
-                                Domicilio
+                            <label className="text-lg font-semibold" htmlFor='País'>
+                                País
                                 <br/>
-                                <textarea className='p-2 resize-y mt-2 h-[100px] rounded-md '  id='Domicilio'
-                                value={generalData.address}
-                                onChange={(e) => setGeneralData((dD:generalData) => ({
-                                    ...dD, 
-                                    address: e.target.value
-                                }))}
+                                <input required value={generalData.country} className='p-2 mt-2 requiredInput rounded-md ' type='text' id='País' 
+                                onChange={(e) => {setGeneralData((dD: GeneralData) => (
+                                {
+                                    ...dD,
+                                    country: e.target.value
+                                }
+                                ))}}
                                 />
                             </label>
                             <br/>
@@ -166,9 +273,9 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Email'>
                                 Correo Electrónico
                                 <br/>
-                                <input  className=' p-2 mt-2 rounded-md ' type='email' id='Email'
+                                <input required className=' p-2 mt-2 requiredInput rounded-md ' type='email' id='Email'
                                 value={generalData.email}
-                                onChange={(e) => setGeneralData((dD:generalData) => ({
+                                onChange={(e) => setGeneralData((dD:GeneralData) => ({
                                     ...dD,
                                     email: e.target.value
                                 }))}
@@ -179,9 +286,9 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Telefono'>
                                 Número de Telefono
                                 <br/>
-                                <input type='tel' className='p-2 mt-2 rounded-md 'id='Telefono'
+                                <input required type='tel' className='p-2 mt-2 requiredInput rounded-md 'id='Telefono'
                                 value={generalData.phoneNumber}
-                                onChange={(e) => setGeneralData((dD:generalData) => ({
+                                onChange={(e) => setGeneralData((dD:GeneralData) => ({
                                     ...dD,
                                     phoneNumber: e.target.value
                                 }))}
@@ -189,9 +296,26 @@ const Inscripcion = () => {
                             </label>
                             <br/>
                             <br/>
+                            <label className="text-lg font-semibold" htmlFor='DóndeNosConoció'>
+                                Dónde nos conoció
+                                <br/>
+                                <input required value={generalData.acknowledgementSource} className='p-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
+                                onChange={(e) => {setGeneralData((dD: GeneralData) => (
+                                {
+                                    ...dD,
+                                    acknowledgementSource: e.target.value
+                                }
+                                ))}}
+                                />
+                            </label>
+                            <br/>
+                            <br/>
                             <Button
                             className="max-w-min mt-5"
-                            onClick={() => { setPhase('Programas'); console.log(generalData) }}
+                            onClick={() => {if (phases.General.valid) {
+                                phases.Programas.valid = true; // THIS IS TEMPORARY WHILE THERE IS ONLY ONE PROGRAM AVAILABLE AND THE INPUTS CAN NOT BE CHANGED.
+                                setPhase('Programas')
+                            }}}
                             >
                                 Siguiente
                             </Button>
@@ -209,7 +333,7 @@ const Inscripcion = () => {
                             >
                                 <div className='grid bg-white rounded-md min-w-min' style={{gridTemplateAreas: "'CPRadio CP' 'APRadio AP' 'FNRadio FN'", gridTemplateRows: 'auto auto auto' }}>
                                     <div className=" p-3 " style={{gridArea: 'CPRadio'}}>
-                                        <input checked={programSelected === 'CompleteProgrammer' ? true : false} onClick={() => setProgramSelected('CompleteProgrammer')} name='programs' type='radio' id='CompleteProgrammer'/>
+                                        <input required className='requiredInput' checked={programSelected === 'CompleteProgrammer' ? true : false} onClick={() => setProgramSelected('CompleteProgrammer')} name='programs' type='radio' id='CompleteProgrammer'/>
                                     </div>
                                     <details
                                     open={programSelected === 'CompleteProgrammer' ? true : false}
@@ -222,7 +346,7 @@ const Inscripcion = () => {
                                             &nbsp;&nbsp;&nbsp;
                                             <div className="p-3">
                                                 <input checked={lvlSelected === 'lvl1' ? true : false} onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl1')}} name='lvls' type='radio' id='lvl1'/>
-                                                <label htmlFor="lvl1" className={`p-3 border-2 border-[transparent]`}>
+                                                <label htmlFor="lvl1" className='p-3 border-2 border-[transparent]' /*requiredInput*/>
                                                     &nbsp;&nbsp;&nbsp;
                                                     <b>Lvl 1 </b> &nbsp; Introducción a Programación con Python.
                                                 </label>
@@ -332,7 +456,8 @@ const Inscripcion = () => {
                         </div>
                         <Button
                         className='max-w-min self-center mt-5'
-                            onClick={() => { setPhase('Pago') }}
+                            onClick={() => {if (phases.Programas.valid) setPhase('Pago')}
+                            }
                             >
                                 Siguiente
                         </Button> 
@@ -342,23 +467,71 @@ const Inscripcion = () => {
 
                     {phase == 'Pago'
                     ? <>
-                    <div className="flex text-center flex-col">
-                        <Link /*onClick={() => refetch()}*/ href='https://buy.stripe.com/7sIaHa2JVePPcwgcMM'>
-                            <a target="_blank" rel="noopener noreferrer">
-                                Pagar
-                            </a>
-                        </Link>
-                        <input
-                        className='bg-white hover:cursor-pointer max-w-min self-center text-blue font-semibold rounded-md p-2 text-lg border-none mt-5 hover:shadow-xl shadow-black'
+                    <div className="flex  flex-col">
+                        <div // General
+                        className='grid border-2 border-white rounder-md p-5 self-center rounded-md'
+                        >
+                            <span><b>Nombre:</b> {generalData.name}</span>
+                            <span><b>Dirección:</b> {generalData.address}</span>
+                            <span><b>Cumpleaños:</b> {generalData.birthdate}</span>
+                            <span><b>Ciudad:</b> {generalData.city}</span>
+                            <span><b>País:</b> {generalData.country}</span>
+                            <span><b>Correo Electrónico:</b> {generalData.email}</span>
+                            <span><b>Número de Teléfono:</b> {generalData.phoneNumber}</span>
+                            <span><b>Dónde aprendió de nosotros:</b> {generalData.acknowledgementSource}</span>
+                            <br/>
+                            <Button
+                            className="max-w-min place-self-end"
+                            onClick={() => setPhase('General')}
+                            >
+                                Editar
+                            </Button>        
+                            <br/>
+                            <br/>
+                            <b>Programa de selección: </b>
+                            <br/>
+                            <div className='font-bold text-center'>
+                                <Program/>
+                            </div>
+                            <br/>
+                            <br/>
+                            <Button
+                            className="max-w-min place-self-end"
+                            onClick={() => setPhase('Programas')}
+                            >
+                                Editar
+                            </Button>        
+                        </div>
+                        <br/>
+                        
+                        <A
+                        //className='bg-white hover:cursor-pointer max-w-min self-center text-blue font-semibold rounded-md p-2 text-lg border-none mt-5 hover:shadow-xl shadow-black'
+                        className="self-center"
                         type='submit'
-                        onClick={SendEmail}
-                        value='Inscribir'
-
-                        />
-                            
-
+                        onClick={(e:any) => {
+                            SendEmail(e);  
+                            setPhase('Confirmación')
+                        }}          // FIX SO IT WORKS FOR OPENING STRIPE IN NEW WINDOW, AND ALSO TO THESE FXS IN ONCLICK
+                        href='https://buy.stripe.com/7sIaHa2JVePPcwgcMM'
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        >
+                            Pagar
+                        </A>
+                        
                     </div>
                     </>
+                    : null}
+                    
+                    {phase == 'Confirmación'
+                    ? <div className="relative  text-center bg-black rounded-md p-2">
+                        Al realizar su pago se le mandara un correo de confirmación. 
+                        <br/>
+                        Antes de su primer clase se le enviará un correo con toda información necesaria.
+                        <br/>
+                        Ante cualquier duda o problema favor&nbsp;
+                        <Link href='contacto'><a className='text-blue font-semibold '>contactarnos</a></Link>.
+                    </div>
                     : null}
                 </form>
             </div>

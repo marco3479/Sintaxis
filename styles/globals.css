@@ -44,3 +44,7 @@ button:hover {
     background: black;
   }
 }
+
+.invalid {
+  background: 'red'
+}

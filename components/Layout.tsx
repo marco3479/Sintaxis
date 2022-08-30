@@ -15,10 +15,24 @@ export default function Layout ({ children }:any) {
                 {children}
             </main>
             <div
-            className='hidden absolute p-5 text-3xl z-[3] text-right flex-col sm:hidden h-full bg-opacity-90 bg-black min-w-min right-0'
+            className='hidden absolute p-5 text-3xl z-[3] text-right flex-col sm:hidden h-full bg-opacity-90 text-white bg-black min-w-min right-0'
             id='menuOptions'
             >
                 <br/>
+                <br/>
+                <h2
+                className='font-semibold right-2'
+                onClick={() => {
+                    const menu = document.getElementById('menuOptions') as HTMLElement;
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                    }
+                }
+                >
+                    <Link href='inscripcion'>
+                        Inscribirse
+                    </Link>
+                </h2>
                 <br/>
                 <h2
                 className='font-semibold right-2'
@@ -61,7 +75,6 @@ export default function Layout ({ children }:any) {
                     menu.classList.toggle('flex');
                     }
                 }
-
                 >
                     <Link href='contacto'>
                         Contacto

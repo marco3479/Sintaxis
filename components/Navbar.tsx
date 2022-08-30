@@ -53,21 +53,11 @@ const Navbar = () => {
             />
             }
         </div>
-        <div className="grid place-content-center ">
-            <Button
-                className="m-0"
-                onClick={() => {
-                router.push('/inscripcion');
-                }}
-                >
-                Inscribirse
-            </Button>
-        </div>
         <div
         className="flex flex-row justify-end "
         >
             <h2
-            className='hidden lg:flex mr-12 font-semibold'
+            className='hidden lg:flex place-items-center mr-12 font-semibold'
             >
             <Link 
             href='cursos'
@@ -76,7 +66,7 @@ const Navbar = () => {
             </Link>
             </h2>
             <h2
-            className=' hidden lg:flex mr-12 font-semibold'
+            className=' hidden lg:flex place-items-center mr-12 font-semibold'
             >
             <Link 
             href='instructores'
@@ -85,12 +75,22 @@ const Navbar = () => {
             </Link>
             </h2>
             <h2
-            className='hidden lg:flex  mr-12 font-semibold'
+            className='hidden lg:flex place-items-center mr-12 font-semibold'
             >
             <Link href='contacto'>
                 Contacto
             </Link>
             </h2>
+            <div className=" hidden lg:grid place-content-center mr-12">
+                <Button
+                    className="m-0"
+                    onClick={() => {
+                    router.push('/inscripcion');
+                    }}
+                    >
+                    Inscribirse
+                </Button>
+            </div>
             <button
             className='grid place-content-center lg:hidden'
             onClick={(e) => {
