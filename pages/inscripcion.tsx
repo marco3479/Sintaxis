@@ -409,8 +409,8 @@ const Inscripcion = () => {
                             mutation.mutate(generalData);
                             //SendEmail(e);
                             setPhase('Confirmación');
-                            window.open('https://buy.stripe.com/8wMaHaacn233bsc001', "_blank")
-                            //window.open('https://buy.stripe.com/7sIaHa2JVePPcwgcMM', "_blank")
+                            //window.open('https://buy.stripe.com/8wMaHaacn233bsc001', "_blank")
+                            window.open('https://buy.stripe.com/7sIaHa2JVePPcwgcMM', "_blank")
                         }}
 
                         // FIX SO IT WORKS FOR OPENING STRIPE IN NEW WINDOW, AND ALSO TO THESE FXS IN ONCLICK
@@ -425,11 +425,11 @@ const Inscripcion = () => {
                     
                     {phase == 'Confirmación'
                     ? <div className="relative  text-center bg-black rounded-md p-2">
-                        Al realizar su pago se le mandara un correo de confirmación. 
+                        Una vez realizado el pago, recibirá un correo de confirmación.
                         <br/>
-                        Antes de su primer clase se le enviará un correo con toda información necesaria.
+                        También recibirá otro correo con toda la información necesaria 1 o 2 días antes de la primera clase.
                         <br/>
-                        Ante cualquier duda o problema favor&nbsp;
+                        Cualquier pregunta, problema o sugerencia, no dude en&nbsp;
                         <Link href='contacto'><a className='text-blue font-semibold '>contactarnos</a></Link>.
                     </div>
                     : null}
@@ -438,6 +438,9 @@ const Inscripcion = () => {
         </div>
     )
 }
+
+
+
 
 export default Inscripcion;
 

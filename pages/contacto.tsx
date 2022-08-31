@@ -20,19 +20,19 @@ const ContactoPage = () => {
                     </div>
                     <br/>
                     <div>
-                        <i className='material-icons translate-y-2'>phone</i> &nbsp; <span className="font-semibold">8888-8888</span>
+                        <i className='material-icons translate-y-2'>phone</i> &nbsp; <span className="font-semibold">7647-4435</span>
                     </div>
                     <br/>
                     <div>
                         <i className="text-4xl fa fa-whatsapp"></i> 
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Link className="hover:cursor-pointer" href='https://www.facebook.com/sintaxisacademy/'>
-                            <a>
+                        <a href='https://www.facebook.com/sintaxisacademy/' target='_blank' rel="noreferrer">
                             <i className="text-4xl fa fa-facebook"></i>
-                            </a>
-                        </Link>
+                        </a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <i className="text-4xl fa fa-linkedin"></i>
+                        <a href='https://www.linkedin.com/company/sintaxis-academy/' rel="noreferrer" target='_blank'>
+                            <i className="text-4xl fa fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
             </div>
