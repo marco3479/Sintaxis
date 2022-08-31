@@ -409,7 +409,8 @@ const Inscripcion = () => {
                             mutation.mutate(generalData);
                             //SendEmail(e);
                             setPhase('Confirmación');
-                            window.open('https://buy.stripe.com/7sIaHa2JVePPcwgcMM', "_blank")
+                            window.open('https://buy.stripe.com/8wMaHaacn233bsc001', "_blank")
+                            //window.open('https://buy.stripe.com/7sIaHa2JVePPcwgcMM', "_blank")
                         }}
 
                         // FIX SO IT WORKS FOR OPENING STRIPE IN NEW WINDOW, AND ALSO TO THESE FXS IN ONCLICK
