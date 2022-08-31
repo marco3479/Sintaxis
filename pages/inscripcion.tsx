@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import PythonPhoto from "../public/images/Python.jpg"
 import Image from 'next/image';
 import Link from "next/link";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import A from "../components/A";
 
@@ -110,23 +110,19 @@ const Inscripcion = () => {
 
     //const [invalid, set]
 
-    const {data, refetch} = useQuery(['subscribe'],
-    () => {
-        fetch('/api/subscribe', {
+    const mutation = useMutation((newSubscriptionData: GeneralData) => {
+        return fetch('/api/subscribe', {
             method: 'POST',
             headers: {
               'Accept': 'application/json, text/plain, */*',
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(generalData)   // ADD OTHER DATA HERE (PROGRAMS AND OTHER)
+            body: JSON.stringify(newSubscriptionData)   // ADD OTHER DATA HERE (PROGRAMS AND OTHER)
           }).then((res) => {
             console.log('Response received')
             if (res.status === 200) {
               console.log('Response succeeded!')
             }})
-        },
-        {
-            enabled: false
         }
     )
 
@@ -540,7 +536,7 @@ const Inscripcion = () => {
                         className={`bg-white text-blue font-semibold rounded-md p-2 text-lg border-none hover:cursor-pointer hover:shadow-xl self-center shadow-black`}
                         type='submit'
                         onClick={(e:any) => {
-                            refetch();
+                            mutation.mutate(generalData);
                             //SendEmail(e);
                             setPhase('Confirmación');
                             window.open('https://buy.stripe.com/7sIaHa2JVePPcwgcMM', "_blank")
