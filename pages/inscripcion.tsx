@@ -1,11 +1,9 @@
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import Button from "../components/Button";
 import PythonPhoto from "../public/images/Python.jpg"
 import Image from 'next/image';
 import Link from "next/link";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/router";
-import A from "../components/A";
+import { useMutation } from "@tanstack/react-query";
 
 export interface GeneralData {
     //[key: string]: string
