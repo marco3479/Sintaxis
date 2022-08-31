@@ -161,6 +161,11 @@ const Inscripcion = () => {
                 }
             }
 
+            if (input.value === 'placeholder') {
+                valid = false
+                input.setAttribute('aria-invalid', 'true')
+            }
+
             if (input.getAttribute('aria-invalid') === 'true') {
                 valid = false
             }
@@ -189,7 +194,6 @@ const Inscripcion = () => {
             }
         return programa
     }
-
 
     return (
         <div className='p-3 h-full'>
@@ -333,7 +337,38 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='DóndeNosConoció'>
                                 <span className='text-white'>Dónde nos conoció</span>
                                 <br/>
-                                <input required value={generalData.acknowledgementSource} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
+                                <select
+                                className="p-2 border-2 mt-2 requiredInput rounded-md"
+                                onChange={(e) => {
+                                    console.log(e.target.value);
+                                    setGeneralData(gD => ({
+                                    ...gD,
+                                    acknowledgementSource: e.target.value
+                                }))}}
+                                value={generalData.acknowledgementSource === 'Otro' || (['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'placeholder'].every((value: string) => {if (value === generalData.acknowledgementSource) return false})) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'placeholder', 'Otro'].includes(generalData.acknowledgementSource) ? 'Otro' : generalData.acknowledgementSource }
+                                >
+                                    <option aria-invalid='true' defaultChecked className="text-opacity-50" value=''>
+                                    </option>
+                                    <option value='Facebook'>
+                                        Facebook
+                                    </option>
+                                    <option value='LinkedIn'>
+                                        LinkedIn
+                                    </option>
+                                    <option value='Google'>
+                                        Google
+                                    </option>
+                                    <option value='Conocido'>
+                                        Conocido
+                                    </option>
+                                    <option value='Otro'>
+                                        Otro
+                                    </option>
+                                </select>
+                                {generalData.acknowledgementSource === 'Otro' || (['Facebook', 'LinkedIn', 'Google', 'Conocido', 'placeholder', ''].every((value: string) => {if (value === generalData.acknowledgementSource) return false}) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'placeholder', 'Otro'].includes(generalData.acknowledgementSource))
+                                ? <>
+                                <br/>
+                                <input required value={generalData.acknowledgementSource === 'Otro' ? '' : generalData.acknowledgementSource} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
                                 {
                                     ...dD,
@@ -341,14 +376,19 @@ const Inscripcion = () => {
                                 }
                                 ))}}
                                 />
+                                </>: null}
                             </label>
                             <br/>
                             <br/>
                             <Button
                             className="max-w-min mt-5"
-                            onClick={() => {if (phases.General.valid) {
+                            onClick={(e) => {if (phases.General.valid) {
                                 phases.Programas.valid = true; // THIS IS TEMPORARY WHILE THERE IS ONLY ONE PROGRAM AVAILABLE AND THE INPUTS CAN NOT BE CHANGED.
                                 setPhase('Programas');
+                            } else {
+                                if (generalData.acknowledgementSource === '') {
+                                    e.preventDefault();
+                                }
                             }}}
                             >
                                 Siguiente
@@ -427,7 +467,9 @@ const Inscripcion = () => {
                             >
                                 {programSelected === 'CompleteProgrammer'
                                 ? <div className="grid bg-white rounded-md p-3 text-black">
-                                Nuestro programa más completo y el más recomendado para principiantes. El estudiante aprenderá desde Python y sus diversas librerías, hasta Desarrollo Web con HTML y CSS.  
+                                <b>Complete Programmer</b> es el programa más completo y el más recomendado 
+                                para principiantes. El estudiante aprenderá desde Python y sus diversas 
+                                librerías, hasta Desarrollo Web con HTML y CSS.  
                                 </div>
                                 : null}
 
