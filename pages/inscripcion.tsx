@@ -121,6 +121,14 @@ const Inscripcion = () => {
             if (res.status === 200) {
               console.log('Response succeeded!')
             }})
+        },
+        {
+            onSuccess: (data) => {
+                console.log(data)
+            },
+            onError: (error) => {
+                console.log(error)
+            }
         }
     )
 
