@@ -125,10 +125,23 @@ const Inscripcion = () => {
         const inputs = Array.from(document.getElementsByClassName('requiredInput') as HTMLCollectionOf<HTMLInputElement|HTMLTextAreaElement>)
         for (let input of inputs) {
             if (input.value === '') {
-                input.classList.add('invalid');
+                input.setAttribute('aria-invalid', 'true')
                 valid = false
             } else {
-                input.classList.remove('invalid');
+                input.setAttribute('aria-invalid', 'false');
+            }
+
+            if (input.type === 'email') {
+                if (!input.value.includes('@') || !!!input.value[input.value.indexOf('@') + 1]) {
+                    input.setAttribute('aria-invalid', 'true')
+                    valid = false
+                } else {
+                    input.setAttribute('aria-invalid', 'false');
+                }
+            }
+
+            if (input.getAttribute('aria-invalid') === 'true') {
+                valid = false
             }
         }
         if (valid) phases[phase].valid = true
@@ -203,7 +216,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='NombreCompleto'>
                                 Nombre Completo
                                 <br/>
-                                <input required value={generalData.name} className='p-2 mt-2 requiredInput rounded-md ' type='text' id='NombreCompleto' 
+                                <input required value={generalData.name} className='p-2 mt-2 border-2 requiredInput rounded-md ' type='text' id='NombreCompleto' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
                                 {
                                     ...dD,
@@ -217,7 +230,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='FechaDeNac'>
                                 Fecha de Nacimiento
                                 <br/>
-                                <input required className='p-2 mt-2 requiredInput rounded-md ' type='date' id='FechaDeNac'
+                                <input required className='p-2 mt-2 border-2 requiredInput rounded-md ' type='date' id='FechaDeNac'
                                 value={generalData.birthdate}
                                 onChange={(e) => setGeneralData((dD:GeneralData) => ({
                                     ...dD, 
@@ -230,7 +243,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Domicilio'>
                                 Domicilio
                                 <br/>
-                                <textarea required className='p-2 resize-y requiredInput mt-2 h-[100px] rounded-md '  id='Domicilio'
+                                <textarea required className='p-2 resize-y border-2 requiredInput mt-2 h-[100px] rounded-md '  id='Domicilio'
                                 value={generalData.address}
                                 onChange={(e) => setGeneralData((dD:GeneralData) => ({
                                     ...dD, 
@@ -243,7 +256,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Ciudad'>
                                 Ciudad
                                 <br/>
-                                <input required value={generalData.city} className='p-2 mt-2 requiredInput rounded-md ' type='text' id='Ciudad' 
+                                <input required value={generalData.city} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='Ciudad' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
                                 {
                                     ...dD,
@@ -259,7 +272,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='País'>
                                 País
                                 <br/>
-                                <input required value={generalData.country} className='p-2 mt-2 requiredInput rounded-md ' type='text' id='País' 
+                                <input required value={generalData.country} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='País' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
                                 {
                                     ...dD,
@@ -273,7 +286,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Email'>
                                 Correo Electrónico
                                 <br/>
-                                <input required className=' p-2 mt-2 requiredInput rounded-md ' type='email' id='Email'
+                                <input aria-required required className=' p-2 mt-2 border-2 requiredInput rounded-md ' type='email' id='Email'
                                 value={generalData.email}
                                 onChange={(e) => setGeneralData((dD:GeneralData) => ({
                                     ...dD,
@@ -286,7 +299,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='Telefono'>
                                 Número de Telefono
                                 <br/>
-                                <input required type='tel' className='p-2 mt-2 requiredInput rounded-md 'id='Telefono'
+                                <input required type='tel' className='p-2 border-2 mt-2 requiredInput rounded-md 'id='Telefono'
                                 value={generalData.phoneNumber}
                                 onChange={(e) => setGeneralData((dD:GeneralData) => ({
                                     ...dD,
@@ -299,7 +312,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='DóndeNosConoció'>
                                 Dónde nos conoció
                                 <br/>
-                                <input required value={generalData.acknowledgementSource} className='p-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
+                                <input required value={generalData.acknowledgementSource} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
                                 {
                                     ...dD,
@@ -314,7 +327,7 @@ const Inscripcion = () => {
                             className="max-w-min mt-5"
                             onClick={() => {if (phases.General.valid) {
                                 phases.Programas.valid = true; // THIS IS TEMPORARY WHILE THERE IS ONLY ONE PROGRAM AVAILABLE AND THE INPUTS CAN NOT BE CHANGED.
-                                setPhase('Programas')
+                                setPhase('Programas');
                             }}}
                             >
                                 Siguiente
@@ -503,22 +516,22 @@ const Inscripcion = () => {
                             </Button>        
                         </div>
                         <br/>
-                        
-                        <A
+                        <input
                         //className='bg-white hover:cursor-pointer max-w-min self-center text-blue font-semibold rounded-md p-2 text-lg border-none mt-5 hover:shadow-xl shadow-black'
-                        className="self-center"
+                        className={`bg-white text-blue font-semibold rounded-md p-2 text-lg border-none hover:cursor-pointer hover:shadow-xl self-center shadow-black`}
                         type='submit'
                         onClick={(e:any) => {
-                            SendEmail(e);  
-                            setPhase('Confirmación')
-                        }}          // FIX SO IT WORKS FOR OPENING STRIPE IN NEW WINDOW, AND ALSO TO THESE FXS IN ONCLICK
-                        href='https://buy.stripe.com/7sIaHa2JVePPcwgcMM'
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        >
-                            Pagar
-                        </A>
-                        
+                            SendEmail(e);
+                            setPhase('Confirmación');
+                            window.open('https://buy.stripe.com/7sIaHa2JVePPcwgcMM', "_blank")
+                        }}
+
+                        // FIX SO IT WORKS FOR OPENING STRIPE IN NEW WINDOW, AND ALSO TO THESE FXS IN ONCLICK
+                        //href=
+                        //target="_blank" 
+                        //rel="noopener noreferrer"
+                        value='Pagar'
+                        />                       
                     </div>
                     </>
                     : null}

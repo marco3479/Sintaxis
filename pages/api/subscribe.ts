@@ -1,13 +1,19 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from 'nodemailer'
-import { generalData } from "../inscripcion";
+import { GeneralData } from "../inscripcion";
 require('dotenv').config()
 const PASSWORD = process.env.password
 
 export default function handler (req: NextApiRequest, res: NextApiResponse) {
     
-    const data: generalData = req.body;
-    // console.log(process.env)
+    const data: GeneralData = req.body;
+
+    const rows = [
+        ["name", "address", "birthdate", "city", "country", "email", "phoneNumber", "acknowledgementSource"],
+        [data.name, data.address, data.birthdate, data.city, data.country, data.email, data.phoneNumber, data.acknowledgementSource]
+    ];
+
+    let csvContent = "" + rows.map(e => e.join(",")).join("\n");
 
     const transporter = nodemailer.createTransport({
         port: 465,
@@ -21,10 +27,38 @@ export default function handler (req: NextApiRequest, res: NextApiResponse) {
 
     const mailData = {
         from: 'sintaxisacademy@gmail.com',
-        to: data.email,
+        to: 'sintaxisacademy@gmail.com', //data.email,
         subject: `${data.name} Subscribed`,
-        text: `${data.name} has subscribed sintaxis academy`,
-        html: `<h1>${data.name} has subscribed sintaxis academy</h1>`
+        text: `${data.name} has subscribed to sintaxis academy`,
+        attachments: [
+            {
+                filename: `${data.name}Subscription.csv`,
+                content: csvContent,
+                encoding: 'utf-8'
+            }
+        ],
+        html: `
+        <h1>${data.name} has subscribed to sintaxis academy</h1>
+        <div // General
+        style='
+            display: grid;
+            border-width: 2px;
+            border-color: white;
+            border-radius: 0.375rem;
+            padding: 1.25rem;
+            align-self: center;
+        '
+        >
+            <span><b>Nombre:</b> ${data.name}</span>
+            <span><b>Dirección:</b> ${data.address}</span>
+            <span><b>Cumpleaños:</b> ${data.birthdate}</span>
+            <span><b>Ciudad:</b> ${data.city}</span>
+            <span><b>País:</b> ${data.country}</span>
+            <span><b>Correo Electrónico:</b> ${data.email}</span>
+            <span><b>Número de Teléfono:</b> ${data.phoneNumber}</span>
+            <span><b>Dónde aprendió de nosotros:</b> ${data.acknowledgementSource}</span>
+        </div>
+        `
     }
 
     transporter.sendMail(mailData, (err, info) => {

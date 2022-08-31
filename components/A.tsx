@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { MouseEventHandler } from "react";
 
 // this is for block anchor elements that are to simulate a button, 
@@ -16,20 +15,15 @@ type ButtonProps = {
 
 const A = ({children, className, href, onClick, type, target, rel}: ButtonProps) => {
     return (
-        <Link
-        type={type}
+        <a
+        className={`bg-white text-blue font-semibold rounded-md max-w-min p-2 text-lg border-none  hover:shadow-xl shadow-black ${className}`}
+        target={target}
+        rel={rel}
+        onClick={() => {return onClick}}
         href={href}
-        passHref
         >
-            <a
-            className={`bg-white text-blue font-semibold rounded-md max-w-min p-2 text-lg border-none  hover:shadow-xl shadow-black ${className}`}
-            target={target}
-            rel={rel}
-            onClick={onClick}
-            >
-                {children}
-            </a>
-        </Link>
+            {children}
+        </a>
     )
 }
 
