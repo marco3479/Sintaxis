@@ -199,14 +199,14 @@ const Inscripcion = () => {
                 className='flex flex-row justify-evenly '
                 >
                     <li
-                    className={`border-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'General' ? 'bg-white text-blue' : ''}`}
+                    className={`border-white text-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'General' ? 'bg-white text-blue' : ''}`}
                     key={0}
                     onClick={() => setPhase('General')}
                     >
                         General
                     </li>
                     <li
-                    className={`border-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Programas' ? 'bg-white text-blue' : phases.General.valid ? '' : 'bg-slate-500'}`}
+                    className={`border-white text-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Programas' ? 'bg-white text-blue' : phases.General.valid ? '' : 'bg-slate-500'}`}
                     key={1}
                     onClick={() => {
                         if (phases.General.valid) {
@@ -217,7 +217,7 @@ const Inscripcion = () => {
                         Programas
                     </li>
                     <li
-                    className={`border-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Pago' ? 'bg-white text-blue' : phases.Programas.valid ? '' : 'bg-slate-500'}`}
+                    className={`border-white text-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Pago' ? 'bg-white text-blue' : phases.Programas.valid ? '' : 'bg-slate-500'}`}
                     key={2}
                     onClick={() => {if (phases.Programas.valid) setPhase('Pago')}}
                     >
@@ -235,7 +235,7 @@ const Inscripcion = () => {
                     <div className='flex flex-col items-center lg:flex-row justify-center lg:gap-20 relative'>
                         <div className='grid  relative align-middle'>
                             <label className="text-lg font-semibold" htmlFor='NombreCompleto'>
-                                Nombre Completo
+                                <span className='text-white'>Nombre Completo</span>
                                 <br/>
                                 <input required value={generalData.name} className='p-2 mt-2 border-2 requiredInput rounded-md ' type='text' id='NombreCompleto' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
@@ -249,7 +249,7 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='FechaDeNac'>
-                                Fecha de Nacimiento
+                                <span className='text-white'>Fecha de Nacimiento</span>
                                 <br/>
                                 <input required className='p-2 mt-2 border-2 requiredInput rounded-md ' type='date' id='FechaDeNac'
                                 value={generalData.birthdate}
@@ -262,7 +262,7 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='Domicilio'>
-                                Domicilio
+                                <span className='text-white'>Domicilio</span>
                                 <br/>
                                 <textarea required className='p-2 resize-y border-2 requiredInput mt-2 h-[100px] rounded-md '  id='Domicilio'
                                 value={generalData.address}
@@ -275,7 +275,7 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='Ciudad'>
-                                Ciudad
+                                <span className='text-white'>Ciudad</span>
                                 <br/>
                                 <input required value={generalData.city} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='Ciudad' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
@@ -291,7 +291,7 @@ const Inscripcion = () => {
                         </div>
                         <div className='flex flex-col relative'>
                             <label className="text-lg font-semibold" htmlFor='País'>
-                                País
+                                <span className='text-white'>País</span>
                                 <br/>
                                 <input required value={generalData.country} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='País' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
@@ -305,7 +305,7 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='Email'>
-                                Correo Electrónico
+                                <span className='text-white'>Correo Electrónico</span>
                                 <br/>
                                 <input aria-required required className=' p-2 mt-2 border-2 requiredInput rounded-md ' type='email' id='Email'
                                 value={generalData.email}
@@ -318,7 +318,7 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='Telefono'>
-                                Número de Telefono
+                                <span className='text-white'>Número de Telefono</span>
                                 <br/>
                                 <input required type='tel' className='p-2 border-2 mt-2 requiredInput rounded-md 'id='Telefono'
                                 value={generalData.phoneNumber}
@@ -331,7 +331,7 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='DóndeNosConoció'>
-                                Dónde nos conoció
+                                <span className='text-white'>Dónde nos conoció</span>
                                 <br/>
                                 <input required value={generalData.acknowledgementSource} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
@@ -503,7 +503,7 @@ const Inscripcion = () => {
                     ? <>
                     <div className="flex  flex-col">
                         <div // General
-                        className='grid border-2 border-white rounder-md p-5 self-center rounded-md'
+                        className='grid border-2 border-white text-white rounder-md p-5 self-center rounded-md'
                         >
                             <span><b>Nombre:</b> {generalData.name}</span>
                             <span><b>Dirección:</b> {generalData.address}</span>

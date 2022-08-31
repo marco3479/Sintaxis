@@ -44,7 +44,7 @@ const Home: NextPage = () => {
             src={HomePagePicture}
             />
           <div    // First Banner
-          className='z-[2] m-8 absolute bg-blue bg-opacity-80 rounded-md bottom-0 p-5 shadow-black shadow-lg'
+          className='z-[2] m-8 absolute text-white bg-blue bg-opacity-80 rounded-md bottom-0 p-5 shadow-black shadow-lg'
           >
             <h1
             className='text-3xl sm:text-5xl'

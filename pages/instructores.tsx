@@ -20,7 +20,7 @@ const InstructoresPage = () => {
         <div className='text-center'>
             <br/>
             <br/>
-            <h1 className='text-3xl font-semibold'>Conoce a tus instructores</h1>
+            <h1 className='text-3xl text-white font-semibold'>Conoce a tus instructores</h1>
             <br/>
             <div className="grid relative justify-center text-black p-5 h-3/4 gap-10" style={{gridTemplateColumns: '100%'}}>
                 <div className='grid grid-flow-row justify-center sm:flex sm:flex-row relative'>

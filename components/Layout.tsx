@@ -15,7 +15,7 @@ export default function Layout ({ children }:any) {
                 {children}
             </main>
             <div
-            className='hidden absolute p-5 text-3xl z-[3] text-right flex-col sm:hidden h-full bg-opacity-90 text-white bg-black min-w-min right-0'
+            className='hidden absolute p-5 text-3xl z-[3] text-right flex-col lg:hidden  h-full bg-opacity-90 text-white bg-black min-w-min right-0'
             id='menuOptions'
             >
                 <br/>
