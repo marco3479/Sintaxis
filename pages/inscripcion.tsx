@@ -70,6 +70,9 @@ const Inscripcion = () => {
         acknowledgementSource: ''
     })
 
+
+
+
     const SendEmail = async (e:any) => {
         e.preventDefault();
         fetch('/api/subscribe', {
@@ -107,19 +110,35 @@ const Inscripcion = () => {
 
     //const [invalid, set]
 
+    const {data, refetch} = useQuery(['subscribe'],
+    () => {
+        fetch('/api/subscribe', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(generalData)   // ADD OTHER DATA HERE (PROGRAMS AND OTHER)
+          }).then((res) => {
+            console.log('Response received')
+            if (res.status === 200) {
+              console.log('Response succeeded!')
+            }})
+        },
+        {
+            enabled: false
+        }
+    )
 
-    const {data, refetch} = useQuery(['stripePay'], 
+    /*const {data, refetch} = useQuery(['stripePay'], 
         () => {
             fetch('/api/webhooks/stripe')
             .then((res:any) => res.json)
-            /*.then((data) => {
-
-            })*/
         },
         {
             enabled: false
         })
-
+    */
     const checkData = () => {
         let valid = true
         const inputs = Array.from(document.getElementsByClassName('requiredInput') as HTMLCollectionOf<HTMLInputElement|HTMLTextAreaElement>)
@@ -521,7 +540,8 @@ const Inscripcion = () => {
                         className={`bg-white text-blue font-semibold rounded-md p-2 text-lg border-none hover:cursor-pointer hover:shadow-xl self-center shadow-black`}
                         type='submit'
                         onClick={(e:any) => {
-                            SendEmail(e);
+                            refetch();
+                            //SendEmail(e);
                             setPhase('Confirmación');
                             window.open('https://buy.stripe.com/7sIaHa2JVePPcwgcMM', "_blank")
                         }}
