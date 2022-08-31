@@ -49,3 +49,11 @@ input:invalid, textarea:invalid, select:invalid {
   border-color: orange;
   border-width: 2px;
 }
+
+ol, ul, menu {
+  list-style: inside;
+}
+
+ul.tabs {
+ list-style: none;
+}
