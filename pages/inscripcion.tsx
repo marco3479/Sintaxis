@@ -110,8 +110,8 @@ const Inscripcion = () => {
 
     //const [invalid, set]
 
-    const mutation = useMutation((newSubscriptionData: GeneralData) => {
-        return fetch('/api/subscribe', {
+    const mutation = useMutation(async (newSubscriptionData: GeneralData) => {
+        return await fetch('/api/subscribe', {
             method: 'POST',
             headers: {
               'Accept': 'application/json, text/plain, */*',
