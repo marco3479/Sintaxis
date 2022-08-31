@@ -4,7 +4,7 @@ import { GeneralData } from "../inscripcion";
 require('dotenv').config()
 const PASSWORD = process.env.password
 
-export default function handler (req: NextApiRequest, res: NextApiResponse) {
+export default async function handler (req: NextApiRequest, res: NextApiResponse) {
     
     const data: GeneralData = req.body;
 
@@ -14,16 +14,6 @@ export default function handler (req: NextApiRequest, res: NextApiResponse) {
     ];
 
     let csvContent = "" + rows.map(e => e.join(",")).join("\n");
-
-    const transporter = nodemailer.createTransport({
-        port: 465,
-        host: 'smtp.gmail.com',
-        secure: true,
-        auth: {
-            user: 'sintaxisacademy@gmail.com',
-            pass: PASSWORD
-        }
-    });
 
     const mailData = {
         from: 'sintaxisacademy@gmail.com',
@@ -59,38 +49,47 @@ export default function handler (req: NextApiRequest, res: NextApiResponse) {
             <span><b>Dónde aprendió de nosotros:</b> ${data.acknowledgementSource}</span>
         </div>
         `
-    }
+    };
 
-    transporter.sendMail(mailData, (err, info) => {
-        if (err) {
-            console.log(err)
-            res.status(500).json({message: 'Error sending email'})
-        } else {
-            console.log(info)
-            res.status(200).json({message: 'Email sent'})
+    const transporter = nodemailer.createTransport({
+        port: 465,
+        host: 'smtp.gmail.com',
+        secure: true,
+        auth: {
+            user: 'sintaxisacademy@gmail.com',
+            pass: PASSWORD
         }
-    } )
+    });
 
+    await new Promise((resolve, reject) => {
+        // verify connection configuration
+        transporter.verify(function (error, success) {
+            if (error) {
+                console.log(error);
+                reject(error);
+            } else {
+                console.log("Server is ready to take our messages");
+                resolve(success);
+            }
+        });
+    });
+
+    await new Promise((resolve, reject) => {
+        transporter.sendMail(mailData, (err, info) => {
+        if (err) {
+            console.log(err);
+            reject(err);
+        } else {
+            console.log(info);
+            resolve(info);
+        }
+        })
+    })
+
+    res.status(200).json({ message: 'Email sent' });
+    res.status(500).json({ message: 'Error sending email' });
     console.log(req.body);
 
 
-/*
-    const message = new Message({
-        text: 'Hello world!',
-        from: 'sintaxis.academy@gmail.com',
-        to: email,
-        subject: 'Hello world!'
-    })
-    
-    try {
 
-    }
-
-    catch (err) {
-        res.status(400).end(JSON.stringify({ mssage: "Error" }))
-        return;
-    }
-
-    res.status(200).end(JSON.stringify({ message: 'Send Email'}))
-    */
 }
