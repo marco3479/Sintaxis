@@ -126,7 +126,7 @@ export default function Cursos () {
                         <br/>
                         <span >
                             <a href='/curriculum/Complete_Programmer_Lvl_1_Curriculum.pdf' download>
-                                <i className="material-icons text-4xl translate-y-4 mr-2">
+                                <i className="!text-4xl material-icons translate-y-4 mr-2">
                                     download
                                 </i>
                             
