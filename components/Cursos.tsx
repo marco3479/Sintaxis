@@ -120,8 +120,8 @@ export default function Cursos () {
                         <br/>
                         <b>Requisitos:</b> 
                         <ul>
-                            <li>Tener 13 años de edad como mínimo.</li>    
-                            <li>Tener computadora con conexión al internet.</li>
+                            <li>13+ años.</li>    
+                            <li>Computadora con conexión al internet.</li>
                         </ul> 
                         <br/>
                         <span >
