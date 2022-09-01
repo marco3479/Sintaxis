@@ -40,7 +40,7 @@ const Home: NextPage = () => {
             <title>Sintaxis</title>
             <meta name='description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:title' content='Sintaxis'/>
-            <meta property='og:url' content='https://sintaxis.io/'/>
+            <meta property='og:url' content='https://sintaxis.io'/>
             <meta property="og:type" content="website" />
             <meta property='og:description' content='La primera academia de programación de Nicaragua'/>
             {/*For Facebook Image*/}
