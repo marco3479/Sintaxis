@@ -40,9 +40,9 @@ const Home: NextPage = () => {
               <title>Sintaxis</title>
               <meta name='description' content='Una Academia de Programación.'/>
               <meta property='og:title' content='Sintaxis'/>
-              <meta property='og:url' content='https://www.sintaxis.io/'/>
+              <meta property='og:url' content='https://sintaxis.io/'/>
               <meta property='og:description' content='Una Academia de Programación.'/>
-              <meta property='og:image' content='https://www.sintaxis.io/image/LogoMark.png'/>
+              <meta property='og:image' content='https://sintaxis.io/image/LogoMark.png'/>
             </Head>
             <Image 
             alt='SintaxisMainPic'
