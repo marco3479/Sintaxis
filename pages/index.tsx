@@ -43,6 +43,8 @@ const Home: NextPage = () => {
             <meta property='og:url' content='https://sintaxis.io/'/>
             <meta property='og:description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:image' itemProp="image" content={'https://ibb.co/3yhzz7C'}/>
+            <meta property="og:image:width" content="300"/>
+            <meta property="og:image:height" content="300"/>
             <meta property="og:type" content="website" />
           </Head>
           <div className='relative h-full w-full'>
