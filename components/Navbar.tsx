@@ -100,7 +100,7 @@ const Navbar = () => {
             }}
             >
                 <i
-                className='material-icons text-3xl  mr-12 font-semibold'
+                className='material-icons !text-3xl  mr-12 font-semibold'
                 >
                     menu
                 </i>
