@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useMutation } from "@tanstack/react-query";
 import { SubscriptionContextType, useSubscription } from "../context/SubscriptionContext";
 import Cursos from "../components/Cursos";
+import Head from "next/head";
 
 export interface GeneralData {
     //[key: string]: string
@@ -157,6 +158,9 @@ const Inscripcion = () => {
 
     return (
         <div className='p-3 h-full'>
+            <Head>
+                <title>Inscripción</title>
+            </Head>
             <br/>
                 {phase === 'General' || phase === 'Programas' || phase === 'Pago' 
                 ? <ul
@@ -190,9 +194,9 @@ const Inscripcion = () => {
                 </ul>
                 : null}
             <div
-            className="  mt-8 overflow-y-auto"
+            className="  mt-8 overflow-y-auto "
             >
-                <form onChange={checkData}> 
+                <form onChange={checkData} className='mb-8'> 
                     {phase == 'General'
                     ? <>
                     <br/>
@@ -360,7 +364,17 @@ const Inscripcion = () => {
 
                     {phase == 'Programas'
                     ? 
-                    <Cursos/>
+                    <div className="flex flex-col">
+                        <Cursos/>
+                        <Button
+                        className='max-w-min self-center mt-5'
+                            onClick={() => {if (phases.Programas.valid) setPhase('Pago')}
+                            }
+                            >
+                                Siguiente
+                        </Button> 
+                    </div>
+
                     : null}
 
                     {phase == 'Pago'

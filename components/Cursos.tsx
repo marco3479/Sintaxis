@@ -23,7 +23,6 @@ export default function Cursos () {
 
     return (
         <>
-        <div className="flex flex-col">
             <div className='flex flex-col md:flex-row gap-2 justify-center'>
                 <div 
                 className=" flex flex-col md:w-[30%] text-black "
@@ -124,15 +123,17 @@ export default function Cursos () {
                             <li>Tener 13 años de edad como mínimo.</li>    
                             <li>Tener computadora con conexión al internet.</li>
                         </ul> 
+                        <br/>
                         <span >
                             <a href='/curriculum/Complete_Programmer_Lvl_1_Curriculum.pdf' download>
-                                <i className="material-icons translate-y-2 mr-2">
+                                <i className="material-icons text-4xl translate-y-4 mr-2">
                                     download
                                 </i>
                             
                             <b>Descargar curriculum </b>
                             </a>
                         </span>
+                        <br/>
                     </div>
                     <div className=' relative'>
                         <Image
@@ -159,14 +160,6 @@ export default function Cursos () {
 
                 </div>
             </div>
-            <Button
-            className='max-w-min self-center mt-5'
-                onClick={() => {if (phases.Programas.valid) setPhase('Pago')}
-                }
-                >
-                    Siguiente
-            </Button> 
-        </div>
         </>
     )
 }

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Head from 'next/head';
 //import Head from 'next/head'
 import Image from 'next/image';
 import Link from 'next/link';
@@ -35,6 +36,9 @@ const Home: NextPage = () => {
 
   return (
         <div className='overflow-y-auto bg-white p-3'>
+            <Head>
+              <title>Home</title>
+            </Head>
             <Image 
             alt='SintaxisMainPic'
             className=' relative' 
@@ -55,7 +59,7 @@ const Home: NextPage = () => {
             <p
             className='text-lg sm:w-[30rem]'
             >
-              Somos la primera academia de <i>coding</i> en Nicaragua. 
+              Somos la primera academia de <i>programación</i> en Nicaragua. 
               Te enseñamos todo lo que necesitás para sumergirte 
               en un mundo de posibilidades.
             </p>

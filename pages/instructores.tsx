@@ -2,6 +2,7 @@ import EdmundoPhoto from '../public/images/instructores-3.jpg';
 import MarcoPhoto from '../public/images/instructores-2.jpg';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 const InstructoresPage = () => {
 
@@ -18,6 +19,9 @@ const InstructoresPage = () => {
 
     return (
         <div className='text-center'>
+            <Head>
+                <title>Instructores</title>
+            </Head>
             <br/>
             <br/>
             <h1 className='text-3xl text-white font-semibold'>Conoce a tus instructores</h1>

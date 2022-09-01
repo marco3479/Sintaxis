@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -8,6 +9,9 @@ const ContactoPage = () => {
 
     return (
         <div className='grid grid-flow-row-dense justify-center h-full '>
+            <Head>
+                <title>Contacto</title>
+            </Head>
             <div>
                 <br/>
                 <br/>
@@ -20,12 +24,12 @@ const ContactoPage = () => {
                     </div>
                     <br/>
                     <div>
-                        <i className='material-icons translate-y-2'>phone</i> &nbsp; <span className="font-semibold">7647-4435</span>
+                        <a className='hover:decoration-transparent' href='https://api.whatsapp.com/send?phone=50582609296' target='_blank' rel='noreferrer'>
+                            <i className="text-4xl translate-y-2 fa fa-whatsapp"></i>  &nbsp; <span className="font-semibold">8260-9296</span>
+                        </a>                        
                     </div>
                     <br/>
                     <div>
-                        <i className="text-4xl fa fa-whatsapp"></i> 
-                        &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href='https://www.facebook.com/sintaxisacademy/' target='_blank' rel="noreferrer">
                             <i className="text-4xl fa fa-facebook"></i>
                         </a>
