@@ -43,10 +43,12 @@ const Home: NextPage = () => {
             <meta property='og:url' content='https://sintaxis.io/'/>
             <meta property="og:type" content="website" />
             <meta property='og:description' content='La primera academia de programación de Nicaragua'/>
+            {/*For Facebook Image*/}
             <meta property='og:image' itemProp="image" content={'https://ibb.co/3yhzz7C'}/>
             <meta property="og:image:width" content="300"/>
             <meta property="og:image:height" content="300"/>
             <meta property="og:image:type" content="image/png"/>
+            {/*For Whatsapp Image*/}
             <meta property='og:image' itemProp="image" content={'https://ibb.co/Qdj3rbH'}/>
             <meta property="og:image:width" content="256"/>
             <meta property="og:image:height" content="256"/>
@@ -130,6 +132,10 @@ const Home: NextPage = () => {
               />
             </div>
           </div>
+          <link itemProp="thumbnailUrl" href='https://ibb.co/Qdj3rbH'/>
+          <span itemProp="thumbnail" itemScope itemType="http://schema.org/ImageObject">
+            <link itemProp="url" href='https://ibb.co/Qdj3rbH'/>
+          </span>
         </div>
   )
 }
