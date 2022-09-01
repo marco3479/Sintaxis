@@ -132,6 +132,7 @@ const Home: NextPage = () => {
               />
             </div>
           </div>
+          {/*For Whatsapp Image supposedly*/}
           <link itemProp="thumbnailUrl" href='https://ibb.co/Qdj3rbH'/>
           <span itemProp="thumbnail" itemScope itemType="http://schema.org/ImageObject">
             <link itemProp="url" href='https://ibb.co/Qdj3rbH'/>
