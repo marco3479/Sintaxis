@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { SubscriptionContextType, useSubscription } from "../context/SubscriptionContext";
 import Cursos from "../components/Cursos";
 import Head from "next/head";
+import { useRef } from "react";
 
 export interface GeneralData {
     //[key: string]: string
@@ -105,10 +106,10 @@ const Inscripcion = () => {
     const checkData = () => {
         let valid = true
         const inputs = Array.from(document.getElementsByClassName('requiredInput') as HTMLCollectionOf<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>)
+        console.log(inputs);
         for (let input of inputs) {
             if (
                 input.value === '' 
-                || input.value === undefined
                 || (input.type === 'email' && (!input.value.includes('@') || !!!input.value[input.value.indexOf('@') + 1]))
                 ) {
                 input.setAttribute('aria-invalid', 'true')
@@ -146,6 +147,9 @@ const Inscripcion = () => {
             }
         return programa
     }
+
+
+    const acknowledgementSourceSelectRef = useRef<HTMLSelectElement>(null);
 
     return (
         <div className='p-3 h-full overflow-y-auto'>
@@ -296,6 +300,7 @@ const Inscripcion = () => {
                                 <select
                                 className="p-2 border-2 mt-2 requiredInput rounded-md"
                                 required
+                                ref={acknowledgementSourceSelectRef}
                                 id='acknowledgementSourceSelect'
                                 onChange={(e) => {
                                     console.log(e.target.value);
@@ -303,7 +308,7 @@ const Inscripcion = () => {
                                     ...gD,
                                     acknowledgementSource: e.target.value
                                 }))}}
-                                value={generalData.acknowledgementSource === 'Otro' || (['', 'Facebook', 'LinkedIn', 'Google', 'Conocido'].every((value: string) => {if (value === generalData.acknowledgementSource) return false})) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro'].includes(generalData.acknowledgementSource) || ((document.getElementById('acknowledgementSourceSelect')! as HTMLSelectElement).value === 'Otro' && generalData.acknowledgementSource === '')  ? 'Otro' : generalData.acknowledgementSource }
+                                value={generalData.acknowledgementSource === 'Otro' || (['', 'Facebook', 'LinkedIn', 'Google', 'Conocido'].every((value: string) => {if (value === generalData.acknowledgementSource) return false})) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro'].includes(generalData.acknowledgementSource) || (acknowledgementSourceSelectRef.current?.value === 'Otro' && generalData.acknowledgementSource === '')  ? 'Otro' : generalData.acknowledgementSource }
                                 >
                                     <option aria-invalid='true' defaultChecked className="text-opacity-50" value=''>
                                     </option>
@@ -323,16 +328,19 @@ const Inscripcion = () => {
                                         Otro
                                     </option>
                                 </select>
-                                {generalData.acknowledgementSource === 'Otro' || (['Facebook', 'LinkedIn', 'Google', 'Conocido', ''].every((value: string) => {if (value === generalData.acknowledgementSource) return false}) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro'].includes(generalData.acknowledgementSource) || ((document.getElementById('acknowledgementSourceSelect')! as HTMLSelectElement).value === 'Otro' && generalData.acknowledgementSource === ''))
+                                {generalData.acknowledgementSource === 'Otro' || (['Facebook', 'LinkedIn', 'Google', 'Conocido', ''].every((value: string) => {if (value === generalData.acknowledgementSource) return false}) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro'].includes(generalData.acknowledgementSource) || (acknowledgementSourceSelectRef.current?.value === 'Otro' && generalData.acknowledgementSource === ''))
                                 ? <>
                                 <br/>
-                                <input required value={generalData.acknowledgementSource === 'Otro' ? '' : generalData.acknowledgementSource} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
-                                onChange={(e) => {setGeneralData((dD: GeneralData) => (
-                                {
-                                    ...dD,
-                                    acknowledgementSource: e.target.value
+                                <input aria-invalid='true' required value={generalData.acknowledgementSource === 'Otro' || generalData.acknowledgementSource === '' ? '' : generalData.acknowledgementSource} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
+                                onChange={(e) => {
+                                    if (e.target.value !== '') {
+                                        setGeneralData((dD: GeneralData) => (
+                                        {
+                                            ...dD,
+                                            acknowledgementSource: e.target.value
+                                        }
+                                    ))}}
                                 }
-                                ))}}
                                 />
                                 </>: null}
                             </label>
@@ -340,7 +348,9 @@ const Inscripcion = () => {
                             <br/>
                             <Button
                             className="max-w-min mt-5"
-                            onClick={(e) => {if (phases.General.valid) {
+                            onClick={(e) => {
+                                checkData();
+                                if (phases.General.valid) {
                                 phases.Programas.valid = true; // THIS IS TEMPORARY WHILE THERE IS ONLY ONE PROGRAM AVAILABLE AND THE INPUTS CAN NOT BE CHANGED.
                                 setPhase('Programas');
                             }// else {
