@@ -71,27 +71,34 @@ const Inscripcion = () => {
     //const [invalid, set]
 
     const mutation = useMutation(async (newSubscriptionData: GeneralData) => {
-        return await fetch('/api/subscribe', {
+        fetch('/api/subscribe', {
             method: 'POST',
             headers: {
               'Accept': 'application/json, text/plain, */*',
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(newSubscriptionData)   // ADD OTHER DATA HERE (PROGRAMS AND OTHER)
-          }).then((res) => {
-            console.log('Response received')
-            if (res.status === 200) {
-              console.log('Response succeeded!')
-            }})
-        },
-        {
+          })
+          .then(res => res.json()) // Transform our returned data into JSON
+          .then(data => { 
+            console.log(data);
+           // if (data) setStatusMessage(data.message) // Append our message
+           // setFormLoading(false) // Remove the loading state
+          })
+          .catch(err => {
+            console.error(err);
+            //setStatusMessage(err.message) // display an error message
+            //setFormLoading(false)
+          })
+        }
+        /*{
             onSuccess: (data) => {
                 console.log(data)
             },
             onError: (error) => {
                 console.log(error)
             }
-        }
+        }*/
     )
 
     /*const {data, refetch} = useQuery(['stripePay'], 
@@ -106,7 +113,6 @@ const Inscripcion = () => {
     const checkData = () => {
         let valid = true
         const inputs = Array.from(document.getElementsByClassName('requiredInput') as HTMLCollectionOf<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>)
-        console.log(inputs);
         for (let input of inputs) {
             if (
                 input.value === '' 
@@ -303,7 +309,6 @@ const Inscripcion = () => {
                                 ref={acknowledgementSourceSelectRef}
                                 id='acknowledgementSourceSelect'
                                 onChange={(e) => {
-                                    console.log(e.target.value);
                                     setGeneralData((gD: GeneralData) => ({
                                     ...gD,
                                     acknowledgementSource: e.target.value

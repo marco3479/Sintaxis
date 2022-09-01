@@ -4,7 +4,7 @@ import { GeneralData } from "../inscripcion";
 require('dotenv').config()
 const PASSWORD = process.env.password
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function handler (req: NextApiRequest, res: NextApiResponse) {
     
     const data: GeneralData = req.body;
 
@@ -58,6 +58,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         auth: {
             user: 'sintaxisacademy@gmail.com',
             pass: PASSWORD
+        },
+        tls: {
+            rejectUnauthorized: false
         }
     });
 
@@ -79,14 +82,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         if (err) {
             console.log(err);
             reject(err);
-            res.status(200).json({ message: 'Email sent' });
+            //res.status(200).json({ message: 'Email sent' });
         } else {
             console.log(info);
             resolve(info);
-            res.status(500).json({ message: 'Error sending email' });
+            //res.status(500).json({ message: 'Error sending email' });
         }
         })
-    })
+    });
+
+    res.status(200).end();
 
     console.log(req.body);
 
