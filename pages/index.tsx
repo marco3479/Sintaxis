@@ -37,7 +37,7 @@ const Home: NextPage = () => {
   return (
         <div className='overflow-y-auto bg-white p-3'>
             <Head>
-              <title>Sintaxis Home</title>
+              <title>Sintaxis</title>
               <meta name='description' content='Una Academia de Programación.'/>
               <meta property='og:title' content='Sintaxis Home'/>
               <meta property='og:url' content='https://www.sintaxis.io/'/>
