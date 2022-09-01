@@ -38,10 +38,10 @@ const Home: NextPage = () => {
         <div className='overflow-y-auto h-full w-full relative bg-white '>
           <Head>
             <title>Sintaxis</title>
-            <meta name='description' content='La primera academia de programación en Nicaragua'/>
+            <meta name='description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:title' content='Sintaxis'/>
             <meta property='og:url' content='https://sintaxis.io/'/>
-            <meta property='og:description' content='La primera academia de programación en Nicaragua'/>
+            <meta property='og:description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:image' itemProp="image" content={'https://ibb.co/3yhzz7C'}/>
             <meta property="og:type" content="website" />
           </Head>
@@ -68,7 +68,7 @@ const Home: NextPage = () => {
               <p
               className='text-lg sm:w-[30rem]'
               >
-                Somos la primera academia de <i>programación</i> en Nicaragua. 
+                Somos la primera academia de <i>programación</i> de Nicaragua. 
                 Te enseñamos todo lo que necesitás para sumergirte 
                 en un mundo de posibilidades.
               </p>
