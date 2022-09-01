@@ -157,10 +157,11 @@ const Inscripcion = () => {
     }
 
     return (
-        <div className='p-3 h-full'>
+        <div className='p-3 h-full overflow-y-auto'>
             <Head>
                 <title>Inscripción</title>
             </Head>
+            <br/>
             <br/>
                 {phase === 'General' || phase === 'Programas' || phase === 'Pago' 
                 ? <ul

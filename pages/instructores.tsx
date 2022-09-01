@@ -18,7 +18,7 @@ const InstructoresPage = () => {
   
 
     return (
-        <div className='text-center'>
+        <div className='text-center h-full  overflow-y-auto'>
             <Head>
                 <title>Instructores</title>
             </Head>

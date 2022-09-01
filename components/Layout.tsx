@@ -6,16 +6,16 @@ export default function Layout ({ children }:any) {
 
     return (
         <div
-        style={{position: 'absolute', display: 'flex', flexDirection: 'column', width: '100vw', height: '100vh'}}
+        className='flex absolute flex-col w-[100vw] h-[100vh]'
         >
             <Navbar/>
             <main
-            className='bg-blue w-full h-[93%]  relative overflow-y-auto'
+            className='bg-blue w-full h-full overflow-y-auto pt-8 absolute bottom-0'
             >
                 {children}
             </main>
             <div
-            className='hidden absolute p-5 text-3xl z-[3] text-right flex-col lg:hidden  h-full bg-opacity-90 text-white bg-black min-w-min right-0'
+            className='hidden sticky p-5 text-3xl z-[3] text-right flex-col lg:hidden  h-full bg-opacity-90 text-white max-w-min bg-black min-w-min self-end right-0'
             id='menuOptions'
             >
                 <br/>
