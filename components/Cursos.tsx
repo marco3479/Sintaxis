@@ -3,6 +3,7 @@ import Image from 'next/image';
 import PythonPhoto from "../public/images/Python.jpg"
 import Button from "./Button";
 import {SubscriptionContext, SubscriptionContextType, useSubscription} from "../context/SubscriptionContext";
+import Link from "next/link";
 
 
 
@@ -74,15 +75,19 @@ export default function Cursos () {
                             <b>Análisis de datos con Python</b>
                             <br/> <i>{'('}próximamente{')'}</i>
                         </label>
-                        <div className="p-3 bg-gray-300 rounded-bl-md" style={{gridArea: 'FNRadio'}}>
+                        <div className="p-3 bg-gray-300" style={{gridArea: 'FNRadio'}}>
                             <input disabled onClick={() => setProgramSelected('FullstackNextjs')}  name='programs' type='radio' id='FullstackNextjs'/>
                         </div>
-                        <label htmlFor="FullstackNextjs" className={`p-3 bg-gray-300 rounded-br-md`} style={{gridArea: 'FN'}}>
+                        <label htmlFor="FullstackNextjs" className={`p-3 bg-gray-300`} style={{gridArea: 'FN'}}>
                             &nbsp;&nbsp;&nbsp;
                             <b>Desarrollador de Web FullStack con Next js</b> 
                             <br/> <i>{'('}próximamente{')'}</i>
                         </label>
                     </div>
+                    <span className={`p-3 bg-black text-white text-center rounded-b-md`} >
+                        &nbsp;&nbsp;&nbsp;
+                        <b>¿Buscando otro curso?</b> <Link href='contacto'><a className="text-blue font-semibold">Contáctanos</a></Link>.
+                    </span>
                 </div>
                 <div 
                 className='md:w-[70%] flex flex-col gap-2'
@@ -115,7 +120,10 @@ export default function Cursos () {
                             <b>Duración total:</b> 32 horas distribuidas en 16 semanas.
                         </span>
                         <span>
-                            <b>Horario:</b> Miércoles y Viernes de 3-4 pm. 
+                            <b>Horario:</b> Miércoles y Viernes de 3-4 pm {'('}GMT-6{')'}.
+                        </span>
+                        <span>
+                            ¿Interesado en otro horario? <Link href='contacto'><a className="text-blue font-semibold">Contáctanos</a></Link>.
                         </span>
                         <br/>
                         <b>Requisitos:</b> 

@@ -104,28 +104,19 @@ const Inscripcion = () => {
     */
     const checkData = () => {
         let valid = true
-        const inputs = Array.from(document.getElementsByClassName('requiredInput') as HTMLCollectionOf<HTMLInputElement|HTMLTextAreaElement>)
+        const inputs = Array.from(document.getElementsByClassName('requiredInput') as HTMLCollectionOf<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>)
         for (let input of inputs) {
-            if (input.value === '') {
+            if (
+                input.value === '' 
+                || input.value === undefined
+                || (input.type === 'email' && (!input.value.includes('@') || !!!input.value[input.value.indexOf('@') + 1]))
+                ) {
                 input.setAttribute('aria-invalid', 'true')
                 valid = false
             } else {
                 input.setAttribute('aria-invalid', 'false');
             }
 
-            if (input.type === 'email') {
-                if (!input.value.includes('@') || !!!input.value[input.value.indexOf('@') + 1]) {
-                    input.setAttribute('aria-invalid', 'true')
-                    valid = false
-                } else {
-                    input.setAttribute('aria-invalid', 'false');
-                }
-            }
-
-            if (input.value === 'placeholder') {
-                valid = false
-                input.setAttribute('aria-invalid', 'true')
-            }
 
             if (input.getAttribute('aria-invalid') === 'true') {
                 valid = false
@@ -201,7 +192,7 @@ const Inscripcion = () => {
                     {phase == 'General'
                     ? <>
                     <br/>
-                    <div className='flex flex-col items-center lg:flex-row justify-center lg:gap-20 relative'>
+                    <div className='flex flex-col items-center lg:flex-row justify-center lg:gap-40 relative'>
                         <div className='grid  relative align-middle'>
                             <label className="text-lg font-semibold" htmlFor='NombreCompleto'>
                                 <span className='text-white'>Nombre Completo</span>
@@ -304,13 +295,15 @@ const Inscripcion = () => {
                                 <br/>
                                 <select
                                 className="p-2 border-2 mt-2 requiredInput rounded-md"
+                                required
+                                id='acknowledgementSourceSelect'
                                 onChange={(e) => {
                                     console.log(e.target.value);
                                     setGeneralData((gD: GeneralData) => ({
                                     ...gD,
                                     acknowledgementSource: e.target.value
                                 }))}}
-                                value={generalData.acknowledgementSource === 'Otro' || (['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'placeholder'].every((value: string) => {if (value === generalData.acknowledgementSource) return false})) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'placeholder', 'Otro'].includes(generalData.acknowledgementSource) ? 'Otro' : generalData.acknowledgementSource }
+                                value={generalData.acknowledgementSource === 'Otro' || (['', 'Facebook', 'LinkedIn', 'Google', 'Conocido'].every((value: string) => {if (value === generalData.acknowledgementSource) return false})) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro'].includes(generalData.acknowledgementSource) || ((document.getElementById('acknowledgementSourceSelect')! as HTMLSelectElement).value === 'Otro' && generalData.acknowledgementSource === '')  ? 'Otro' : generalData.acknowledgementSource }
                                 >
                                     <option aria-invalid='true' defaultChecked className="text-opacity-50" value=''>
                                     </option>
@@ -330,7 +323,7 @@ const Inscripcion = () => {
                                         Otro
                                     </option>
                                 </select>
-                                {generalData.acknowledgementSource === 'Otro' || (['Facebook', 'LinkedIn', 'Google', 'Conocido', 'placeholder', ''].every((value: string) => {if (value === generalData.acknowledgementSource) return false}) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'placeholder', 'Otro'].includes(generalData.acknowledgementSource))
+                                {generalData.acknowledgementSource === 'Otro' || (['Facebook', 'LinkedIn', 'Google', 'Conocido', ''].every((value: string) => {if (value === generalData.acknowledgementSource) return false}) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro'].includes(generalData.acknowledgementSource) || ((document.getElementById('acknowledgementSourceSelect')! as HTMLSelectElement).value === 'Otro' && generalData.acknowledgementSource === ''))
                                 ? <>
                                 <br/>
                                 <input required value={generalData.acknowledgementSource === 'Otro' ? '' : generalData.acknowledgementSource} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
@@ -350,11 +343,11 @@ const Inscripcion = () => {
                             onClick={(e) => {if (phases.General.valid) {
                                 phases.Programas.valid = true; // THIS IS TEMPORARY WHILE THERE IS ONLY ONE PROGRAM AVAILABLE AND THE INPUTS CAN NOT BE CHANGED.
                                 setPhase('Programas');
-                            } else {
-                                if (generalData.acknowledgementSource === '') {
-                                    e.preventDefault();
-                                }
-                            }}}
+                            }// else {
+                             //   if (generalData.acknowledgementSource === '') {
+                             //       e.preventDefault();
+                             //   }
+                            }}//}
                             >
                                 Siguiente
                             </Button>

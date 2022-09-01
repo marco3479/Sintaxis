@@ -1,12 +1,15 @@
 import Head from "next/head";
+import { Router, useRouter } from "next/router";
+import Button from "../components/Button";
 import Cursos from "../components/Cursos";
 
  
 const CursosPage = () => {
 
+    const router = useRouter();
 
     return (
-        <div className=" h-full overflow-y-auto">
+        <div className="grid grid-flow-row h-full overflow-y-auto">
             <Head>
                 <title>Cursos</title>
             </Head>
@@ -18,6 +21,14 @@ const CursosPage = () => {
                     <Cursos/>
                 </div>
             </div>
+            <Button
+            className="max-w-min mt-5 relative place-self-center"
+            onClick={() => router.push('/inscripcion')}
+            >
+                Inscribirse
+            </Button>
+            <br/>
+            <br/>
         </div>
     )
 }

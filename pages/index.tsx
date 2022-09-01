@@ -87,7 +87,7 @@ const Home: NextPage = () => {
             <br/>
             <div className='relative self-center flex flex-col sm:flex-row gap-4 text-white md:w-[70%]'>
               <div className='bg-black p-3 rounded-md'>
-                Todas nuestras clases son <Highlighted>en vivo</Highlighted> con instructores
+                Todas nuestras clases son <Highlighted>virtuales</Highlighted> con instructores
                 especializados. Así, tu progreso estará acompañado
                 y monitoreado ante cualquier duda.
               </div>
