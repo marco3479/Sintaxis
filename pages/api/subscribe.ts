@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from 'nodemailer'
 import { GeneralData } from "../inscripcion";
 require('dotenv').config()
-const PASSWORD = process.env.password
+const PASSWORD = process.env.PASSWORD
 
 export default async function handler (req: NextApiRequest, res: NextApiResponse) {
     
@@ -52,16 +52,17 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     };
 
     const transporter = nodemailer.createTransport({
-        port: 465,
+        /*port: 465,
         host: 'smtp.gmail.com',
-        secure: true,
+        secure: true,*/
+        service: 'gmail',
         auth: {
             user: 'sintaxisacademy@gmail.com',
             pass: PASSWORD
         },
-        tls: {
-            rejectUnauthorized: false
-        }
+        //tls: {
+        //    rejectUnauthorized: false
+        //}
     });
 
     await new Promise((resolve, reject) => {
