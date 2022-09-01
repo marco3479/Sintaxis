@@ -52,10 +52,10 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     };
 
     const transporter = nodemailer.createTransport({
+        service: 'gmail',
         port: 465,
         host: 'smtp.gmail.com',
         secure: true,
-        service: 'gmail',
         auth: {
             user: 'sintaxisacademy@gmail.com',
             pass: PASSWORD
@@ -78,21 +78,21 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         });
     });*/
 
-    //await new Promise((resolve, reject) => {
-    await transporter.sendMail(mailData, (err, info) => {
+    await new Promise((resolve, reject) => {
+        transporter.sendMail(mailData, (err, info) => {
         if (err) {
             console.log(err);
-            //reject(err);
+            reject(err);
             //res.status(200).json({ message: 'Email sent' });
         } else {
             console.log(info);
-            //resolve(info);
+            resolve(info);
             //res.status(500).json({ message: 'Error sending email' });
         }
         })
-    //});
+    });
 
-    return res.status(200).json({ status: true });
+    res.status(200).end();
 
     //console.log(req.body);
 
