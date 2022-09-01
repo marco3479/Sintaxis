@@ -57,3 +57,7 @@ ol, ul, menu {
 ul.tabs {
  list-style: none;
 }
+
+.material-icons {
+  font-size: 24px;
+}
