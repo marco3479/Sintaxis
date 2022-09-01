@@ -71,7 +71,7 @@ const Inscripcion = () => {
     //const [invalid, set]
 
     const mutation = useMutation(async (newSubscriptionData: GeneralData) => {
-        fetch('/api/subscribe', {
+        const response = await fetch('/api/subscribe', {
             method: 'POST',
             headers: {
               'Accept': 'application/json, text/plain, */*',
@@ -79,7 +79,7 @@ const Inscripcion = () => {
             },
             body: JSON.stringify(newSubscriptionData)   // ADD OTHER DATA HERE (PROGRAMS AND OTHER)
           })
-          .then(res => res.json()) // Transform our returned data into JSON
+          /*.then(res => res.json()) // Transform our returned data into JSON
           .then(data => { 
             console.log(data);
            // if (data) setStatusMessage(data.message) // Append our message
@@ -90,6 +90,12 @@ const Inscripcion = () => {
             //setStatusMessage(err.message) // display an error message
             //setFormLoading(false)
           })
+          */
+        const res = await response.json();
+
+        if (!!res.status) {
+            console.log('Mail Sent');
+        }
         }
         /*{
             onSuccess: (data) => {
