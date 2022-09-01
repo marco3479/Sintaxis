@@ -60,8 +60,8 @@ const InstructoresPage = () => {
                             <br/>
                         </p>
                         <blockquote className=' text-center font-serif'>
-                            <i>{'"'}En mis ratos libres me gusta pasar con las personas que quiero
-                            y ver películas.{'"'}</i>
+                            <i>{'"'}En mis ratos libres me gusta pasar con las personas que quiero.
+                            También disfruto el fútbol, tocar piano y leer.{'"'}</i>
                         </blockquote>
                     </div>
 
@@ -100,7 +100,7 @@ const InstructoresPage = () => {
                             <br/>
                         </p>                        
                         <blockquote className=' text-center font-serif'>
-                            <i>{'"'}En una vida anterior fui un odontólogo. Ahora construyo
+                            <i>{'"'}Anteriormente fui odontólogo. Ahora construyo
                                 instrumentos para mejorar la calidad de comunicación humana.{'"'}</i>
                         </blockquote>
                     </div>
