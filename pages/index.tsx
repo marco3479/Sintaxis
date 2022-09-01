@@ -41,11 +41,15 @@ const Home: NextPage = () => {
             <meta name='description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:title' content='Sintaxis'/>
             <meta property='og:url' content='https://sintaxis.io/'/>
+            <meta property="og:type" content="website" />
             <meta property='og:description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:image' itemProp="image" content={'https://ibb.co/3yhzz7C'}/>
             <meta property="og:image:width" content="300"/>
             <meta property="og:image:height" content="300"/>
-            <meta property="og:type" content="website" />
+            <meta property="og:image:type" content="image/png"/>
+            <meta property='og:image' itemProp="image" content={'https://ibb.co/Qdj3rbH'}/>
+            <meta property="og:image:width" content="256"/>
+            <meta property="og:image:height" content="256"/>
             <meta property="og:image:type" content="image/png"/>
           </Head>
           <div className='relative h-full w-full'>
