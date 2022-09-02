@@ -40,14 +40,14 @@ export default function CursosParaJóvenes () {
                                     <input checked={lvlSelected === 'lvl1' ? true : false} onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl1')}} name='lvls' type='radio' id='lvl1'/>
                                     <label htmlFor="lvl1" className='p-3 border-2 border-[transparent]' /*requiredInput*/>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Módulo 1 </b> &nbsp; Introducción a Programación con Python.
+                                        <b>Módulo 1 </b> &nbsp; Introducción a Programación con Python
                                     </label>
                                 </div>
                                 <div className="bg-gray-300 p-3">
                                     <input disabled onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl2')}}  name='lvls' type='radio' id='lvl2'/>
                                     <label htmlFor="lvl2" className={`p-3  border-2 border-[transparent]`}>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Módulo 2 </b> &nbsp; Desarrollo de Web con HTML, CSS y JavaScript, y Librerías de Python.
+                                        <b>Módulo 2 </b> &nbsp; Desarrollo de Web con HTML, CSS y JavaScript, y Librerías de Python
                                         <br/>
                                         <i>{'('}próximamente{')'}</i>
                                     </label>
@@ -56,7 +56,7 @@ export default function CursosParaJóvenes () {
                                     <input disabled onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl3')}}  name='lvls' type='radio' id='lvl3'/>
                                     <label htmlFor="lvl3" className={`p-3  border-2 border-[transparent]`}>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Módulo 3 </b> &nbsp; Frameworks con Python y Typescript.
+                                        <b>Módulo 3 </b> &nbsp; Frameworks con Python y Typescript
                                         <br/>
                                         <i>{'('}próximamente{')'}</i>
                                     </label>
@@ -65,7 +65,7 @@ export default function CursosParaJóvenes () {
                     </div>
                     <span className={`p-3 bg-black text-white text-center rounded-b-md`} >
                         &nbsp;&nbsp;&nbsp;
-                        <b>¿Buscando otro curso?</b> <Link href='contacto'><a className="text-blue font-semibold">Contáctanos</a></Link>.
+                        <b>¿Buscando otro curso?</b> <Link href='contacto'><a className="text-blue font-semibold">Contáctanos</a></Link>
                     </span>
                 </div>
                 <div 
@@ -92,26 +92,29 @@ export default function CursosParaJóvenes () {
                         </span>
                         <br/>
                         <span>
-                            <b>Inversión:</b> $50 al mes.
+                            <b>Inversión:</b> $50 al mes
                         </span>
                         <span>
-                            <b>Duración total:</b> 32 horas distribuidas en 16 semanas.
+                            <b>Duración total:</b> 32 horas distribuidas en 16 semanas
                         </span>
                         <span>
-                            <b>Horario:</b> Sábados de 3-5 pm {'('}GMT-6{')'}.
+                            <b>Próxima fecha de inicio:</b> 17/09/2022
                         </span>
                         <span>
-                            ¿Interesado en otro horario? <Link href='contacto'><a className="text-blue font-semibold">Contáctanos</a></Link>.
+                            <b>Horario:</b> Sábados de 3-5 pm {'('}GMT-6{')'}
+                        </span>
+                        <span>
+                            ¿Interesado en otro horario? <Link href='contacto'><a className="text-blue font-semibold">Contáctanos</a></Link>
                         </span>
                         <br/>
                         <b>Recomendaciones:</b> 
                         <ul>
-                            <li>13 a 18 años.</li>    
+                            <li>13 a 18 años</li>    
                         </ul> 
                         <br/>
                         <b>Requisitos:</b> 
                         <ul>
-                            <li>Computadora con conexión al internet.</li>
+                            <li>Computadora con conexión al internet</li>
                         </ul> 
                         <br/>
                         <span >
