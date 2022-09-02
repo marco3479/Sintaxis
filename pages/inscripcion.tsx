@@ -227,7 +227,7 @@ const Inscripcion = () => {
                             <label className="text-lg font-semibold" htmlFor='FechaDeNac'>
                                 <span className='text-white'>Fecha de Nacimiento</span>
                                 <br/>
-                                <input required className='p-2 mt-2 border-2 requiredInput rounded-md ' type='date' id='FechaDeNac'
+                                <input required className='p-2 mt-2 border-2  requiredInput rounded-md ' type='date' id='FechaDeNac'
                                 value={generalData.birthdate}
                                 onChange={(e) => setGeneralData((dD:GeneralData) => ({
                                     ...dD, 
