@@ -41,18 +41,14 @@ export default function Layout ({ children }:any) {
                 className='font-semibold right-2'
                 onClick={(e) => {
                     e.stopPropagation();
-                    setShowCursosMenu(!showCursosMenu);
-                    const menu = document.getElementById('menuOptions') as HTMLElement;
-                    menu.classList.toggle('hidden');
-                    menu.classList.toggle('flex');
-
+                    //setShowCursosMenu(!showCursosMenu);
                     }
                 }
                 >
                     <Link 
                     href=''
                     >
-                    <a className="hover:decoration-transparent">
+                    <a className="hover:decoration-transparent hover:cursor-default">
                         Cursos
                     </a>
                     </Link>
@@ -67,21 +63,19 @@ export default function Layout ({ children }:any) {
                             Niños
                         </a>
                     </Link>
-                    <Link
-                    href='cursos_para_jovenes'
+                    <span
+                    onClick={() => {
+                        const menu = document.getElementById('menuOptions') as HTMLElement;
+                        menu.classList.toggle('hidden');
+                        menu.classList.toggle('flex');    
+                    }}
                     >
-                        <a
-                        onClick={() => {
-                            const menu = document.getElementById('menuOptions') as HTMLElement;
-                            menu.classList.toggle('hidden');
-                            menu.classList.toggle('flex');
-        
-                        }}
+                        <Link
+                        href='cursos_para_jovenes'
                         >
                             Jóvenes
-
-                        </a>
-                    </Link>
+                        </Link>
+                    </span>
                     <Link
                     href=''
                     >

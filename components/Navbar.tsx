@@ -139,7 +139,7 @@ const Navbar = () => {
             </div>
             <button
             className='grid place-content-center lg:hidden'
-            onClick={(ev) => {
+            onClick={() => {
                 const menu = document.getElementById('menuOptions') as HTMLElement;
                 menu.classList.toggle('hidden');
                 menu.classList.toggle('flex');
