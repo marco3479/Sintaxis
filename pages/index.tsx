@@ -118,7 +118,7 @@ const Home: NextPage = () => {
           className='grid grid-rows-3 grid-flow-row md:grid-rows-none md:grid-cols-3 md:grid-flow-col font-semibold text-center h-[700px] md:h-[400px] w-full ' 
           >
             <div className='bg-slate-50 grid content-between   p-5 h-full w-full  relative'>
-              <div className='bg-black w-full h-full bg-opacity-80 absolute z-[2]'></div>
+              <div className='bg-black w-full h-full bg-opacity-70 absolute z-[2]'></div>
               <Image
               src={Minecraft}
               layout='fill'
@@ -147,7 +147,7 @@ const Home: NextPage = () => {
               <span className='z-[3] text-2xl'>Cursos</span>  
             </div>
             <div className=' grid content-between p-5 h-full w-full relative '>
-              <div className='bg-black w-full h-full bg-opacity-80 absolute z-[2]'></div>
+              <div className='bg-black w-full h-full bg-opacity-70 absolute z-[2]'></div>
               <Image
               src={DataAnalysis}
               layout='fill'
@@ -172,13 +172,14 @@ const Home: NextPage = () => {
             </h2>
               
             <br/>
-            <div className='relative h-[500px] w-full hover:cursor-pointer'>
+            <div className='relative h-[500px] w-full hover:cursor-pointer'
+            onClick={() => router.push('/instructores')}
+            >
               <div className='w-full h-full  hover:border-blue  active:border-blue border-4 border-transparent absolute z-[2]'></div>
               <Image
               src={FotoInstructores}
               layout='fill'
               objectFit='cover'
-              onClick={() => router.push('/instructores')}
               objectPosition={'top'}
               alt='Foto de instructores'
               />
