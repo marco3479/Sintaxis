@@ -1,24 +1,24 @@
 import Head from "next/head";
 import { Router, useRouter } from "next/router";
 import Button from "../components/Button";
-import Cursos from "../components/Cursos";
+import CursosParaJóvenes from "../components/CursosParaJóvenes";
 
  
-const CursosPage = () => {
+const CursosParaJovenesPage = () => {
 
     const router = useRouter();
 
     return (
         <div className="grid grid-flow-row h-full overflow-y-auto">
             <Head>
-                <title>Cursos</title>
+                <title>Cursos para Jóvenes</title>
             </Head>
             <br/>
             <br/>
-            <h1 className='text-3xl text-white text-center font-semibold'>Cursos</h1>
+            <h1 className='text-3xl text-white text-center font-semibold'>Cursos para Jóvenes</h1>
             <div className="p-8">
                 <div className="flex flex-col">
-                    <Cursos/>
+                    <CursosParaJóvenes/>
                 </div>
             </div>
             <Button
@@ -33,4 +33,4 @@ const CursosPage = () => {
     )
 }
 
-export default CursosPage;
+export default CursosParaJovenesPage;

@@ -60,7 +60,7 @@ const Navbar = () => {
             className='hidden lg:flex place-items-center mr-12 font-semibold'
             >
             <Link 
-            href='cursos'
+            href='cursos_para_jovenes'
             >
                 Cursos
             </Link>

@@ -7,7 +7,10 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import HomePagePicture from '../public/images/Apoyo.jpg'
-import FotoInstructores from '../public/images/instructores-1.jpg'
+import FotoInstructores from '../public/images/instructores-1.jpg' 
+import Minecraft from '../public/images/Minecraft.png' 
+import YouthProgramming from '../public/images/YouthProgramming.jpg' 
+import DataAnalysis from '../public/images/DataAnalysis.jpg' 
 
 
 const Home: NextPage = () => {
@@ -92,8 +95,9 @@ const Home: NextPage = () => {
             </div>
           </div>
           <br/>
+          <br/>
           <div className='flex justify-center relative  text-center flex-col text-black'>
-            <h1 className='text-3xl self-center font-semibold'>Lo que ofrecemos</h1>
+            <h1 className='text-3xl self-center font-bold'>Lo que ofrecemos</h1>
             <br/>
             <div className='relative self-center flex flex-col sm:flex-row gap-4 text-white md:w-[70%]'>
               <div className='bg-black p-3 rounded-md'>
@@ -110,9 +114,52 @@ const Home: NextPage = () => {
             </div>
           </div>
           <br/>
+          <div 
+          className='grid grid-rows-3 grid-flow-row md:grid-rows-none md:grid-cols-3 md:grid-flow-col font-semibold text-center h-[700px] md:h-[400px] w-full ' 
+          >
+            <div className='bg-slate-50 grid content-between border-x-0 border-4 border-b-0 md:border-b-4 border-black p-5 h-full w-full  relative'>
+              <div className='bg-black w-full h-full bg-opacity-80 absolute z-[2]'></div>
+              <Image
+              src={Minecraft}
+              layout='fill'
+              objectFit='contain'
+              //onClick={() => router.push('/instructores')}
+              objectPosition={'center'}
+              alt='Foto de Minecraft'
+              />
+              <span className='z-[3] text-4xl'>Niños</span>  
+              <span className='z-[3] text-2xl'>Próximamente</span>  
+            </div>
+            <div className='bg-black grid  hover:cursor-pointer hover:text-blue hover:border-blue border-4 border-transparent content-between p-5 h-full w-full  relative '>
+              <Image
+              src={YouthProgramming}
+              layout='fill'
+              objectFit='cover'
+              onClick={() => router.push('/cursos_para_jovenes')}
+              objectPosition={'top'}
+              alt='Foto de joven programando'
+              />
+              <span className='z-[3] text-4xl font-bold text-black'>Jóvenes</span>  
+              <span className='z-[3] text-2xl'>Cursos</span>  
+            </div>
+            <div className=' grid content-between p-5 h-full border-4 border-t-0 md:boder-t-4 border-x-0 border-black w-full relative '>
+              <div className='bg-black w-full h-full bg-opacity-80 absolute z-[2]'></div>
+              <Image
+              src={DataAnalysis}
+              layout='fill'
+              objectFit='cover'
+              //onClick={() => router.push('/instructores')}
+              objectPosition={'center'}
+              alt='Foto de análisis de datos'
+              />  
+              <span className='z-[3] text-4xl'>Profesionales</span>  
+              <span className='z-[3] text-2xl'>Próximamente</span>  
+            </div>
+          </div>
+          <br/>
           <br/>
           <div className='text-center relative text-black'>
-            <h2 className='text-3xl font-semibold' >
+            <h2 className='text-3xl font-bold' >
               <Link href={'instructores'} scroll={true}>
                 <a>
                   Conoce a tus instructores 
@@ -121,7 +168,7 @@ const Home: NextPage = () => {
             </h2>
               
             <br/>
-            <div className='relative h-[500px] w-full border-4 border-blue border-opacity-0 hover:border-opacity-100 hover:cursor-pointer'>
+            <div className='relative h-[500px] w-full border-4 border-blue border-opacity-0  hover:border-opacity-100 hover:cursor-pointer'>
               <Image
               src={FotoInstructores}
               layout='fill'

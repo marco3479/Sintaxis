@@ -44,7 +44,7 @@ export default function Layout ({ children }:any) {
                 }
                 >
                     <Link 
-                    href='cursos'
+                    href='cursos_para_jovenes'
                     >
                         Cursos
                     </Link>

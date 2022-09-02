@@ -1,14 +1,12 @@
-import { Dispatch, useContext } from "react";
 import Image from 'next/image';
 import PythonPhoto from "../public/images/Python.jpg"
-import Button from "./Button";
-import {SubscriptionContext, SubscriptionContextType, useSubscription} from "../context/SubscriptionContext";
+import {SubscriptionContextType, useSubscription} from "../context/SubscriptionContext";
 import Link from "next/link";
 
 
 
 
-export default function Cursos () {
+export default function CursosParaJóvenes () {
 
     const Context: SubscriptionContextType = useSubscription();
 
@@ -17,9 +15,6 @@ export default function Cursos () {
         setLvlSelected,
         programSelected,
         setProgramSelected,
-        setPhase,
-        phases,
-
     } = Context
 
     return (
@@ -28,7 +23,7 @@ export default function Cursos () {
                 <div 
                 className=" flex flex-col md:w-[30%] text-black "
                 >
-                    <div className='grid bg-white rounded-md min-w-min' style={{gridTemplateAreas: "'CPRadio CP' 'APRadio AP' 'FNRadio FN'", gridTemplateRows: 'auto auto auto' }}>
+                    <div className='grid bg-white rounded-t-md min-w-min' style={{gridTemplateAreas: "'CPRadio CP' 'APRadio AP' 'FNRadio FN'", gridTemplateRows: 'auto auto auto' }}>
                         <div className=" p-3 " style={{gridArea: 'CPRadio'}}>
                             <input required className='requiredInput' checked={programSelected === 'CompleteProgrammer' ? true : false} onClick={() => setProgramSelected('CompleteProgrammer')} name='programs' type='radio' id='CompleteProgrammer'/>
                         </div>
@@ -38,21 +33,21 @@ export default function Cursos () {
                         >
                             <summary  onClick={() => setProgramSelected('CompleteProgrammer')} >
                                 &nbsp;&nbsp;&nbsp;
-                                <b>Complete Programmer</b> 
+                                <b>Programador Completo</b> 
                             </summary>
                                 &nbsp;&nbsp;&nbsp;
                                 <div className="p-3">
                                     <input checked={lvlSelected === 'lvl1' ? true : false} onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl1')}} name='lvls' type='radio' id='lvl1'/>
                                     <label htmlFor="lvl1" className='p-3 border-2 border-[transparent]' /*requiredInput*/>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Lvl 1 </b> &nbsp; Introducción a Programación con Python.
+                                        <b>Módulo 1 </b> &nbsp; Introducción a Programación con Python.
                                     </label>
                                 </div>
                                 <div className="bg-gray-300 p-3">
                                     <input disabled onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl2')}}  name='lvls' type='radio' id='lvl2'/>
                                     <label htmlFor="lvl2" className={`p-3  border-2 border-[transparent]`}>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Lvl 2 </b> &nbsp; Desarrollo de Web con HTML, CSS y JavaScript, y Librerías de Python.
+                                        <b>Módulo 2 </b> &nbsp; Desarrollo de Web con HTML, CSS y JavaScript, y Librerías de Python.
                                         <br/>
                                         <i>{'('}próximamente{')'}</i>
                                     </label>
@@ -61,28 +56,12 @@ export default function Cursos () {
                                     <input disabled onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl3')}}  name='lvls' type='radio' id='lvl3'/>
                                     <label htmlFor="lvl3" className={`p-3  border-2 border-[transparent]`}>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Lvl 3 </b> &nbsp; Frameworks con Python y Typescript.
+                                        <b>Módulo 3 </b> &nbsp; Frameworks con Python y Typescript.
                                         <br/>
                                         <i>{'('}próximamente{')'}</i>
                                     </label>
                                 </div>
                         </details>
-                        <div className=" p-3 bg-gray-300" style={{gridArea: 'APRadio'}}>
-                            <input disabled onClick={() => setProgramSelected('AnalisisPython')}  name='programs' type='radio' id='AnalisisPython'/>
-                        </div>
-                        <label htmlFor="AnalisisPython" className={`p-3 bg-gray-300`} style={{gridArea: 'AP'}}>
-                            &nbsp;&nbsp;&nbsp;
-                            <b>Análisis de datos con Python</b>
-                            <br/> <i>{'('}próximamente{')'}</i>
-                        </label>
-                        <div className="p-3 bg-gray-300" style={{gridArea: 'FNRadio'}}>
-                            <input disabled onClick={() => setProgramSelected('FullstackNextjs')}  name='programs' type='radio' id='FullstackNextjs'/>
-                        </div>
-                        <label htmlFor="FullstackNextjs" className={`p-3 bg-gray-300`} style={{gridArea: 'FN'}}>
-                            &nbsp;&nbsp;&nbsp;
-                            <b>Desarrollador de Web FullStack con Next js</b> 
-                            <br/> <i>{'('}próximamente{')'}</i>
-                        </label>
                     </div>
                     <span className={`p-3 bg-black text-white text-center rounded-b-md`} >
                         &nbsp;&nbsp;&nbsp;
@@ -105,30 +84,33 @@ export default function Cursos () {
                     ? <div className="grid grid-flow-row grid-rows-2 " style={{gridTemplateRows: 'max-content 275px'}}> 
                     <div className="grid bg-white rounded-t-md p-3 text-black">
                         <span>
-                            <b> Introducción a Programación con Python</b> es el primer nivel,
+                            <b> Introducción a Programación con Python</b> es el primer módulo,
                             y te lleva
                             desde cero hasta intermedio. El objetivo es que el estudiante
                             se sienta cómodo utilizando un lenguaje de programación a través de
                             proyectos interactivos.
                         </span>
                         <br/>
-                        <br/>
                         <span>
-                            <b>Inversión:</b> $49.99 al mes.
+                            <b>Inversión:</b> $50 al mes.
                         </span>
                         <span>
                             <b>Duración total:</b> 32 horas distribuidas en 16 semanas.
                         </span>
                         <span>
-                            <b>Horario:</b> Miércoles y Viernes de 3-4 pm {'('}GMT-6{')'}.
+                            <b>Horario:</b> Sábados de 3-5 pm {'('}GMT-6{')'}.
                         </span>
                         <span>
                             ¿Interesado en otro horario? <Link href='contacto'><a className="text-blue font-semibold">Contáctanos</a></Link>.
                         </span>
                         <br/>
+                        <b>Recomendaciones:</b> 
+                        <ul>
+                            <li>13 a 18 años.</li>    
+                        </ul> 
+                        <br/>
                         <b>Requisitos:</b> 
                         <ul>
-                            <li>13+ años.</li>    
                             <li>Computadora con conexión al internet.</li>
                         </ul> 
                         <br/>
@@ -171,3 +153,26 @@ export default function Cursos () {
         </>
     )
 }
+
+
+/*
+
+<div className=" p-3 bg-gray-300" style={{gridArea: 'APRadio'}}>
+    <input disabled onClick={() => setProgramSelected('AnalisisPython')}  name='programs' type='radio' id='AnalisisPython'/>
+</div>
+<label htmlFor="AnalisisPython" className={`p-3 bg-gray-300`} style={{gridArea: 'AP'}}>
+    &nbsp;&nbsp;&nbsp;
+    <b>Análisis de datos con Python</b>
+    <br/> <i>{'('}próximamente{')'}</i>
+</label>
+<div className="p-3 bg-gray-300" style={{gridArea: 'FNRadio'}}>
+    <input disabled onClick={() => setProgramSelected('FullstackNextjs')}  name='programs' type='radio' id='FullstackNextjs'/>
+</div>
+<label htmlFor="FullstackNextjs" className={`p-3 bg-gray-300`} style={{gridArea: 'FN'}}>
+    &nbsp;&nbsp;&nbsp;
+    <b>Desarrollador de Web FullStack con Next js</b> 
+    <br/> <i>{'('}próximamente{')'}</i>
+</label>
+
+
+*/

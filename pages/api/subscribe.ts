@@ -4,6 +4,7 @@ import { GeneralData } from "../inscripcion";
 require('dotenv').config()
 const PASSWORD = process.env.PASSWORD
 
+
 export default async function handler (req: NextApiRequest, res: NextApiResponse) {
     
     const data: GeneralData = req.body;
@@ -52,13 +53,13 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     };
 
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        //service: 'gmail',
         port: 465,
-        host: 'smtp.gmail.com',
+        host: 'smtp.sendgrid.net',
         secure: true,
         auth: {
-            user: 'sintaxisacademy@gmail.com',
-            pass: PASSWORD
+            user: process.env.SENDGRID_API_KEY,//'sintaxisacademy@gmail.com',
+            pass: process.env.SENDGRID_PASSWORD
         },
         //tls: {
         //    rejectUnauthorized: false

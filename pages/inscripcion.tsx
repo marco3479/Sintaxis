@@ -2,7 +2,7 @@ import Button from "../components/Button";
 import Link from "next/link";
 import { useMutation } from "@tanstack/react-query";
 import { SubscriptionContextType, useSubscription } from "../context/SubscriptionContext";
-import Cursos from "../components/Cursos";
+import CursosParaJóvenes from "../components/CursosParaJóvenes";
 import Head from "next/head";
 import { useRef } from "react";
 
@@ -380,7 +380,7 @@ const Inscripcion = () => {
                     {phase == 'Programas'
                     ? 
                     <div className="flex flex-col">
-                        <Cursos/>
+                        <CursosParaJóvenes/>
                         <Button
                         className='max-w-min self-center mt-5'
                             onClick={() => {if (phases.Programas.valid) setPhase('Pago')}
