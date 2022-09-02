@@ -12,6 +12,7 @@ const Navbar = () => {
     const router = useRouter();
     const [screenSize, setScreenSize] = useState<number|undefined>()
 
+    const [showCursosMenu, setShowCursosMenu] = useState<boolean>(false);
 
     useEffect(() => {
         setScreenSize(window.innerWidth);
@@ -23,18 +24,18 @@ const Navbar = () => {
 
     return (
       <div
-      className=' bg-black z-[4] top-0 overflow-hidden text-white w-full font-semibold h-[7%] min-h-[58px] sticky flex flex-row text-2xl justify-between items-center drop-shadow-lg '
+      className=' bg-black z-[4] top-0  text-white w-full font-semibold h-[7%] min-h-[58px] sticky flex flex-row text-2xl justify-between items-center drop-shadow-lg '
       >
         <div
-        className='justify-self-start ml-8'
+        className='justify-self-start overflow-hidden relative h-full ml-8'
         >
            {screenSize! < 720       // small screen
            ?
             <Image 
             alt='Logo'
-            className='relative translate-y-1 hover:cursor-pointer'
+            className='relative z-20   hover:cursor-pointer'
             width='60%'
-            height='60%'
+            height='60%'            
             onClick={() => {router.push('/')}}
             src={LogoType}
             priority
@@ -44,7 +45,7 @@ const Navbar = () => {
             :       
             <Image 
             alt='Logo'
-            className='relative translate-y-[2px] translate-x-[-6px]  hover:cursor-pointer'
+            className='relative  -translate-y-[4.5rem] translate-x-[-6px]  hover:cursor-pointer'
             width='200%'
             height='200%'
             onClick={() => {router.push('/')}}
@@ -54,17 +55,62 @@ const Navbar = () => {
             }
         </div>
         <div
-        className="flex flex-row justify-end "
+        className="flex flex-row justify-end text-center"
         >
-            <h2
-            className='hidden lg:flex place-items-center mr-12 font-semibold'
+            <div 
+            className={`flex flex-col  ${showCursosMenu ? 'translate-y-[3.9rem] mr-[2.3rem]' : 'mr-12 translate-y-[0.4rem]'}`}
+            onMouseLeave={() => setShowCursosMenu(false)}
             >
-            <Link 
-            href='cursos_para_jovenes'
-            >
-                Cursos
-            </Link>
-            </h2>
+
+                <h2
+                className='hidden lg:flex  justify-center font-semibold'
+                onClick={() => {
+                    setShowCursosMenu(!showCursosMenu);
+                }}
+
+                >
+                <Link 
+                href=''
+                >
+                    <a className="hover:decoration-transparent">
+                        Cursos
+                    </a>
+                </Link>
+                </h2>
+                {showCursosMenu
+                ? <>
+                <div className="bg-black rounded-md gap-2 text-xl p-3 grid grid-flow-row relative">
+                    <Link
+                    href=''
+                    >
+                        <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
+                            Niños
+                        </a>
+                    </Link>
+                    <Link
+                    href={'cursos_para_jovenes'}
+                    >
+                        <a
+                        onClick={() => {
+                            setShowCursosMenu(false);
+                        }}
+                        >
+
+                            Jóvenes
+                        </a>
+                    </Link>
+                    <Link
+                    href=''
+                    >
+                        <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
+                            Adultos
+                        </a>
+                    </Link>
+                    
+                </div>
+                </>
+                : null}
+            </div>
             <h2
             className=' hidden lg:flex place-items-center mr-12 font-semibold'
             >
@@ -93,10 +139,15 @@ const Navbar = () => {
             </div>
             <button
             className='grid place-content-center lg:hidden'
-            onClick={(e) => {
+            onClick={(ev) => {
                 const menu = document.getElementById('menuOptions') as HTMLElement;
                 menu.classList.toggle('hidden');
                 menu.classList.toggle('flex');
+                menu.onmouseleave = () => {
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');  
+                    menu.onmouseleave = null;
+                }
             }}
             >
                 <i

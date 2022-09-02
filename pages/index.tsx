@@ -117,7 +117,7 @@ const Home: NextPage = () => {
           <div 
           className='grid grid-rows-3 grid-flow-row md:grid-rows-none md:grid-cols-3 md:grid-flow-col font-semibold text-center h-[700px] md:h-[400px] w-full ' 
           >
-            <div className='bg-slate-50 grid content-between border-x-0 border-4 border-b-0 md:border-b-4 border-black p-5 h-full w-full  relative'>
+            <div className='bg-slate-50 grid content-between   p-5 h-full w-full  relative'>
               <div className='bg-black w-full h-full bg-opacity-80 absolute z-[2]'></div>
               <Image
               src={Minecraft}
@@ -128,21 +128,25 @@ const Home: NextPage = () => {
               alt='Foto de Minecraft'
               />
               <span className='z-[3] text-4xl'>Niños</span>  
-              <span className='z-[3] text-2xl'>Próximamente</span>  
+              <i className='z-[3] text-2xl'>Próximamente</i>  
             </div>
-            <div className='bg-black grid  hover:cursor-pointer hover:text-blue hover:border-blue border-4 border-transparent content-between p-5 h-full w-full  relative '>
+            <div 
+            className='bg-black grid hover:text-blue active:text-blue hover:cursor-pointer  content-between p-5 h-full w-full  relative '
+            onClick={() => router.push('/cursos_para_jovenes')}
+            >
+              <div className='w-full h-full  hover:border-blue  active:border-blue border-4 border-transparent absolute z-[2]'></div>
               <Image
               src={YouthProgramming}
               layout='fill'
               objectFit='cover'
-              onClick={() => router.push('/cursos_para_jovenes')}
+              
               objectPosition={'top'}
               alt='Foto de joven programando'
               />
-              <span className='z-[3] text-4xl font-bold text-black'>Jóvenes</span>  
+              <span className='z-[3] text-4xl font-bold text-white'>Jóvenes</span>  
               <span className='z-[3] text-2xl'>Cursos</span>  
             </div>
-            <div className=' grid content-between p-5 h-full border-4 border-t-0 md:boder-t-4 border-x-0 border-black w-full relative '>
+            <div className=' grid content-between p-5 h-full w-full relative '>
               <div className='bg-black w-full h-full bg-opacity-80 absolute z-[2]'></div>
               <Image
               src={DataAnalysis}
@@ -153,7 +157,7 @@ const Home: NextPage = () => {
               alt='Foto de análisis de datos'
               />  
               <span className='z-[3] text-4xl'>Profesionales</span>  
-              <span className='z-[3] text-2xl'>Próximamente</span>  
+              <i className='z-[3] text-2xl'>Próximamente</i>  
             </div>
           </div>
           <br/>
@@ -168,7 +172,8 @@ const Home: NextPage = () => {
             </h2>
               
             <br/>
-            <div className='relative h-[500px] w-full border-4 border-blue border-opacity-0  hover:border-opacity-100 hover:cursor-pointer'>
+            <div className='relative h-[500px] w-full hover:cursor-pointer'>
+              <div className='w-full h-full  hover:border-blue  active:border-blue border-4 border-transparent absolute z-[2]'></div>
               <Image
               src={FotoInstructores}
               layout='fill'

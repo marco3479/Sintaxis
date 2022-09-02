@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { useState } from "react";
 import Navbar from "./Navbar";
 
 export default function Layout ({ children }:any) {
 
+
+    const [showCursosMenu, setShowCursosMenu] = useState<boolean>(true);
 
     return (
         <div
@@ -36,19 +39,60 @@ export default function Layout ({ children }:any) {
                 <br/>
                 <h2
                 className='font-semibold right-2'
-                onClick={() => {
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setShowCursosMenu(!showCursosMenu);
                     const menu = document.getElementById('menuOptions') as HTMLElement;
                     menu.classList.toggle('hidden');
                     menu.classList.toggle('flex');
+
                     }
                 }
                 >
                     <Link 
-                    href='cursos_para_jovenes'
+                    href=''
                     >
+                    <a className="hover:decoration-transparent">
                         Cursos
+                    </a>
                     </Link>
                 </h2>
+                {showCursosMenu
+                ? <>
+                <div className="rounded-md gap-2 text-xl p-3 grid grid-flow-row relative">
+                    <Link
+                    href=''
+                    >
+                        <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
+                            Niños
+                        </a>
+                    </Link>
+                    <Link
+                    href='cursos_para_jovenes'
+                    >
+                        <a
+                        onClick={() => {
+                            const menu = document.getElementById('menuOptions') as HTMLElement;
+                            menu.classList.toggle('hidden');
+                            menu.classList.toggle('flex');
+        
+                        }}
+                        >
+                            Jóvenes
+
+                        </a>
+                    </Link>
+                    <Link
+                    href=''
+                    >
+                        <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
+                            Adultos
+                        </a>
+                    </Link>
+                    
+                </div>
+                </>
+                : null}
                 <br/>
                 <h2
                 className='font-semibold right-2'
