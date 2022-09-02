@@ -143,13 +143,13 @@ const Navbar = () => {
                 const menu = document.getElementById('menuOptions') as HTMLElement;
                 menu.classList.toggle('hidden');
                 menu.classList.toggle('flex');
-                if (menu.classList.contains('flex')) {
+                /*if (menu.classList.contains('flex')) {
                     menu.onmouseleave = () => {
                         menu.classList.toggle('hidden');
                         menu.classList.toggle('flex');  
                         menu.onmouseleave = null;
                     }
-                }
+                }*/
             }}
             >
                 <i
