@@ -15,8 +15,6 @@ const Navbar = () => {
     const [showCursosMenu, setShowCursosMenu] = useState<boolean>(false);
 
 
-    let Logo: () => JSX.Element|null = () => null;
-
     useLayoutEffect(() => {
         setScreenSize(window.innerWidth);
         window.addEventListener('resize', () => {
@@ -24,33 +22,6 @@ const Navbar = () => {
         })
     }, [])
 
-    Logo = () => {
-        return (
-            screenSize! < 720       // small screen
-            ?
-            <Image 
-            alt='Logo'
-            className='relative z-20   hover:cursor-pointer'
-            width='60%'
-            height='60%'            
-            onClick={() => {router.push('/')}}
-            src={LogoType}
-            priority
-            />
-
-            // larger screens
-            :       
-            <Image 
-            alt='Logo'
-            className='relative  -translate-y-[4.5rem]  translate-x-[-6px]  hover:cursor-pointer'
-            width='200%'
-            height='200%'
-            onClick={() => {router.push('/')}}
-            src={LogoMark}
-            priority
-            />
-        )
-    }
 
     return (
       <div
@@ -59,7 +30,15 @@ const Navbar = () => {
         <div
         className='justify-self-start overflow-hidden relative h-full ml-8'
         >
-           <Logo/>
+            <Image 
+            alt='Logo'
+            className='relative sm:-translate-y-[4.5rem]  sm:translate-x-[-6px]  hover:cursor-pointer'
+            width={screenSize! < 640 ? '60%' : '200%'}
+            height={screenSize! < 640 ? '60%' : '200%'}            
+            onClick={() => {router.push('/')}}
+            src={screenSize! < 640 ? LogoType : LogoMark}
+            priority
+            />
         </div>
         <div
         className="flex flex-row justify-end text-center"
