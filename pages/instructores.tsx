@@ -34,6 +34,8 @@ const InstructoresPage = () => {
                         priority
                         src={EdmundoPhoto}
                         quality={50}
+                        loading='eager'
+                        placeholder='blur'
                         width={screenSize! >= 640 ? undefined : '188'}
                         height={screenSize! >= 640 ? undefined : '228'}
                         layout={screenSize! >= 640 ? 'fill' : 'fixed'}
@@ -74,6 +76,8 @@ const InstructoresPage = () => {
                         width={'188'}
                         height={'228'}
                         quality={50}
+                        loading='eager'
+                        placeholder='blur'
                         priority
                         layout={screenSize! >= 640 ? 'fill' : 'fixed'}
                         objectFit={screenSize! >= 640 ?  'cover' : 'contain'}

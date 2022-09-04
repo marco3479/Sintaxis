@@ -13,6 +13,7 @@
     "@types/micro": "^7.3.7",
     "@types/micro-cors": "^0.1.2",
     "@types/nodemailer": "^6.4.5",
+    "animate.css": "^4.1.1",
     "dotenv": "^16.0.1",
     "micro": "^9.4.1",
     "micro-cors": "^0.1.1",

@@ -4,14 +4,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Button from '../components/Button';
 import HomePagePicture from '../public/images/Apoyo.jpg'
 import FotoInstructores from '../public/images/instructores-1.jpg' 
 import Minecraft from '../public/images/Minecraft.png' 
 import YouthProgramming from '../public/images/YouthProgramming.jpg' 
 import DataAnalysis from '../public/images/DataAnalysis.jpg' 
-
+import 'animate.css';
 
 const Home: NextPage = () => {
 
@@ -36,6 +36,55 @@ const Home: NextPage = () => {
     });
   }, [])
 
+
+  const LandingBannerRef = useRef<HTMLDivElement>(null);
+  const OfrecemosRef = useRef<HTMLDivElement>(null);
+
+
+
+  
+  
+  useEffect(() => {
+
+    const coursesImages = Array.from(document.getElementsByClassName('coursesImage') as HTMLCollectionOf<HTMLElement>);
+    const instructorsImage = document.getElementById('instructorsImage');
+
+    const callback: IntersectionObserverCallback = (entries: any, observer: IntersectionObserver) => {
+
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("invisible");
+          entry.target.classList.add("animate__animated");
+  
+          if (entry.target == LandingBannerRef.current) {
+            entry.target.classList.add("animate__slideInLeft");
+          }
+          if (entry.target == OfrecemosRef.current) {
+            entry.target.classList.add("animate__fadeInDown");
+          }
+          if (coursesImages.includes(entry.target) || entry.target == instructorsImage) {
+            entry.target.classList.add("animate__fadeIn");
+          }
+        }
+      })
+    }
+
+    const options1 = {
+      threshold: 1.0,
+    }
+    
+    const options2 = {
+      threshold: 0.5,
+    }
+    const midObserver = new IntersectionObserver(callback, options1)
+    const fastObserver = new IntersectionObserver(callback, options2)
+    midObserver.observe(LandingBannerRef.current!);
+    midObserver.observe(OfrecemosRef.current!);
+    for (const image of coursesImages) {
+      fastObserver.observe(image);
+    }
+    fastObserver.observe(instructorsImage!);
+  }, [])
 
   return (
         <div className='overflow-y-auto h-full w-full relative bg-white '>
@@ -62,6 +111,7 @@ const Home: NextPage = () => {
               <Image 
               alt='SintaxisMainPic'
               className=' relative' 
+              placeholder='blur'
               layout='fill'  
               objectFit="cover" 
               objectPosition={screenSize! > 1000 ? '50% 100%' : 'right'}
@@ -69,7 +119,8 @@ const Home: NextPage = () => {
               />
             </div>
             <div    // First Banner
-            className='z-[3] m-8 bottom-0 absolute text-white bg-blue bg-opacity-80 rounded-md p-5 shadow-black shadow-lg'
+            ref={LandingBannerRef}
+            className='z-[3] m-8 bottom-0 absolute text-white invisible bg-blue bg-opacity-80 rounded-md p-5 shadow-black shadow-lg'
             >
               <h1
               className='text-3xl sm:text-5xl'
@@ -95,8 +146,11 @@ const Home: NextPage = () => {
             </div>
           </div>
           <br/>
-          <br/>
-          <div className='flex justify-center relative  text-center flex-col text-black'>
+          <br/>            
+          <div 
+          ref={OfrecemosRef}
+          className='flex justify-center relative invisible text-center flex-col text-black'
+          >
             <h1 className='text-3xl self-center font-bold'>Lo que ofrecemos</h1>
             <br/>
             <div className='relative self-center flex flex-col sm:flex-row gap-4 text-white md:w-[70%]'>
@@ -115,7 +169,7 @@ const Home: NextPage = () => {
           </div>
           <br/>
           <div 
-          className='grid grid-rows-3 grid-flow-row md:grid-rows-none md:grid-cols-3 md:grid-flow-col font-semibold text-center h-[700px] md:h-[400px] w-full ' 
+          className='grid grid-rows-3 text-white grid-flow-row md:grid-rows-none md:grid-cols-3 md:grid-flow-col font-semibold text-center h-[700px] md:h-[400px] w-full ' 
           >
             <div className='bg-slate-50 grid content-between   p-5 h-full w-full  relative'>
               <div className='bg-black w-full h-full bg-opacity-70 absolute z-[2]'></div>
@@ -123,6 +177,9 @@ const Home: NextPage = () => {
               src={Minecraft}
               layout='fill'
               objectFit='contain'
+              className='invisible coursesImage'
+              loading='eager'
+              placeholder='blur'
               //onClick={() => router.push('/instructores')}
               objectPosition={'center'}
               alt='Foto de Minecraft'
@@ -138,8 +195,10 @@ const Home: NextPage = () => {
               <Image
               src={YouthProgramming}
               layout='fill'
+              className='invisible coursesImage'
               objectFit='cover'
-              
+              loading='eager'
+              placeholder='blur'
               objectPosition={'top'}
               alt='Foto de joven programando'
               />
@@ -152,7 +211,9 @@ const Home: NextPage = () => {
               src={DataAnalysis}
               layout='fill'
               objectFit='cover'
-              //onClick={() => router.push('/instructores')}
+              className='invisible coursesImage'
+              loading='eager'
+              placeholder='blur'              
               objectPosition={'center'}
               alt='Foto de análisis de datos'
               />  
@@ -180,6 +241,10 @@ const Home: NextPage = () => {
               src={FotoInstructores}
               layout='fill'
               objectFit='cover'
+              id='instructorsImage'
+              className='invisible'
+              loading='eager'
+              placeholder='blur'
               objectPosition={'top'}
               alt='Foto de instructores'
               />

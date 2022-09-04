@@ -57,3 +57,12 @@ ul.tabs {
  list-style: none;
 }
 
+
+
+/*
+CUSTOM ANIMATION MODS
+*/
+
+.animate__animated {
+  --animate-duration: 1.3s;
+  }

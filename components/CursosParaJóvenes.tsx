@@ -133,6 +133,8 @@ export default function CursosParaJóvenes () {
                         src={PythonPhoto}
                         alt={'Foto de Python'}
                         layout='fill'
+                        loading='eager'
+                        placeholder='blur'
                         objectFit="cover"
                         objectPosition={"center"}
                         />
