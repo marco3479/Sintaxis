@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from 'next/image'
 import LogoType from '../public/images/LogoType.png'
 import LogoMark from '../public/images/LogoMark.png'
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Button from "./Button"
 
@@ -17,7 +17,7 @@ const Navbar = () => {
 
     let Logo: () => JSX.Element|null = () => null;
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setScreenSize(window.innerWidth);
         window.addEventListener('resize', () => {
             setScreenSize(window.innerWidth)
@@ -42,7 +42,7 @@ const Navbar = () => {
             :       
             <Image 
             alt='Logo'
-            className='relative  -translate-y-[4.5rem] translate-x-[-6px]  hover:cursor-pointer'
+            className='relative  -translate-y-[4.5rem]  translate-x-[-6px]  hover:cursor-pointer'
             width='200%'
             height='200%'
             onClick={() => {router.push('/')}}
