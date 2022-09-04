@@ -10,9 +10,12 @@ import Button from "./Button"
 const Navbar = () => {
 
     const router = useRouter();
-    const [screenSize, setScreenSize] = useState<number|undefined>()
+    const [screenSize, setScreenSize] = useState<number|undefined>();
 
     const [showCursosMenu, setShowCursosMenu] = useState<boolean>(false);
+
+
+    let Logo: () => JSX.Element|null = () => null;
 
     useEffect(() => {
         setScreenSize(window.innerWidth);
@@ -21,16 +24,10 @@ const Navbar = () => {
         })
     }, [])
 
-
-    return (
-      <div
-      className=' bg-black z-[4] top-0  text-white w-full font-semibold h-[7%] min-h-[58px] sticky flex flex-row text-2xl justify-between items-center drop-shadow-lg '
-      >
-        <div
-        className='justify-self-start overflow-hidden relative h-full ml-8'
-        >
-           {screenSize! < 720       // small screen
-           ?
+    Logo = () => {
+        return (
+            screenSize! < 720       // small screen
+            ?
             <Image 
             alt='Logo'
             className='relative z-20   hover:cursor-pointer'
@@ -52,7 +49,17 @@ const Navbar = () => {
             src={LogoMark}
             priority
             />
-            }
+        )
+    }
+
+    return (
+      <div
+      className=' bg-black z-[4] top-0  text-white w-full font-semibold h-[7%] min-h-[58px] sticky flex flex-row text-2xl justify-between items-center drop-shadow-lg '
+      >
+        <div
+        className='justify-self-start overflow-hidden relative h-full ml-8'
+        >
+           <Logo/>
         </div>
         <div
         className="flex flex-row justify-end text-center"

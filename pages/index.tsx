@@ -69,17 +69,17 @@ const Home: NextPage = () => {
       })
     }
 
-    const options1 = {
+    /*const options1 = {
       threshold: 1.0,
-    }
+    }*/
     
     const options2 = {
       threshold: 0.5,
     }
-    const midObserver = new IntersectionObserver(callback, options1)
+    //const midObserver = new IntersectionObserver(callback, options1)
     const fastObserver = new IntersectionObserver(callback, options2)
-    midObserver.observe(LandingBannerRef.current!);
-    midObserver.observe(OfrecemosRef.current!);
+    fastObserver.observe(LandingBannerRef.current!);
+    fastObserver.observe(OfrecemosRef.current!);
     for (const image of coursesImages) {
       fastObserver.observe(image);
     }
