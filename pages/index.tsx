@@ -188,7 +188,7 @@ const Home: NextPage = () => {
               <i className='z-[3] text-2xl'>Próximamente</i>  
             </div>
             <div 
-            className='bg-black grid hover:text-blue active:text-blue hover:cursor-pointer  content-between p-5 h-full w-full  relative '
+            className='bg-black bg-opacity-70 grid hover:text-blue active:text-blue hover:cursor-pointer  content-between p-5 h-full w-full  relative '
             onClick={() => router.push('/cursos_para_jovenes')}
             >
               <div className='w-full h-full  hover:border-blue  active:border-blue border-4 border-transparent absolute z-[2]'></div>
