@@ -233,14 +233,14 @@ const Home: NextPage = () => {
             </h2>
               
             <br/>
-            <div className='relative h-[500px] w-full hover:cursor-pointer'
+            <div className='relative h-[500px] w-full bg-black hover:cursor-pointer'
             onClick={() => router.push('/instructores')}
             >
               <div className='w-full h-full  hover:border-blue  active:border-blue border-4 border-transparent absolute z-[2]'></div>
               <Image
               src={FotoInstructores}
               layout='fill'
-              objectFit='cover'
+              objectFit={screenSize! < 640 || (window.innerHeight < window.innerWidth && screenSize! < 700) ? 'cover' : 'contain'}
               id='instructorsImage'
               className='invisible'
               loading='eager'

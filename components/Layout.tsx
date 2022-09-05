@@ -22,7 +22,7 @@ export default function Layout ({ children }:any) {
         >
             <PromoBanner/>
             <div
-            className='flex absolute flex-col w-[100vw] h-[100vh] pb-8 overflow-hidden'
+            className='flex absolute flex-col w-[100vw] h-[100vh] overflow-hidden'
             >
                 <Navbar/>
                 <main
@@ -31,7 +31,7 @@ export default function Layout ({ children }:any) {
                     {children}
                 </main>
                 <div
-                className='hidden sticky p-5 text-3xl z-[3] text-right flex-col lg:hidden  h-full bg-opacity-90 text-white max-w-min bg-black min-w-min self-end right-0'
+                className='hidden sticky p-5 text-3xl z-[3] text-right flex-col lg:hidden overflow-y-auto h-full bg-opacity-90 text-white max-w-min bg-black min-w-min self-end right-0'
                 id='menuOptions'
                 >
                     <br/>
@@ -105,6 +105,9 @@ export default function Layout ({ children }:any) {
                             Contacto
                         </Link>
                     </h2>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
             </div>
         </div>
