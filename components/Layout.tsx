@@ -17,11 +17,10 @@ export default function Layout ({ children }:any) {
     }
 
     return (
-        <>
-        <PromoBanner/>
         <div
         className='flex absolute flex-col w-[100vw] h-[100vh]'
         >
+            <PromoBanner/>
             <Navbar/>
             <main
             className='bg-blue w-full h-full overflow-y-auto pt-8 absolute bottom-0'
@@ -105,6 +104,5 @@ export default function Layout ({ children }:any) {
                 </h2>
             </div>
         </div>
-        </>
     )
 }

@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function PromoBanner () {
     return(
         <div 
-        className="grid overflow-hidden drop-shadow-lg shadow-lg shadow-black grid-flow-col grid-cols-2 items-center py-2  text-base  z-[3] bg-[#f5ed02] text-black bottom-0 w-full "
+        className="grid overflow-hidden  grid-flow-col grid-cols-2 items-center py-2  text-base  z-20 bg-[#f5ed02] text-black bottom-0 w-full "
         id='promoBanner'
         style={{gridTemplateColumns: '90% 10%'}}
         >
