@@ -89,7 +89,7 @@ const Navbar = () => {
                     href=''
                     >
                         <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
-                            Adultos
+                            Profesionales
                         </a>
                     </Link>
                     
