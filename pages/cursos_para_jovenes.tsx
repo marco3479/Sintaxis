@@ -14,7 +14,6 @@ const CursosParaJovenesPage = () => {
                 <title>Cursos para Jóvenes</title>
             </Head>
             <br/>
-            <br/>
             <h1 className='text-3xl text-white text-center font-semibold'>Cursos para Jóvenes</h1>
             <div className="p-8">
                 <div className="flex flex-col">
@@ -27,6 +26,7 @@ const CursosParaJovenesPage = () => {
             >
                 Inscribirse
             </Button>
+            <br/>
             <br/>
             <br/>
         </div>

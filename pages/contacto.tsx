@@ -15,7 +15,6 @@ const ContactoPage = () => {
             </Head>
             <div>
                 <br/>
-                <br/>
                 <h2 className="text-2xl font-semibold self-center w-[18rem] text-white text-center">Contactanos por cualquiera de estas vías</h2>
                 <br/>
                 <br/>

@@ -23,7 +23,6 @@ const InstructoresPage = () => {
                 <title>Instructores</title>
             </Head>
             <br/>
-            <br/>
             <h1 className='text-3xl text-white font-semibold'>Conoce a tus instructores</h1>
             <br/>
             <div className="grid relative justify-center text-black p-5 h-3/4 gap-10" style={{gridTemplateColumns: '100%'}}>
@@ -109,7 +108,9 @@ const InstructoresPage = () => {
                         </blockquote>
                     </div>
                 </div>
-            </div>
+                <br/>
+                <br/>
+            </div>s
         </div>
     )
 }

@@ -169,7 +169,6 @@ const Inscripcion = () => {
                 <title>Inscripción</title>
             </Head>
             <br/>
-            <br/>
                 {phase === 'General' || phase === 'Programas' || phase === 'Revisión' 
                 ? <ul
                 className='flex flex-row justify-evenly tabs'
@@ -472,6 +471,8 @@ const Inscripcion = () => {
                 
 
                 </form>
+                <br/>
+                <br/>
             </div>
             <Script 
             async 
