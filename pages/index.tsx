@@ -26,7 +26,7 @@ const Home: NextPage = () => {
   }
 
 
-  const [screenSize, setScreenSize] = useState<number[]|undefined>()
+  const [screenSize, setScreenSize] = useState<number[]>([0, 0])
 
 
   useEffect(() => {
@@ -240,7 +240,7 @@ const Home: NextPage = () => {
               <Image
               src={FotoInstructores}
               layout='fill'
-              objectFit={screenSize![0] < 640 || (screenSize![1] < screenSize![0] && screenSize![0] < 700) ? 'cover' : 'contain'}
+              objectFit={screenSize[0] < 640 || (screenSize[1] < screenSize[0] && screenSize![0] < 700) ? 'cover' : 'contain'}
               id='instructorsImage'
               className='invisible'
               loading='eager'
