@@ -26,13 +26,13 @@ const Home: NextPage = () => {
   }
 
 
-  const [screenSize, setScreenSize] = useState<number|undefined>()
+  const [screenSize, setScreenSize] = useState<number[]|undefined>()
 
 
   useEffect(() => {
-    setScreenSize(window.innerWidth)
+    setScreenSize([window.innerWidth, window.innerHeight])
     window.addEventListener('resize', () => {
-      setScreenSize(window.innerWidth)
+      setScreenSize([window.innerWidth, window.innerHeight])
     });
   }, [])
 
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
               placeholder='blur'
               layout='fill'  
               objectFit="cover" 
-              objectPosition={screenSize! > 1000 ? '50% 100%' : 'right'}
+              objectPosition={screenSize![0] > 1000 ? '50% 100%' : 'right'}
               src={HomePagePicture}
               />
             </div>
@@ -240,7 +240,7 @@ const Home: NextPage = () => {
               <Image
               src={FotoInstructores}
               layout='fill'
-              objectFit={screenSize! < 640 || (window.innerHeight < window.innerWidth && screenSize! < 700) ? 'cover' : 'contain'}
+              objectFit={screenSize![0] < 640 || (screenSize![1] < screenSize![0] && screenSize![0] < 700) ? 'cover' : 'contain'}
               id='instructorsImage'
               className='invisible'
               loading='eager'
