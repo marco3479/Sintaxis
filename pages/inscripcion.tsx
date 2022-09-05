@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { SubscriptionContextType, useSubscription } from "../context/SubscriptionContext";
 import CursosParaJóvenes from "../components/CursosParaJóvenes";
 import Head from "next/head";
-import { useRef } from "react";
+import { JSXElementConstructor, useRef } from "react";
 
 export interface GeneralData {
     //[key: string]: string
@@ -170,7 +170,7 @@ const Inscripcion = () => {
             </Head>
             <br/>
             <br/>
-                {phase === 'General' || phase === 'Programas' || phase === 'Pago' 
+                {phase === 'General' || phase === 'Programas' || phase === 'Revisión' 
                 ? <ul
                 className='flex flex-row justify-evenly tabs'
                 >
@@ -193,11 +193,11 @@ const Inscripcion = () => {
                         Programas
                     </li>
                     <li
-                    className={`border-white text-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Pago' ? 'bg-white text-blue' : phases.Programas.valid ? '' : 'bg-slate-500'}`}
+                    className={`border-white text-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Revisión' ? 'bg-white text-blue' : phases.Programas.valid ? '' : 'bg-slate-500'}`}
                     key={2}
-                    onClick={() => {if (phases.Programas.valid) setPhase('Pago')}}
+                    onClick={() => {if (phases.Programas.valid) setPhase('Revisión')}}
                     >
-                        Pago
+                        Revisión
                     </li>     
                 </ul>
                 : null}
@@ -383,7 +383,7 @@ const Inscripcion = () => {
                         <CursosParaJóvenes/>
                         <Button
                         className='max-w-min self-center mt-5'
-                            onClick={() => {if (phases.Programas.valid) setPhase('Pago')}
+                            onClick={() => {if (phases.Programas.valid) setPhase('Revisión')}
                             }
                             >
                                 Siguiente
@@ -392,7 +392,7 @@ const Inscripcion = () => {
 
                     : null}
 
-                    {phase == 'Pago'
+                    {phase == 'Revisión'
                     ? <>
                     <div className="flex  flex-col">
                         <div // General
@@ -437,9 +437,9 @@ const Inscripcion = () => {
                         onClick={(e:any) => {
                             mutation.mutate(generalData);
                             //SendEmail(e);
-                            setPhase('Confirmación');
+                            setPhase('Pago');
                             //window.open('https://buy.stripe.com/8wMaHaacn233bsc001', "_blank")
-                            window.open('https://buy.stripe.com/7sIaHa2JVePPcwgcMM', "_blank")
+                            //window.open('https://buy.stripe.com/4gw7uY0BNbDDao87su', "_blank")
                         }}
 
                         // FIX SO IT WORKS FOR OPENING STRIPE IN NEW WINDOW, AND ALSO TO THESE FXS IN ONCLICK
@@ -451,9 +451,15 @@ const Inscripcion = () => {
                     </div>
                     </>
                     : null}
-                    
-                    {phase == 'Confirmación'
-                    ? <div className="relative  text-center bg-black rounded-md p-2">
+
+                    {phase == 'Pago'
+                    ? <div className="w-full h-full">
+                    <stripe-pricing-table 
+                    pricing-table-id="prctbl_1LeU41H7SyURAolX30AK5BrS"
+                    publishable-key="pk_live_51LXVtjH7SyURAolXkp583tdsL098Dwcxaub0k4sC0D5AOlQ28ouuNiJxTTIwDxvW33YoOLDepqIv8iJfSggzZjPX00SUQ9B1y3">
+                    </stripe-pricing-table>
+                    <br/>
+                    <div className="relative  text-center bg-black rounded-md p-2">
                         Una vez realizado el pago, recibirá un correo de confirmación.
                         <br/>
                         También recibirá otro correo con toda la información necesaria 1 o 2 días antes de la primera clase.
@@ -461,9 +467,16 @@ const Inscripcion = () => {
                         Cualquier pregunta, problema o sugerencia, no dude en&nbsp;
                         <Link href='contacto'><a className='text-blue font-semibold '>contactarnos</a></Link>.
                     </div>
+                    </div>
                     : null}
+                
+
                 </form>
             </div>
+            <Script 
+            async 
+            src="https://js.stripe.com/v3/pricing-table.js">
+            </Script>
         </div>
     )
 }
@@ -474,6 +487,21 @@ const Inscripcion = () => {
 export default Inscripcion;
 
 
+import React, { useState, DOMAttributes }  from 'react';
+import Script from "next/script";
+
+type CustomElement<T> = Partial<T & DOMAttributes<T> & { children: any }>;
+
+type StripePricingTable = Element;
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      //['stripe-pricing-table']: CustomElement<any>;
+      'stripe-pricing-table': any;
+    }
+  }
+}
 
 /*
 

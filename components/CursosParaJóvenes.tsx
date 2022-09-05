@@ -40,14 +40,14 @@ export default function CursosParaJóvenes () {
                                     <input checked={lvlSelected === 'lvl1' ? true : false} onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl1')}} name='lvls' type='radio' id='lvl1'/>
                                     <label htmlFor="lvl1" className='p-3 border-2 border-[transparent]' /*requiredInput*/>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Módulo 1 </b> &nbsp; Introducción a Programación con Python
+                                        <b>Nivel 1 </b> &nbsp; Introducción a Programación con Python
                                     </label>
                                 </div>
                                 <div className="bg-gray-300 p-3">
                                     <input disabled onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl2')}}  name='lvls' type='radio' id='lvl2'/>
                                     <label htmlFor="lvl2" className={`p-3  border-2 border-[transparent]`}>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Módulo 2 </b> &nbsp; Desarrollo de Web con HTML, CSS y JavaScript, y Librerías de Python
+                                        <b>Nivel 2 </b> &nbsp; Desarrollo de Web con HTML, CSS y JavaScript, y Librerías de Python
                                         <br/>
                                         <i>{'('}próximamente{')'}</i>
                                     </label>
@@ -56,7 +56,7 @@ export default function CursosParaJóvenes () {
                                     <input disabled onClick={() => {setProgramSelected('CompleteProgrammer'); setLvlSelected('lvl3')}}  name='lvls' type='radio' id='lvl3'/>
                                     <label htmlFor="lvl3" className={`p-3  border-2 border-[transparent]`}>
                                         &nbsp;&nbsp;&nbsp;
-                                        <b>Módulo 3 </b> &nbsp; Frameworks con Python y Typescript
+                                        <b>Nivel 3 </b> &nbsp; Frameworks con Python y Typescript
                                         <br/>
                                         <i>{'('}próximamente{')'}</i>
                                     </label>
@@ -84,7 +84,7 @@ export default function CursosParaJóvenes () {
                     ? <div className="grid grid-flow-row grid-rows-2 " style={{gridTemplateRows: 'max-content 275px'}}> 
                     <div className="grid bg-white rounded-t-md p-3 text-black">
                         <span>
-                            <b> Introducción a Programación con Python</b> es el primer módulo,
+                            <b> Introducción a Programación con Python</b> es el primer nivel,
                             y te lleva
                             desde cero hasta intermedio. El objetivo es que el estudiante
                             se sienta cómodo utilizando un lenguaje de programación a través de

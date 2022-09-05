@@ -3,7 +3,7 @@ import { GeneralData } from '../pages/inscripcion';
 
 export const SubscriptionContext: Context<SubscriptionContextType> = createContext({} as SubscriptionContextType)
 
-type Phase = 'General' | 'Programas' | 'Pago' | 'Confirmación'
+type Phase = 'General' | 'Programas' | 'Revisión' | 'Pago' | 'Confirmación'
 
 type Phases = {
     General: {
@@ -12,9 +12,12 @@ type Phases = {
     Programas: {
         valid: boolean
     },
-    Pago: {
+    Revisión: {
         valid: boolean     
     },
+    Pago: {
+        valid: boolean
+    }
     Confirmación: {
         valid: boolean
     }
@@ -47,8 +50,11 @@ function SubscriptionWrapper ({ children }:any) {
         Programas: {
             valid: false
         },
-        Pago: {
+        Revisión: {
             valid: true     // EVENTUALLY START AS FALSE, ON SUCCESSFUL PAYMENT WEBHOOK EVENT
+        },
+        Pago: {
+            valid: true
         },
         Confirmación: {
             valid: true     // MAY NOT NEED CONFIRMACION AFTER ALL. WE'LL SEE.

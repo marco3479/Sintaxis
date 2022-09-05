@@ -153,7 +153,7 @@ const Home: NextPage = () => {
           >
             <h1 className='text-3xl self-center font-bold'>Lo que ofrecemos</h1>
             <br/>
-            <div className='relative self-center flex flex-col sm:flex-row gap-4 text-white md:w-[70%]'>
+            <div className='relative self-center flex flex-col sm:flex-row !gap-4 text-white md:w-[70%]'>
               <div className='bg-black p-3 rounded-md'>
                 Todas nuestras clases son <Highlighted>virtuales</Highlighted> con instructores
                 especializados. Así, tu progreso estará acompañado

@@ -91,6 +91,42 @@ export default function Layout ({ children }:any) {
                     </Link>
                 </h2>
             </div>
+            <div 
+                className="absolute grid overflow-hidden drop-shadow-lg shadow-lg shadow-black grid-flow-col grid-cols-2 items-center py-2  text-base  z-20 bg-brown bottom-0 w-full "
+                id='promoBanner'
+                style={{gridTemplateColumns: '90% 10%'}}
+
+            >
+                <div 
+                className=" items-center text-base text-center md:grid grid-flow-col grid-cols-3 w-full justify-center md:!gap-8 "
+                style={{gridTemplateColumns: '40% max-content 40%'}}
+                >
+                    <i className="text-right hidden md:inline">
+                        Obten 20% descuento con el código
+                    </i>
+                    <div className="text-center flex ml-3 flex-row place-items-center justify-around">
+                        <div className="md:hidden">20% descuento con código</div>
+                        &nbsp;
+                        <b className="hover:bg-white hover:text-blue text-xl"><Link href='inscripcion'>&nbsp;SINTAXIS20&nbsp;</Link></b>
+                    </div>
+                    <span className="text-left hidden md:inline">
+                        en el curso <b> &nbsp;Programador Completo - Nivel 1</b> 
+                    </span>
+                </div>
+                <button
+                className="text-center flex justify-center"
+                onClick={() => {
+                    const pB = document.getElementById('promoBanner') as HTMLDListElement;
+                    pB.classList.add('hidden');
+                    pB.classList.remove('flex');
+                    }}
+                >
+                    <i 
+                    className='material-icons text-white text-xl fa fa-close p-1 rounded-md hover:bg-white hover:text-black' 
+                    >
+                    </i>
+                </button>
+            </div>
         </div>
     )
 }
