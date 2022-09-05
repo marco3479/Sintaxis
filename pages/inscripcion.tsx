@@ -151,7 +151,7 @@ const Inscripcion = () => {
                 switch (lvlSelected) {
                     case 'lvl1':
                         return programa = <>
-                        Complete Programmer
+                        Programador Completo
                         <br/>
                         Lvl 1
                         </>

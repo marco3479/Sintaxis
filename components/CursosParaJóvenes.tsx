@@ -73,7 +73,7 @@ export default function CursosParaJóvenes () {
                 >
                     {programSelected === 'CompleteProgrammer'
                     ? <div className="bg-white rounded-md p-3 text-black">
-                    <b>Complete Programmer</b> es el programa más completo y recomendado 
+                    <b>Programador Completo</b> es el programa más completo y recomendado 
                     para principiantes. Consta de 3 niveles, en los cuales el estudiante 
                     aprenderá desde 
                     Python y sus diversas librerías, hasta Desarrollo Web con HTML, CSS y JavaScript.  
