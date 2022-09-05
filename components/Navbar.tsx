@@ -44,7 +44,7 @@ const Navbar = () => {
         className="flex flex-row justify-end text-center"
         >
             <div 
-            className={`flex flex-col  ${showCursosMenu ? 'translate-y-[3.9rem] mr-[2.3rem]' : 'mr-12 translate-y-[0.4rem]'}`}
+            className={`flex flex-col  ${showCursosMenu ? 'translate-y-[3.9rem] mr-[0.75rem]' : 'mr-12 translate-y-[0.4rem]'}`}
             onMouseLeave={() => setShowCursosMenu(false)}
             >
 

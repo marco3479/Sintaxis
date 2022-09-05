@@ -73,7 +73,7 @@ export default function CursosParaJóvenes () {
                 >
                     {programSelected === 'CompleteProgrammer'
                     ? <div className="bg-white rounded-md p-3 text-black">
-                    <b>Programador Completo</b> es el programa más completo y recomendado 
+                    <b>Programador Completo</b> es el curso más completo y recomendado 
                     para principiantes. Consta de 3 niveles, en los cuales el estudiante 
                     aprenderá desde 
                     Python y sus diversas librerías, hasta Desarrollo Web con HTML, CSS y JavaScript.  
@@ -144,7 +144,7 @@ export default function CursosParaJóvenes () {
 
                     {programSelected === 'AnalisisPython'
                     ? <div className="grid bg-white rounded-md p-3 text-black">
-                    Un programa de especialización para aquellos que quieran descubrir el mundo del análisis y ciencia de datos con Python. 
+                    Un curso de especialización para aquellos que quieran descubrir el mundo del análisis y ciencia de datos con Python. 
                     <br/>
                     <br/>
                     <b>Requisitos:</b>

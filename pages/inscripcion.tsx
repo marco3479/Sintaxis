@@ -190,7 +190,7 @@ const Inscripcion = () => {
                             setPhase('Programas')
                         }}}
                     >
-                        Programas
+                        Cursos
                     </li>
                     <li
                     className={`border-white text-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Revisión' ? 'bg-white text-blue' : phases.Programas.valid ? '' : 'bg-slate-500'}`}
