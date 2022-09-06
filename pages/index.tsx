@@ -187,19 +187,23 @@ const Home: NextPage = () => {
               <b> Introducción a Programación con Python, </b>
               empieza el <b>sábado 24 de septiembre</b>. 
               <br/>
-              ¡Inscribite ahora y te damos un 20% de descuento! 
               <br/>
+              <div className='bg-black text-white p-3 rounded-md'>
+                ¡Inscribite ahora y usa el código<b> SINTAXIS20 </b>para un 20% de descuento! 
+              </div>
               <br/>
-              <Link href='cursos_para_jovenes' ><a className='hover:decoration-white'><i className=' font-bold '>Más información</i></a></Link>
-              <br/> 
-              <Button
-              className='mt-5 float-right'
-              onClick={() => {
-                router.push('/inscripcion');
-              }}
-              >
-                Inscribirse
-              </Button>            </div>
+              <div className='flex flex-row w-full justify-around'>
+                <Link href='cursos_para_jovenes' ><a className='hover:decoration-white'><i className=' font-bold '>Más información</i></a></Link>
+                <Button
+                className='float-right'
+                onClick={() => {
+                  router.push('/inscripcion');
+                }}
+                >
+                  Inscribirse
+                </Button>   
+              </div>
+            </div>
             <div className='h-full min-h-[230px] w-full relative bg-black'>
               <Image
               src={PythonPhoto}
