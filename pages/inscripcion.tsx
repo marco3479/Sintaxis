@@ -151,9 +151,11 @@ const Inscripcion = () => {
                 switch (lvlSelected) {
                     case 'lvl1':
                         return programa = <>
-                        Programador Completo
+                        Complete Programmer
                         <br/>
-                        Lvl 1
+                        Nivel I
+                        <br/>
+                        Introducción a Programación con Python
                         </>
                 }
             }
@@ -319,12 +321,15 @@ const Inscripcion = () => {
                                     ...gD,
                                     acknowledgementSource: e.target.value
                                 }))}}
-                                value={generalData.acknowledgementSource === 'Otro' || (['', 'Facebook', 'LinkedIn', 'Google', 'Conocido'].every((value: string) => {if (value === generalData.acknowledgementSource) return false})) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro'].includes(generalData.acknowledgementSource) || (acknowledgementSourceSelectRef.current?.value === 'Otro' && generalData.acknowledgementSource === '')  ? 'Otro' : generalData.acknowledgementSource }
+                                value={generalData.acknowledgementSource === 'Otro' || (['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Instagram'].every((value: string) => {if (value === generalData.acknowledgementSource) return false})) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro', 'Instagram'].includes(generalData.acknowledgementSource) || (acknowledgementSourceSelectRef.current?.value === 'Otro' && generalData.acknowledgementSource === '')  ? 'Otro' : generalData.acknowledgementSource }
                                 >
                                     <option aria-invalid='true' defaultChecked className="text-opacity-50" value=''>
                                     </option>
                                     <option value='Facebook'>
                                         Facebook
+                                    </option>
+                                    <option value='Instagram'>
+                                        Instagram
                                     </option>
                                     <option value='LinkedIn'>
                                         LinkedIn
@@ -339,7 +344,7 @@ const Inscripcion = () => {
                                         Otro
                                     </option>
                                 </select>
-                                {generalData.acknowledgementSource === 'Otro' || (['Facebook', 'LinkedIn', 'Google', 'Conocido', ''].every((value: string) => {if (value === generalData.acknowledgementSource) return false}) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro'].includes(generalData.acknowledgementSource) || (acknowledgementSourceSelectRef.current?.value === 'Otro' && generalData.acknowledgementSource === ''))
+                                {generalData.acknowledgementSource === 'Otro' || (['Facebook', 'LinkedIn', 'Google', 'Conocido', 'Instagram', ''].every((value: string) => {if (value === generalData.acknowledgementSource) return false}) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro', 'Instagram'].includes(generalData.acknowledgementSource) || (acknowledgementSourceSelectRef.current?.value === 'Otro' && generalData.acknowledgementSource === ''))
                                 ? <>
                                 <br/>
                                 <input aria-invalid='true' required value={generalData.acknowledgementSource === 'Otro' || generalData.acknowledgementSource === '' ? '' : generalData.acknowledgementSource} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='DóndeNosConoció' 
@@ -380,6 +385,8 @@ const Inscripcion = () => {
                     {phase == 'Programas'
                     ? 
                     <div className="flex flex-col">
+                        <h2 className='text-xl w-full md:w-[30%] text-center  font-semibold'>Por favor seleccione un curso</h2>
+                        <br/>
                         <CursosParaJóvenes/>
                         <Button
                         className='max-w-min self-center mt-5'
@@ -396,7 +403,7 @@ const Inscripcion = () => {
                     ? <>
                     <div className="flex  flex-col">
                         <div // General
-                        className='grid border-2 border-white text-white rounder-md p-5 self-center rounded-md'
+                        className='grid border-2 border-white bg-black text-white rounder-md p-5 self-center rounded-md'
                         >
                             <span><b>Nombre:</b> {generalData.name}</span>
                             <span><b>Dirección:</b> {generalData.address}</span>
@@ -405,7 +412,7 @@ const Inscripcion = () => {
                             <span><b>País:</b> {generalData.country}</span>
                             <span><b>Correo Electrónico:</b> {generalData.email}</span>
                             <span><b>Número de Teléfono:</b> {generalData.phoneNumber}</span>
-                            <span><b>Dónde aprendió de nosotros:</b> {generalData.acknowledgementSource}</span>
+                            <span><b>Dónde nos conoció:</b> {generalData.acknowledgementSource}</span>
                             <br/>
                             <Button
                             className="max-w-min place-self-end"
@@ -459,7 +466,7 @@ const Inscripcion = () => {
                     publishable-key="pk_live_51LXVtjH7SyURAolXkp583tdsL098Dwcxaub0k4sC0D5AOlQ28ouuNiJxTTIwDxvW33YoOLDepqIv8iJfSggzZjPX00SUQ9B1y3">
                     </stripe-pricing-table>
                     <br/>
-                    <div className="relative  text-center bg-black rounded-md p-2">
+                    <div className="relative  text-center bg-black text-white rounded-md p-2">
                         Una vez realizado el pago, recibirá un correo de confirmación.
                         <br/>
                         También recibirá otro correo con toda la información necesaria 1 o 2 días antes de la primera clase.

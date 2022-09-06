@@ -10,6 +10,7 @@ import HomePagePicture from '../public/images/Apoyo.jpg'
 import FotoInstructores from '../public/images/instructores-1.jpg' 
 import Minecraft from '../public/images/Minecraft.png' 
 import YouthProgramming from '../public/images/YouthProgramming.jpg' 
+import PythonPhoto from "../public/images/Python.jpg"
 import DataAnalysis from '../public/images/DataAnalysis.jpg' 
 import 'animate.css';
 
@@ -48,10 +49,11 @@ const Home: NextPage = () => {
 
     const coursesImages = Array.from(document.getElementsByClassName('coursesImage') as HTMLCollectionOf<HTMLElement>);
     const instructorsImage = document.getElementById('instructorsImage');
+    const upcomingCourseBanner = document.getElementById('upcomingCourseBanner');
 
-    const callback: IntersectionObserverCallback = (entries: any, observer: IntersectionObserver) => {
+    const callback: IntersectionObserverCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
 
-      entries.forEach((entry: any) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           entry.target.classList.remove("invisible");
           entry.target.classList.add("animate__animated");
@@ -59,10 +61,13 @@ const Home: NextPage = () => {
           if (entry.target == LandingBannerRef.current) {
             entry.target.classList.add("animate__slideInLeft");
           }
+          if (entry.target == upcomingCourseBanner) {
+            entry.target.classList.add("animate__slideInRight");
+          }
           if (entry.target == OfrecemosRef.current) {
             entry.target.classList.add("animate__fadeInDown");
           }
-          if (coursesImages.includes(entry.target) || entry.target == instructorsImage) {
+          if (coursesImages.includes(entry.target as HTMLElement) || entry.target == instructorsImage) {
             entry.target.classList.add("animate__fadeIn");
           }
         }
@@ -77,9 +82,10 @@ const Home: NextPage = () => {
       threshold: 0.5,
     }
     //const midObserver = new IntersectionObserver(callback, options1)
-    const fastObserver = new IntersectionObserver(callback, options2)
+    const fastObserver = new IntersectionObserver(callback, options2);
     fastObserver.observe(LandingBannerRef.current!);
     fastObserver.observe(OfrecemosRef.current!);
+    fastObserver.observe(upcomingCourseBanner!);
     for (const image of coursesImages) {
       fastObserver.observe(image);
     }
@@ -169,7 +175,49 @@ const Home: NextPage = () => {
           </div>
           <br/>
           <div 
-          className='grid grid-rows-3 text-white grid-flow-row md:grid-rows-none md:grid-cols-3 md:grid-flow-col font-semibold text-center h-[700px] md:h-[400px] w-full ' 
+          id='upcomingCourseBanner'
+          className='invisible grid md:grid-flow-col relative h-max md:h-max md:grid-cols-2 m-5'
+          >
+            <div className='bg-blue p-5 rounded-t-md md:rounded-t-none  md:rounded-l-md text-xl'>
+              <h2 className='text-3xl text-center font-bold'>
+                ¿Querés comenzar a programar?
+              </h2>
+              <br/>
+              Nuestro primer curso, 
+              <b> Introducción a Programación con Python, </b>
+              empieza el <b>sábado 24 de septiembre</b>. 
+              <br/>
+              ¡Inscribite ahora y te damos un 20% de descuento! 
+              <br/>
+              <br/>
+              <Link href='cursos_para_jovenes' ><a className='hover:decoration-white'><i className=' font-bold '>Más información</i></a></Link>
+              <br/> 
+              <Button
+              className='mt-5 float-right'
+              onClick={() => {
+                router.push('/inscripcion');
+              }}
+              >
+                Inscribirse
+              </Button>            </div>
+            <div className='h-full min-h-[230px] w-full relative bg-black'>
+              <Image
+              src={PythonPhoto}
+              layout='fill'
+              objectFit={screenSize[0] < 1150 ? 'contain' : 'cover'}
+              //className=''
+              loading='eager'
+              placeholder='blur'
+              //onClick={() => router.push('/instructores')}
+              objectPosition={'center'}
+              alt='Foto de Python'
+              
+              />
+            </div>
+          </div>
+          <br/>
+          <div 
+          className='grid grid-rows-3 relative text-white grid-flow-row md:grid-rows-none md:grid-cols-3 md:grid-flow-col font-semibold text-center h-[700px] md:h-[400px] w-full ' 
           >
             <div className='bg-slate-50 grid content-between   p-5 h-full w-full  relative'>
               <div className='bg-black w-full h-full bg-opacity-70 absolute z-[2]'></div>

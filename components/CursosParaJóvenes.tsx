@@ -33,7 +33,7 @@ export default function CursosParaJóvenes () {
                         >
                             <summary  onClick={() => setProgramSelected('CompleteProgrammer')} >
                                 &nbsp;&nbsp;&nbsp;
-                                <b>Programador Completo</b> 
+                                <b>Complete Programmer</b> 
                             </summary>
                                 &nbsp;&nbsp;&nbsp;
                                 <div className="p-3">
@@ -73,7 +73,7 @@ export default function CursosParaJóvenes () {
                 >
                     {programSelected === 'CompleteProgrammer'
                     ? <div className="bg-white rounded-md p-3 text-black">
-                    <b>Programador Completo</b> es el curso más completo y recomendado 
+                    <b>Complete Programmer</b> es el curso más completo y recomendado 
                     para principiantes. Consta de 3 niveles, en los cuales el estudiante 
                     aprenderá desde 
                     Python y sus diversas librerías, hasta Desarrollo Web con HTML, CSS y JavaScript.  
@@ -98,13 +98,16 @@ export default function CursosParaJóvenes () {
                             <b>Duración total:</b> 32 horas distribuidas en 16 semanas
                         </span>
                         <span>
-                            <b>Próxima fecha de inicio:</b> 17/09/2022
+                            <b>Próxima fecha de inicio:</b> 24/09/2022
                         </span>
                         <span>
                             <b>Horario:</b> Sábados de 3-5 pm {'('}GMT-6{')'}
                         </span>
                         <span>
                             ¿Interesado en otro horario? <Link href='contacto'><a className="text-blue font-semibold">Contáctanos</a></Link>
+                        </span>
+                        <span>
+                            <b>Plataforma:</b> Zoom
                         </span>
                         <br/>
                         <b>Recomendaciones:</b> 
