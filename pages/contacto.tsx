@@ -31,6 +31,10 @@ const ContactoPage = () => {
                     </div>
                     <br/>
                     <div>
+                        <a href='https://instagram.com/sintaxis.academy?igshid=YmMyMTA2M2Y=' target='_blank' rel="noreferrer">
+                            <i className="text-4xl fa fa-instagram"></i>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href='https://www.facebook.com/sintaxisacademy/' target='_blank' rel="noreferrer">
                             <i className="text-4xl fa fa-facebook"></i>
                         </a>
