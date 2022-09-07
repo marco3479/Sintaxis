@@ -48,7 +48,7 @@ const Home: NextPage = () => {
       }
     }
     return {
-      __html: `${data}
+      __html: `${JSON.stringify(data)}
       `
     }
   }
