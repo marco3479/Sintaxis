@@ -11,7 +11,7 @@ const ContactoPage = () => {
     return (
         <div className='grid grid-flow-row-dense justify-center h-full '>
             <Head>
-                <title>Contacto</title>
+                <title>Sintaxis | Contacto</title>
             </Head>
             <div>
                 <br/>

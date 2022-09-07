@@ -20,7 +20,7 @@ const InstructoresPage = () => {
     return (
         <div className='text-center h-full  overflow-y-auto'>
             <Head>
-                <title>Instructores</title>
+                <title>Sintaxis | Conoce los Instructores</title>
             </Head>
             <br/>
             <br/>

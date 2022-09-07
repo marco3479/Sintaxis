@@ -14,8 +14,45 @@ import PythonPhoto from "../public/images/Python.jpg"
 import DataAnalysis from '../public/images/DataAnalysis.jpg' 
 import 'animate.css';
 import FlashyDiv from '../components/FlashyDiv';
+import Script from 'next/script';
 
 const Home: NextPage = () => {
+
+  function addJsonLD() { 
+    const data = {
+      "@context": "https://schema.org/",
+      "@type": "EducationalOrganization",
+      "name": "Sintaxis",
+      "keywords": "programación, programacion, coding, codificar, programar, academia, escuela, nicaragua, latinoamérica, español, barato, en línea, virtual, zoom, css, python, html, javascript, typescript, lua, java, c#, minecraft education, minecraft, roblox, roblox studios",
+      "logo": "images/LogoType.png",
+      "telephone": "505-8260-9296",
+      "email": "sintaxisacademy@gmail.com",
+      "event": {
+        "@type": "Event",
+        "location": {
+          "@type": "VirtualLocation",
+          "name": "Zoom"
+        },
+        "name": "Curso - Introducción a Programación con Python",
+        "description": "",
+        "startDate": "2022-09-24",
+        "url": "cursos_para_jovenes",
+        "audience": {
+          "@type": "EducationAudience",
+          "educationalRole": "student",
+          "audienceType": "young",
+          "name": "Estudiantes de Introducción a Programación con Python"
+        },
+        "doorTime": "2022-09-24T15:00-06:00",
+        "duration": "P2H"
+      }
+    }
+    return {
+      __html: `${data}
+      `
+    }
+  }
+
 
   const router = useRouter();
 
@@ -96,7 +133,7 @@ const Home: NextPage = () => {
   return (
         <div className='overflow-y-auto h-full w-full relative bg-white '>
           <Head>
-            <title>Sintaxis</title>
+            <title>Sintaxis | Aprende a Programar</title>
             <meta name='description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:title' content='Sintaxis'/>
             <meta property='og:url' content='https://sintaxis.io'/>
@@ -112,6 +149,11 @@ const Home: NextPage = () => {
             <meta property="og:image:width" content="256"/>
             <meta property="og:image:height" content="256"/>
             <meta property="og:image:type" content="image/png"/>
+            <Script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={addJsonLD()}
+            key="page-jsonld"
+            />
           </Head>
           <div className='relative h-full w-full'>
             <div className='h-full w-full'>
@@ -154,13 +196,12 @@ const Home: NextPage = () => {
           </div>
           <br/>         
           <br/>            
+          <br/>            
           <div 
           ref={OfrecemosRef}
           className='flex justify-center relative invisible text-center flex-col text-black'
           >
-            <br/>
             <h1 className='text-4xl md:text-5xl self-center font-bold'>Lo que ofrecemos</h1>
-            <br/>
             <br/>
             <br/>
             <div className='relative self-center flex flex-col sm:flex-row !gap-4 text-white md:w-[90%] md:text-xl md:grid grid-flow-col '>
@@ -291,14 +332,13 @@ const Home: NextPage = () => {
           <br/>
           <br/>
           <div className='text-center relative text-black'>
-            <h2 className='text-4xl md:text-5xl font-bold' >
+            <h2 className='text-4xl md:text-5xl  font-bold' >
               <Link href={'instructores'} scroll={true}>
-                <a>
+                <a className='hover:decoration-[10px]'>
                   Conoce a tus instructores 
                 </a>
               </Link>
             </h2>
-              
             <br/>
             <br/>
             <FlashyDiv

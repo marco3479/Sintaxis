@@ -11,7 +11,7 @@ const CursosParaJovenesPage = () => {
     return (
         <div className="grid grid-flow-row h-full overflow-y-auto">
             <Head>
-                <title>Cursos para Jóvenes</title>
+                <title>Sintaxis | Cursos para Jóvenes</title>
             </Head>
             <br/>
             <br/>

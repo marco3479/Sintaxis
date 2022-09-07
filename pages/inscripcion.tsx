@@ -168,7 +168,7 @@ const Inscripcion = () => {
     return (
         <div className='p-3 h-full overflow-y-auto'>
             <Head>
-                <title>Inscripción</title>
+                <title>Sintaxis | Inscripción a Curso</title>
             </Head>
             <br/>
             <br/>
