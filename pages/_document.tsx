@@ -11,8 +11,7 @@ export default function Document() {
         <link rel="icon" type="image/png" href="/images/favicon.ico" />
       </Head>
               {/*Google tag (gtag.js)*/}
-      <Script id="google-tag-manager" strategy="afterInteractive" async src="https://www.googletagmanager.com/gtag/js?id=G-32S32NYZM7%22%3E">
-      </Script>
+      <Script id="google-tag-manager" strategy="afterInteractive" async src="https://www.googletagmanager.com/gtag/js?id=G-32S32NYZM7%22%3E"/>
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];

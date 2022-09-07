@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       "@context": "https://schema.org/",
       "@type": "EducationalOrganization",
       "name": "Sintaxis",
-      "keywords": "programación, programacion, coding, codificar, programar, academia, escuela, nicaragua, latinoamérica, español, barato, en línea, virtual, zoom, css, python, html, javascript, typescript, lua, java, c#, minecraft education, minecraft, roblox, roblox studios",
+      "keywords": "sintaxis, sintaxis.io, syntax, syntaxys, sintaxys, syntaxis, programación, programacion, codigo, codificacion, coding, codificar, programar, programa, academia, escuela, nicaragua, latinoamérica, español, barato, en línea, virtual, zoom, css, python, html, javascript, typescript, lua, java, c#, minecraft education, minecraft, roblox, roblox studios",
       "logo": "images/LogoType.png",
       "telephone": "505-8260-9296",
       "email": "sintaxisacademy@gmail.com",
@@ -136,7 +136,7 @@ const Home: NextPage = () => {
             <title>Sintaxis | Aprende a Programar</title>
             <meta name='description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:title' content='Sintaxis'/>
-            <meta property='og:url' content='https://sintaxis.io'/>
+            <meta property='og:url' content='https://www.sintaxis.io'/>
             <meta property="og:type" content="website" />
             <meta property='og:description' content='La primera academia de programación de Nicaragua'/>
             {/*For Facebook Image*/}
