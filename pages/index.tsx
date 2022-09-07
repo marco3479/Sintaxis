@@ -149,12 +149,12 @@ const Home: NextPage = () => {
             <meta property="og:image:width" content="256"/>
             <meta property="og:image:height" content="256"/>
             <meta property="og:image:type" content="image/png"/>
+          </Head>
             <Script
             type="application/ld+json"
             dangerouslySetInnerHTML={addJsonLD()}
             key="page-jsonld"
             />
-          </Head>
           <div className='relative h-full w-full'>
             <div className='h-full w-full'>
               <Image 
