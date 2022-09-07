@@ -154,6 +154,7 @@ const Home: NextPage = () => {
             type="application/ld+json"
             dangerouslySetInnerHTML={addJsonLD()}
             key="page-jsonld"
+            id="page-jsonld"
             />
           <div className='relative h-full w-full'>
             <div className='h-full w-full'>
