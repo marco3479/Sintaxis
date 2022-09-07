@@ -13,6 +13,7 @@ import YouthProgramming from '../public/images/YouthProgramming.jpg'
 import PythonPhoto from "../public/images/Python.jpg"
 import DataAnalysis from '../public/images/DataAnalysis.jpg' 
 import 'animate.css';
+import FlashyDiv from '../components/FlashyDiv';
 
 const Home: NextPage = () => {
 
@@ -126,7 +127,7 @@ const Home: NextPage = () => {
             </div>
             <div    // First Banner
             ref={LandingBannerRef}
-            className='z-[3] m-8 bottom-0 absolute text-white invisible bg-blue bg-opacity-80 rounded-md p-5 shadow-black shadow-lg'
+            className='z-[3] m-8 bottom-0 mb-20 absolute text-white invisible bg-blue bg-opacity-80 rounded-md p-5 shadow-black shadow-lg'
             >
               <h1
               className='text-3xl sm:text-5xl'
@@ -151,29 +152,39 @@ const Home: NextPage = () => {
               </Button>
             </div>
           </div>
-          <br/>
+          <br/>         
           <br/>            
           <div 
           ref={OfrecemosRef}
           className='flex justify-center relative invisible text-center flex-col text-black'
           >
-            <h1 className='text-3xl self-center font-bold'>Lo que ofrecemos</h1>
             <br/>
-            <div className='relative self-center flex flex-col sm:flex-row !gap-4 text-white md:w-[70%]'>
-              <div className='bg-black p-3 rounded-md'>
-                Todas nuestras clases son <Highlighted>virtuales</Highlighted> con instructores
-                especializados. Así, tu progreso estará acompañado
-                y monitoreado ante cualquier duda.
+            <h1 className='text-4xl md:text-5xl self-center font-bold'>Lo que ofrecemos</h1>
+            <br/>
+            <br/>
+            <br/>
+            <div className='relative self-center flex flex-col sm:flex-row !gap-4 text-white md:w-[90%] md:text-xl md:grid grid-flow-col '>
+              <div className='bg-black p-3 rounded-md md:p-6 flex flex-col justify-center '>
+                <span>
+                  Todas nuestras clases son <Highlighted>virtuales</Highlighted> con instructores
+                  especializados. Así, tu progreso estará acompañado
+                  y monitoreado ante cualquier duda.
+                </span>
               </div>
-              <div className='bg-black p-3 rounded-md'>
-                Clases pequeñas de hasta 16 estudiantes para una <Highlighted>atención y enseñanza personalizada</Highlighted>.
+              <div className='bg-black p-3 rounded-md md:p-6 flex flex-col justify-center '>
+                <span>
+                  Clases pequeñas de hasta 16 estudiantes para una <Highlighted>atención y enseñanza personalizada</Highlighted>.
+                </span>
               </div>
-              <div className='bg-black p-3 rounded-md'>
-                <Highlighted>Entrega de certificado de aprobación</Highlighted> al terminar el curso. 
+              <div className='bg-black p-3 rounded-md md:p-6 flex flex-col justify-center'>
+                <span>
+                  <Highlighted>Entrega de certificado de aprobación</Highlighted> al terminar el curso. 
+                </span>
               </div>
             </div>
           </div>
-          <br/>
+          <br/>       
+          <br/> 
           <div 
           id='upcomingCourseBanner'
           className='invisible grid md:grid-flow-col relative h-max md:h-max md:grid-cols-2 m-5'
@@ -194,31 +205,35 @@ const Home: NextPage = () => {
               <br/>
               <div className='flex flex-row w-full justify-around'>
                 <Link href='cursos_para_jovenes' ><a className='hover:decoration-white'><i className=' font-bold '>Más información</i></a></Link>
-                <Button
-                className='float-right'
-                onClick={() => {
-                  router.push('/inscripcion');
-                }}
-                >
-                  Inscribirse
-                </Button>   
               </div>
             </div>
-            <div className='h-full min-h-[230px] w-full relative bg-black'>
+            <FlashyDiv
+            onClick={ () => {
+              router.push('/inscripcion');
+            }}
+            className='min-h-[230px] flex flex-col items-end relative justify-end bg-black'
+            >
               <Image
-              src={PythonPhoto}
-              layout='fill'
-              objectFit={screenSize[0] < 1150 ? 'contain' : 'cover'}
-              //className=''
-              loading='eager'
-              placeholder='blur'
-              //onClick={() => router.push('/instructores')}
-              objectPosition={'center'}
-              alt='Foto de Python'
-              
-              />
-            </div>
+                src={PythonPhoto}
+                layout='fill'
+                objectFit={screenSize[0] < 1150 ? 'contain' : 'cover'}
+                //className=''
+                loading='eager'
+                placeholder='blur'
+                objectPosition={'center'}
+                alt='Foto de Python'
+                />
+                <Button
+                  className='float-right grid w-max h-max relative m-5'
+                  onClick={() => {
+                    router.push('/inscripcion');
+                  }}
+                  >
+                    Inscribirse
+                  </Button>   
+            </FlashyDiv>
           </div>
+          <br/>
           <br/>
           <div 
           className='grid grid-rows-3 relative text-white grid-flow-row md:grid-rows-none md:grid-cols-3 md:grid-flow-col font-semibold text-center h-[700px] md:h-[400px] w-full ' 
@@ -239,24 +254,23 @@ const Home: NextPage = () => {
               <span className='z-[3] text-4xl'>Niños</span>  
               <i className='z-[3] text-2xl'>Próximamente</i>  
             </div>
-            <div 
-            className='bg-black bg-opacity-70 grid hover:text-blue active:text-blue hover:cursor-pointer  content-between p-5 h-full w-full  relative '
+            <FlashyDiv
             onClick={() => router.push('/cursos_para_jovenes')}
+            className='relative grid content-between h-full w-full p-5  bg-opacity-70'
             >
-              <div className='w-full h-full  hover:border-blue  active:border-blue border-4 border-transparent absolute z-[2]'></div>
               <Image
-              src={YouthProgramming}
-              layout='fill'
-              className='invisible coursesImage'
-              objectFit='cover'
-              loading='eager'
-              placeholder='blur'
-              objectPosition={'top'}
-              alt='Foto de joven programando'
-              />
-              <span className='z-[3] text-4xl font-bold text-white'>Jóvenes</span>  
-              <span className='z-[3] text-2xl'>Cursos</span>  
-            </div>
+                src={YouthProgramming}
+                layout='fill'
+                className='invisible coursesImage'
+                objectFit='cover'
+                loading='eager'
+                placeholder='blur'
+                objectPosition={'top'}
+                alt='Foto de joven programando'
+                />
+                <span className='z-[3] text-4xl font-bold text-white'>Jóvenes</span>  
+                <span className='z-[3] text-2xl'>Cursos</span>  
+            </FlashyDiv>
             <div className=' grid content-between p-5 h-full w-full relative '>
               <div className='bg-black w-full h-full bg-opacity-70 absolute z-[2]'></div>
               <Image
@@ -275,8 +289,9 @@ const Home: NextPage = () => {
           </div>
           <br/>
           <br/>
+          <br/>
           <div className='text-center relative text-black'>
-            <h2 className='text-3xl font-bold' >
+            <h2 className='text-4xl md:text-5xl font-bold' >
               <Link href={'instructores'} scroll={true}>
                 <a>
                   Conoce a tus instructores 
@@ -285,22 +300,23 @@ const Home: NextPage = () => {
             </h2>
               
             <br/>
-            <div className='relative h-[500px] w-full bg-black hover:cursor-pointer'
+            <br/>
+            <FlashyDiv
             onClick={() => router.push('/instructores')}
+            className='relative h-[500px]'
             >
-              <div className='w-full h-full  hover:border-blue  active:border-blue border-4 border-transparent absolute z-[2]'></div>
               <Image
-              src={FotoInstructores}
-              layout='fill'
-              objectFit={screenSize[0] < 640 || (screenSize[1] < screenSize[0] && screenSize![0] < 700) ? 'cover' : 'contain'}
-              id='instructorsImage'
-              className='invisible'
-              loading='eager'
-              placeholder='blur'
-              objectPosition={'top'}
-              alt='Foto de instructores'
-              />
-            </div>
+                src={FotoInstructores}
+                layout='fill'
+                objectFit={screenSize[0] < 640 || (screenSize[1] < screenSize[0] && screenSize![0] < 700) ? 'cover' : 'contain'}
+                id='instructorsImage'
+                className='invisible'
+                loading='eager'
+                placeholder='blur'
+                objectPosition={'top'}
+                alt='Foto de instructores'
+                />
+            </FlashyDiv>
           </div>
           {/*For Whatsapp Image supposedly*/}
           <link itemProp="thumbnailUrl" href='https://ibb.co/Qdj3rbH'/>
