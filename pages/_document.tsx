@@ -3,10 +3,6 @@ import Script from 'next/script'
 
 export default function Document() {
 
-  const googleScript = () => {
-    
-  }
-
   return (
     <Html lang='en'>
       <Head>
