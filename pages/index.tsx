@@ -135,7 +135,7 @@ const Home: NextPage = () => {
           <Head>
             <title>Sintaxis | Aprende a Programar</title>
             <meta name='description' content='La primera academia de programación de Nicaragua'/>
-            <meta property='og:title' content='Sintaxis'/>
+            <meta property='og:title' content='Sintaxis | Aprende a Programar'/>
             <meta property='og:url' content='https://www.sintaxis.io'/>
             <meta property="og:type" content="website" />
             <meta property='og:description' content='La primera academia de programación de Nicaragua'/>
