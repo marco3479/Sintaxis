@@ -162,6 +162,7 @@ const Home: NextPage = () => {
               alt='SintaxisMainPic'
               className=' relative' 
               placeholder='blur'
+              priority
               layout='fill'  
               objectFit="cover" 
               objectPosition={screenSize![0] > 1000 ? '50% 100%' : 'right'}
