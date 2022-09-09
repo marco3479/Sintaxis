@@ -92,7 +92,7 @@ export default function CursosParaJóvenes () {
                         </span>
                         <br/>
                         <span>
-                            <b>Inversión:</b> $50 al mes
+                            <b>Inversión:</b> $40 al mes
                         </span>
                         <span>
                             <b>Duración total:</b> 32 horas distribuidas en 16 semanas
