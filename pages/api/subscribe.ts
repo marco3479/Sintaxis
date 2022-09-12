@@ -54,17 +54,13 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     };
 
     const transporter = nodemailer.createTransport({
-        //service: 'gmail',
-        port: 465,
         host: 'smtp.sendgrid.net',
+        port: 465,
         secure: true,
         auth: {
-            user: "sintaxisacademy@gmail.com",
-            pass: process.env.SENDGRID_API_KEY,//'sintaxisacademy@gmail.com',
+            user: "apikey",
+            pass: process.env.SENDGRID_API_KEY,
         },
-        //tls: {
-        //    rejectUnauthorized: false
-        //}
     });
 
     /*await new Promise((resolve, reject) => {
