@@ -5,7 +5,7 @@ require('dotenv').config()
 const PASSWORD = process.env.PASSWORD
 
 
-export default async function handler (req: NextApiRequest, res: NextApiResponse) {
+export default function handler (req: NextApiRequest, res: NextApiResponse) {
     
     const data: GeneralData = req.body;
 
@@ -59,7 +59,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         host: 'smtp.sendgrid.net',
         secure: true,
         auth: {
-            user: "apikey",
+            user: "contact@sintaxis.io",
             pass: process.env.SENDGRID_API_KEY,//'sintaxisacademy@gmail.com',
         },
         //tls: {
