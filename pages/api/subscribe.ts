@@ -59,7 +59,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         host: 'smtp.sendgrid.net',
         secure: true,
         auth: {
-            user: "contact@sintaxis.io",
+            user: "sintaxisacademy@gmail.com",
             pass: process.env.SENDGRID_API_KEY,//'sintaxisacademy@gmail.com',
         },
         //tls: {
