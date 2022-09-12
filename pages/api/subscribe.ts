@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from 'nodemailer'
-import { GeneralData } from "../inscripcion";
+import { GeneralData } from "../../components/pages/SignUp";
 require('dotenv').config()
 const PASSWORD = process.env.PASSWORD
 
