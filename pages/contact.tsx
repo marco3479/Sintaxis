@@ -1,11 +1,11 @@
 import Contact from "../components/pages/Contact";
 
 
-const ContactoPage = () => {
+const ContactPage = () => {
     return (
         <Contact/>
     )
 }
 
 
-export default ContactoPage;
+export default ContactPage;

@@ -134,7 +134,12 @@ const Home: NextPage = () => {
   return (
         <div className='overflow-y-auto h-full w-full relative bg-white '>
           <Head>
-            <title>Sintaxis | Aprende a Programar</title>
+            <title>
+              <Concept>
+                <Expression lang='es'>Sintaxis | Aprende a Programar</Expression>
+                <Expression lang='en'>Sintaxis | Learn to Code</Expression>
+              </Concept>
+            </title>
             <meta name='description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:title' content='Sintaxis | Aprende a Programar'/>
             <meta property='og:url' content='https://www.sintaxis.io'/>

@@ -2,10 +2,10 @@ import CoursesForYoung from "../components/pages/CoursesForYoung";
 
 
  
-const CursosParaJovenesPage = () => {
+const CoursesForTheYoungPage = () => {
     return (
         <CoursesForYoung/>
     )
 }
 
-export default CursosParaJovenesPage;
+export default CoursesForTheYoungPage;

@@ -1,8 +1,8 @@
 import Instructors from "../components/pages/Instructors";
 
 
-const Instructores = () => {
+const InstructorsPage = () => {
     return <Instructors/>
 }
 
-export default Instructores;
+export default InstructorsPage;
