@@ -1,5 +1,5 @@
 import { Context, createContext, Dispatch, SetStateAction, useContext, useState } from 'react';
-import { GeneralData } from '../pages/inscripcion';
+import { GeneralData } from '../components/pages/SignUp';
 
 export const SubscriptionContext: Context<SubscriptionContextType> = createContext({} as SubscriptionContextType)
 
