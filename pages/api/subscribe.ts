@@ -5,7 +5,7 @@ require('dotenv').config()
 const PASSWORD = process.env.PASSWORD
 
 
-export default function handler (req: NextApiRequest, res: NextApiResponse) {
+export default async function handler (req: NextApiRequest, res: NextApiResponse) {
     
     const data: GeneralData = req.body;
 
