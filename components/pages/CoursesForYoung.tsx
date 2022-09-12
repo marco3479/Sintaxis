@@ -4,7 +4,7 @@ import Button from "../Button";
 import Concept, { Expression } from "../Concept";
 import CursosParaJóvenes from "../CursosParaJóvenes";
 
-export default function coursesForYoung () {
+export default function CoursesForYoung () {
     
     const router = useRouter();
 
