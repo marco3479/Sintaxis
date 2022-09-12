@@ -1,10 +1,13 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Document() {
 
+  const language = useLanguage()[0];
+
   return (
-    <Html lang='en'>
+    <Html lang={language}>  {/**NOT WORKING */}
       <Head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>

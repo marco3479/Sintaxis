@@ -15,6 +15,7 @@ import DataAnalysis from '../public/images/DataAnalysis.jpg'
 import 'animate.css';
 import FlashyDiv from '../components/FlashyDiv';
 import Script from 'next/script';
+import Concept, { Expression } from '../components/Concept';
 
 const Home: NextPage = () => {
 
@@ -176,15 +177,28 @@ const Home: NextPage = () => {
               <h1
               className='text-3xl sm:text-5xl'
               >
-                Aprende a programar
+                <Concept>
+                  <Expression lang='es'>Aprende a programar</Expression>
+                  <Expression lang='en'>Learn to code</Expression>
+                </Concept>
               </h1>
               <br/>
               <p
               className='text-lg sm:w-[30rem]'
               >
-                Somos la primera academia de <i>programación</i> de Nicaragua. 
-                Te enseñamos todo lo que necesitás para sumergirte 
-                en un mundo de posibilidades.
+                <Concept>
+                  <Expression lang='es'>
+                    Somos la primera academia de <i>programación</i> de Nicaragua. 
+                    Te enseñamos todo lo que necesitás para sumergirte 
+                    en un mundo de posibilidades.
+                  </Expression>
+                  <Expression lang='en'>
+                    We are the first <i>coding</i> academy of Nicaragua.
+                    We will teach you everything you need to submerge into 
+                    a world of possibilities
+                  </Expression>
+                </Concept>
+                
               </p>
               <Button
               className='mt-5'
@@ -192,7 +206,10 @@ const Home: NextPage = () => {
                 router.push('/inscripcion');
               }}
               >
-                Inscribirse
+                <Concept>
+                  <Expression lang='es'>Inscribirse</Expression>
+                  <Expression lang='en'>Sign Up</Expression>
+                </Concept>
               </Button>
             </div>
           </div>
@@ -203,25 +220,52 @@ const Home: NextPage = () => {
           ref={OfrecemosRef}
           className='flex justify-center relative invisible text-center flex-col text-black'
           >
-            <h1 className='text-4xl md:text-5xl self-center font-bold'>Lo que ofrecemos</h1>
+            <h1 className='text-4xl md:text-5xl self-center font-bold'>
+              <Concept>
+                <Expression lang='es'>Lo que ofrecemos</Expression>  
+                <Expression lang='en'>What we offer</Expression>  
+              </Concept>
+            </h1>
             <br/>
             <br/>
             <div className='relative self-center flex flex-col sm:flex-row !gap-4 text-white md:w-[90%] md:text-xl md:grid grid-flow-col '>
               <div className='bg-black p-3 rounded-md md:p-6 flex flex-col justify-center '>
                 <span>
-                  Todas nuestras clases son <Highlighted>virtuales</Highlighted> con instructores
-                  especializados. Así, tu progreso estará acompañado
-                  y monitoreado ante cualquier duda.
+                  <Concept>
+                    <Expression lang='es'>
+                      Todas nuestras clases son <Highlighted>virtuales</Highlighted> con instructores
+                      especializados. Así, tu progreso estará acompañado
+                      y monitoreado ante cualquier duda.
+                    </Expression>
+                    <Expression lang='en'>
+                      All our classes are <Highlighted>virtual</Highlighted> with specialized instructors. 
+                      Hence your progress will be accompanied and monitored under any concern.
+                    </Expression>
+                  </Concept>
                 </span>
               </div>
               <div className='bg-black p-3 rounded-md md:p-6 flex flex-col justify-center '>
                 <span>
-                  Clases pequeñas de hasta 16 estudiantes para una <Highlighted>atención y enseñanza personalizada</Highlighted>.
+                  <Concept>
+                    <Expression lang='es'>
+                      Clases pequeñas de hasta 16 estudiantes para una <Highlighted>atención y enseñanza personalizada</Highlighted>.
+                    </Expression>
+                    <Expression lang='en'>
+                      Small classes up to 16 students for <Highlighted>personalized lessons</Highlighted>.
+                    </Expression>
+                  </Concept>
                 </span>
               </div>
               <div className='bg-black p-3 rounded-md md:p-6 flex flex-col justify-center'>
                 <span>
-                  <Highlighted>Entrega de certificado de aprobación</Highlighted> al terminar el curso. 
+                  <Concept>
+                    <Expression lang='es'>
+                      <Highlighted>Entrega de certificado de aprobación</Highlighted> al terminar el curso. 
+                    </Expression>
+                    <Expression lang='en'>
+                      <Highlighted>Award of certificate</Highlighted> as course is completed. 
+                    </Expression>
+                  </Concept>
                 </span>
               </div>
             </div>
@@ -234,20 +278,42 @@ const Home: NextPage = () => {
           >
             <div className='bg-blue p-5 rounded-t-md md:rounded-t-none  md:rounded-l-md text-xl'>
               <h2 className='text-3xl text-center font-bold'>
-                ¿Querés comenzar a programar?
+                <Concept>
+                  <Expression lang='es'>¿Querés comenzar a programar?</Expression>
+                  <Expression lang='en'>Do you want to start programming?</Expression>
+                </Concept>
+                
               </h2>
               <br/>
-              Nuestro primer curso, 
-              <b> Introducción a Programación con Python, </b>
-              empieza el <b>sábado 24 de septiembre</b>. 
+              <Concept>
+                <Expression lang='es'>
+                  Nuestro primer curso, 
+                  <b> Introducción a Programación con Python, </b>
+                  empieza el <b>sábado 24 de septiembre</b>. 
+                </Expression>
+                <Expression lang='en'>
+                  Our first course, 
+                  <b> Introduction to Programming with Python, </b>
+                  starts <b>Saturday, September 24th</b>. 
+                </Expression>
+              </Concept>
               <br/>
               <br/>
               <div className='bg-black text-white p-3 rounded-md'>
-                ¡Inscribite ahora y usa el código<b> SINTAXIS20 </b>para un 20% de descuento! 
+                <Concept>
+                  <Expression lang='es'>¡Inscribite ahora y usa el código<b> SINTAXIS20 </b>para un 20% de descuento! </Expression>
+                  <Expression lang='en'>Sign up now and use the code<b> SINTAXIS20 </b>for a 20% discount! </Expression>
+                </Concept>
+                
               </div>
               <br/>
               <div className='flex flex-row w-full justify-around'>
-                <Link href='cursos_para_jovenes' ><a className='hover:decoration-white'><i className=' font-bold '>Más información</i></a></Link>
+                <Link href='cursos_para_jovenes' ><a className='hover:decoration-white'><i className=' font-bold '>
+                  <Concept>
+                    <Expression lang='es'>Más información</Expression>
+                    <Expression lang='en'>More information</Expression>
+                  </Concept>
+                  </i></a></Link>
               </div>
             </div>
             <FlashyDiv
@@ -272,7 +338,10 @@ const Home: NextPage = () => {
                     router.push('/inscripcion');
                   }}
                   >
-                    Inscribirse
+                    <Concept>
+                      <Expression lang='es'>Inscribirse</Expression>
+                      <Expression lang='en'>Sign Up</Expression>
+                    </Concept>
                   </Button>   
             </FlashyDiv>
           </div>
@@ -294,8 +363,17 @@ const Home: NextPage = () => {
               objectPosition={'center'}
               alt='Foto de Minecraft'
               />
-              <span className='z-[3] text-4xl'>Niños</span>  
-              <i className='z-[3] text-2xl'>Próximamente</i>  
+              <span className='z-[3] text-4xl'>
+                <Concept>
+                  <Expression lang='es'>Niños</Expression>  
+                  <Expression lang='en'>Kids</Expression>  
+                </Concept></span>  
+              <i className='z-[3] text-2xl'>
+                <Concept>
+                  <Expression lang='es'>Próximamente</Expression>  
+                  <Expression lang='en'>Coming Soon</Expression>  
+                </Concept>
+              </i>  
             </div>
             <FlashyDiv
             onClick={() => router.push('/cursos_para_jovenes')}
@@ -311,8 +389,18 @@ const Home: NextPage = () => {
                 objectPosition={'top'}
                 alt='Foto de joven programando'
                 />
-                <span className='z-[3] text-4xl font-bold text-white'>Jóvenes</span>  
-                <span className='z-[3] text-2xl'>Cursos</span>  
+                <span className='z-[3] text-4xl font-bold text-white'>
+                  <Concept>
+                    <Expression lang='es'>Jóvenes</Expression>
+                    <Expression lang='en'>Youth</Expression>
+                  </Concept>
+                  </span>  
+                <span className='z-[3] text-2xl'>
+                  <Concept>
+                    <Expression lang='es'>Cursos</Expression>
+                    <Expression lang='en'>Courses</Expression>
+                  </Concept>  
+                </span>  
             </FlashyDiv>
             <div className=' grid content-between p-5 h-full w-full relative '>
               <div className='bg-black w-full h-full bg-opacity-70 absolute z-[2]'></div>
@@ -326,8 +414,18 @@ const Home: NextPage = () => {
               objectPosition={'center'}
               alt='Foto de análisis de datos'
               />  
-              <span className='z-[3] text-4xl'>Profesionales</span>  
-              <i className='z-[3] text-2xl'>Próximamente</i>  
+              <span className='z-[3] text-4xl'>
+                <Concept>
+                  <Expression lang='es'>Profesionales</Expression>
+                  <Expression lang='en'>Professionals</Expression>
+                </Concept>
+              </span>  
+              <i className='z-[3] text-2xl'>
+                <Concept>
+                    <Expression lang='es'>Próximamente</Expression>  
+                    <Expression lang='en'>Coming Soon</Expression>  
+                  </Concept>  
+              </i>  
             </div>
           </div>
           <br/>
@@ -337,7 +435,10 @@ const Home: NextPage = () => {
             <h2 className='text-4xl md:text-5xl  font-bold' >
               <Link href={'instructores'} scroll={true}>
                 <a className='hover:decoration-[10px]'>
-                  Conoce a tus instructores 
+                  <Concept>
+                    <Expression lang='es'>Conoce a tus instructores</Expression>
+                    <Expression lang='en'>Meet your instructors</Expression>
+                  </Concept>
                 </a>
               </Link>
             </h2>

@@ -1,9 +1,15 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+import Concept, { Expression } from "./Concept";
 import Navbar from "./Navbar";
 import PromoBanner from "./PromoBanner";
 
 export default function Layout ({ children }:any) {
+
+
+    const [language, setLanguage] = useLanguage();
+
 
 
     const [showCursosMenu, setShowCursosMenu] = useState<boolean>(true);
@@ -105,6 +111,11 @@ export default function Layout ({ children }:any) {
                             Contacto
                         </Link>
                     </h2>
+                    <br/>
+                    <br/>
+                    <h2 className={`text-lg hover:cursor-pointer place-self-end font-semibold border-2  max-w-max right-2 rounded-md p-2 py-1 ${language === 'en' ? ' border-white' : 'border-transparent'}`} onClick={() => setLanguage!('en')}>EN</h2>
+                    <h2 className={`text-lg hover:cursor-pointer place-self-end font-semibold border-2  max-w-max right-2 rounded-md p-2 py-1 ${language === 'es' ?  'border-white' : 'border-transparent'}`} onClick={() => setLanguage!('es')}>ES</h2>
+                    <br/>
                     <br/>
                     <br/>
                     <br/>

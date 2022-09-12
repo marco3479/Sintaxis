@@ -5,6 +5,8 @@ import LogoMark from '../public/images/LogoMark.png'
 import { useEffect, useLayoutEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Button from "./Button"
+import { useLanguage } from "../context/LanguageContext"
+import Concept, { Expression } from "./Concept"
 
 
 const Navbar = () => {
@@ -13,6 +15,9 @@ const Navbar = () => {
     const [screenSize, setScreenSize] = useState<number|undefined>();
 
     const [showCursosMenu, setShowCursosMenu] = useState<boolean>(false);
+    const [showLangMenu, setShowLangMenu] = useState<boolean>(false);
+
+    const [language, setLanguage] = useLanguage();
 
 
     useLayoutEffect(() => {
@@ -40,14 +45,34 @@ const Navbar = () => {
             priority
             />
         </div>
+        <div 
+        className='grid grid-flow-row justify-center cursor-pointer p-1 w-20'
+        onMouseLeave={() => setShowLangMenu(false)}
+        >
+            <h3 
+            className='hidden overflow-visible lg:flex text-lg justify-center font-semibold border-2 border-white rounded-md p-2 py-1 hover:bg-white hover:text-blue'
+            onClick={() => setShowLangMenu(!showLangMenu)}
+            >
+                <Concept>
+                    <Expression lang='es'>ES</Expression>
+                    <Expression lang='en'>EN</Expression>
+                </Concept>
+            </h3>
+            {showLangMenu
+            ? 
+            <div className="bg-black rounded-b-md gap-2 text-xl p-3 grid grid-flow-row absolute justify-self-center translate-y-[2.8rem]">
+                <h2 className={`${language === 'en' ? 'text-blue' : ''}`} onClick={() => setLanguage!('en')}>EN</h2>
+                <h2 className={`${language === 'es' ? 'text-blue' : ''}`} onClick={() => setLanguage!('es')}>ES</h2>
+            </div>
+            : null}
+        </div>
         <div
-        className="flex flex-row justify-end text-center"
+        className="flex flex-row justify-center text-center"
         >
             <div 
-            className={`flex flex-col  ${showCursosMenu ? 'translate-y-[3.9rem] mr-[0.75rem]' : 'mr-12 translate-y-[0.4rem]'}`}
+            className='flex flex-col mr-12 place-self-center'
             onMouseLeave={() => setShowCursosMenu(false)}
             >
-
                 <h2
                 className='hidden lg:flex  justify-center font-semibold'
                 onClick={() => {
@@ -59,18 +84,24 @@ const Navbar = () => {
                 href=''
                 >
                     <a className="hover:decoration-transparent">
-                        Cursos
+                        <Concept>
+                            <Expression lang='es'>Cursos</Expression>
+                            <Expression lang='en'>Courses</Expression>
+                        </Concept>
                     </a>
                 </Link>
                 </h2>
                 {showCursosMenu
                 ? <>
-                <div className="bg-black rounded-md gap-2 text-xl p-3 grid grid-flow-row relative">
+                <div className="bg-black rounded-b-md gap-2 text-xl p-3 grid grid-flow-row translate-y-[2rem] -translate-x-[2rem] absolute">
                     <Link
                     href=''
                     >
                         <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
-                            Niños
+                            <Concept>
+                                <Expression lang='es'>Niños</Expression>
+                                <Expression lang='en'>Kids</Expression>
+                            </Concept>
                         </a>
                     </Link>
                     <Link
@@ -81,15 +112,20 @@ const Navbar = () => {
                             setShowCursosMenu(false);
                         }}
                         >
-
-                            Jóvenes
+                            <Concept>
+                                <Expression lang='es'>Jóvenes</Expression>
+                                <Expression lang='en'>Youth</Expression>
+                            </Concept>
                         </a>
                     </Link>
                     <Link
                     href=''
                     >
                         <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
-                            Profesionales
+                            <Concept>
+                                <Expression lang='es'>Profesionales</Expression>
+                                <Expression lang='en'>Professionals</Expression>
+                            </Concept>
                         </a>
                     </Link>
                     
@@ -103,14 +139,24 @@ const Navbar = () => {
             <Link 
             href='instructores'
             >
-                Instructores
+                <a>
+                <Concept>
+                    <Expression lang='es'>Instructores</Expression>
+                    <Expression lang='en'>Instructors</Expression>
+                </Concept>
+                </a>
             </Link>
             </h2>
             <h2
             className='hidden lg:flex place-items-center mr-12 font-semibold'
             >
             <Link href='contacto'>
-                Contacto
+                <a>
+                <Concept>
+                    <Expression lang='es'>Contacto</Expression>
+                    <Expression lang='en'>Contact</Expression>
+                </Concept>
+                </a>
             </Link>
             </h2>
             <div className=" hidden lg:grid place-content-center mr-12">
@@ -120,7 +166,10 @@ const Navbar = () => {
                     router.push('/inscripcion');
                     }}
                     >
-                    Inscribirse
+                    <Concept>
+                        <Expression lang='es'>Inscribirse</Expression>
+                        <Expression lang='en'>Sign Up</Expression>
+                    </Concept>
                 </Button>
             </div>
             <button

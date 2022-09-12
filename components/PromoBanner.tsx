@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Concept, { Expression } from "./Concept";
 
 export default function PromoBanner () {
     return(
@@ -12,17 +13,35 @@ export default function PromoBanner () {
             style={{gridTemplateColumns: '35% max-content 40%'}}
             >
                 <span className="text-right hidden md:block">
-                    <i>Obtené 20% de descuento con el código</i>
+                    <i>
+                        <Concept>
+                            <Expression lang='es'>Obtené 20% de descuento con el código</Expression>    
+                            <Expression lang='en'>Get 20% discount with the code</Expression>    
+                        </Concept>
+                    </i>
                 </span>
                 <div className="text-center  ml-3 md:ml-0 place-items-center justify-around">
-                    <span className="md:hidden">Obtené 20% de descuento con el código</span> 
+                    <span className="md:hidden">
+                        <Concept>
+                            <Expression lang='es'>Obtené 20% de descuento con el código</Expression>
+                            <Expression lang='en'>Get 20% discount with the code</Expression>
+                        </Concept>
+                    </span> 
                     &nbsp;
                     <b className="hover:bg-white hover:text-blue text-xl"><Link href='inscripcion'>&nbsp;SINTAXIS20&nbsp;</Link></b>
                     &nbsp;
-                    <span className="md:hidden">en el curso <b> &nbsp;Introducción a Programación con Python</b> </span> 
+                    <span className="md:hidden">
+                        <Concept>
+                            <Expression lang='es'>en el curso <b> &nbsp;Introducción a Programación con Python</b> </Expression>     
+                            <Expression lang='en'>in the course <b> &nbsp;Introduction to Programming with Python</b> </Expression>     
+                        </Concept>
+                    </span> 
                 </div>
                 <span className="text-left hidden md:inline">
-                    en el curso <b> &nbsp;Introducción a Programación con Python</b> 
+                    <Concept>
+                        <Expression lang='es'>en el curso <b> &nbsp;Introducción a Programación con Python</b> </Expression>     
+                        <Expression lang='en'>in the course <b> &nbsp;Introduction to Programming with Python</b> </Expression>     
+                    </Concept>
                 </span>
             </div>
             <button

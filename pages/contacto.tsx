@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import "animate.css/animate.compat.css";
+import Concept, { Expression } from "../components/Concept";
 
 const ContactoPage = () => {
 
@@ -16,7 +17,12 @@ const ContactoPage = () => {
             <div>
                 <br/>
                 <br/>
-                <h2 className="text-2xl font-semibold self-center w-[18rem] text-white text-center">Contactanos por cualquiera de estas vías</h2>
+                <h2 className="text-2xl font-semibold self-center w-[18rem] text-white text-center">
+                    <Concept>
+                        <Expression lang="es">Contactanos por cualquiera de estas vías</Expression>
+                        <Expression lang="en">Contact us by any of the following means</Expression>
+                    </Concept>
+                </h2>
                 <br/>
                 <br/>
                 <div className="bg-white text-center text-black p-3 rounded-md">

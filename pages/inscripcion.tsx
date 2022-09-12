@@ -25,6 +25,8 @@ const Inscripcion = () => {
 
     const Context: SubscriptionContextType = useSubscription();
 
+    const language = useLanguage()[0];
+
     const {
         generalData,
         setGeneralData,
@@ -153,9 +155,18 @@ const Inscripcion = () => {
                         return programa = <>
                         Complete Programmer
                         <br/>
-                        Nivel I
-                        <br/>
-                        Introducción a Programación con Python
+                        <Concept>
+                            <Expression lang='es'>
+                                Nivel I
+                                <br/>
+                                Introducción a Programación con Python
+                            </Expression>
+                            <Expression lang='en'>
+                                Lvl I
+                                <br/>
+                                Introduction to Programming with Python
+                            </Expression>
+                        </Concept>
                         </>
                 }
             }
@@ -192,14 +203,21 @@ const Inscripcion = () => {
                             setPhase('Programas')
                         }}}
                     >
-                        Cursos
+                        <Concept>
+                            <Expression lang='es'>Cursos</Expression>
+                            <Expression lang='en'>Courses</Expression>
+                        </Concept>
+                        
                     </li>
                     <li
                     className={`border-white text-white hover:cursor-pointer font-semibold border-2 p-2 rounded-md ${phase === 'Revisión' ? 'bg-white text-blue' : phases.Programas.valid ? '' : 'bg-slate-500'}`}
                     key={2}
                     onClick={() => {if (phases.Programas.valid) setPhase('Revisión')}}
                     >
-                        Revisión
+                        <Concept>
+                            <Expression lang='es'>Revisión</Expression>
+                            <Expression lang='en'>Review</Expression>
+                        </Concept>    
                     </li>     
                 </ul>
                 : null}
@@ -213,7 +231,12 @@ const Inscripcion = () => {
                     <div className='flex flex-col items-center lg:flex-row justify-center lg:gap-40 relative'>
                         <div className='grid  relative align-middle'>
                             <label className="text-lg font-semibold" htmlFor='NombreCompleto'>
-                                <span className='text-white'>Nombre Completo</span>
+                                <span className='text-white'>
+                                    <Concept>
+                                        <Expression lang="es">Nombre Completo</Expression>    
+                                        <Expression lang="en">Full Name</Expression>    
+                                    </Concept>
+                                </span>
                                 <br/>
                                 <input required value={generalData.name} className='p-2 mt-2 border-2 requiredInput rounded-md ' type='text' id='NombreCompleto' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
@@ -227,7 +250,12 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='FechaDeNac'>
-                                <span className='text-white'>Fecha de Nacimiento</span>
+                                <span className='text-white'>
+                                    <Concept>
+                                        <Expression lang='es'>Fecha de Nacimiento</Expression>    
+                                        <Expression lang='en'>Birthdate</Expression>    
+                                    </Concept>
+                                </span>
                                 <br/>
                                 <input required className='p-2 mt-2 border-2  requiredInput rounded-md ' type='date' id='FechaDeNac'
                                 value={generalData.birthdate}
@@ -240,7 +268,12 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='Domicilio'>
-                                <span className='text-white'>Domicilio</span>
+                                <span className='text-white'>
+                                    <Concept>
+                                        <Expression lang='es'>Domicilio</Expression>
+                                        <Expression lang='en'>Address</Expression>
+                                    </Concept>
+                                </span>
                                 <br/>
                                 <textarea required className='p-2 resize-y border-2 requiredInput mt-2 h-[100px] rounded-md '  id='Domicilio'
                                 value={generalData.address}
@@ -253,7 +286,12 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='Ciudad'>
-                                <span className='text-white'>Ciudad</span>
+                                <span className='text-white'>
+                                    <Concept>
+                                        <Expression lang='es'>Ciudad</Expression>
+                                        <Expression lang='en'>City</Expression>
+                                    </Concept>
+                                </span>
                                 <br/>
                                 <input required value={generalData.city} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='Ciudad' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
@@ -269,7 +307,12 @@ const Inscripcion = () => {
                         </div>
                         <div className='flex flex-col relative'>
                             <label className="text-lg font-semibold" htmlFor='País'>
-                                <span className='text-white'>País</span>
+                                <span className='text-white'>
+                                    <Concept>
+                                        <Expression lang='es'>País</Expression>
+                                        <Expression lang='en'>Country</Expression>
+                                    </Concept>
+                                </span>
                                 <br/>
                                 <input required value={generalData.country} className='p-2 border-2 mt-2 requiredInput rounded-md ' type='text' id='País' 
                                 onChange={(e) => {setGeneralData((dD: GeneralData) => (
@@ -283,7 +326,12 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='Email'>
-                                <span className='text-white'>Correo Electrónico</span>
+                                <span className='text-white'>
+                                    <Concept>
+                                        <Expression lang='es'>Correo Electrónico</Expression>
+                                        <Expression lang='en'>Email</Expression>
+                                    </Concept>
+                                </span>
                                 <br/>
                                 <input aria-required required className=' p-2 mt-2 border-2 requiredInput rounded-md ' type='email' id='Email'
                                 value={generalData.email}
@@ -296,7 +344,12 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='Telefono'>
-                                <span className='text-white'>Número de Telefono</span>
+                                <span className='text-white'>
+                                    <Concept>
+                                        <Expression lang='es'>Número de Telefono</Expression>
+                                        <Expression lang='en'>Phone Number</Expression>
+                                    </Concept>
+                                </span>
                                 <br/>
                                 <input required type='tel' className='p-2 border-2 mt-2 requiredInput rounded-md 'id='Telefono'
                                 value={generalData.phoneNumber}
@@ -309,7 +362,12 @@ const Inscripcion = () => {
                             <br/>
                             <br/>
                             <label className="text-lg font-semibold" htmlFor='DóndeNosConoció'>
-                                <span className='text-white'>Dónde nos conoció</span>
+                                <span className='text-white'>
+                                    <Concept>
+                                        <Expression lang='es'>Dónde nos conoció</Expression>
+                                        <Expression lang='en'>Where you met us</Expression>
+                                    </Concept>
+                                </span>
                                 <br/>
                                 <select
                                 className="p-2 border-2 mt-2 requiredInput rounded-md"
@@ -338,10 +396,16 @@ const Inscripcion = () => {
                                         Google
                                     </option>
                                     <option value='Conocido'>
-                                        Conocido
+                                        <Concept>
+                                            <Expression lang='es'>Conocido</Expression>
+                                            <Expression lang='en'>Acquaintance</Expression>
+                                        </Concept>
                                     </option>
                                     <option value='Otro'>
-                                        Otro
+                                        <Concept>
+                                            <Expression lang='es'>Otro</Expression>
+                                            <Expression lang='en'>Other</Expression>
+                                        </Concept>
                                     </option>
                                 </select>
                                 {generalData.acknowledgementSource === 'Otro' || (['Facebook', 'LinkedIn', 'Google', 'Conocido', 'Instagram', ''].every((value: string) => {if (value === generalData.acknowledgementSource) return false}) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro', 'Instagram'].includes(generalData.acknowledgementSource) || (acknowledgementSourceSelectRef.current?.value === 'Otro' && generalData.acknowledgementSource === ''))
@@ -375,7 +439,10 @@ const Inscripcion = () => {
                              //   }
                             }}//}
                             >
-                                Siguiente
+                                <Concept>
+                                    <Expression lang='es'>Siguiente</Expression>
+                                    <Expression lang='en'>Next</Expression>
+                                </Concept>
                             </Button>
                         </div>
                     </div>
@@ -385,7 +452,12 @@ const Inscripcion = () => {
                     {phase == 'Programas'
                     ? 
                     <div className="flex flex-col">
-                        <h2 className='text-xl w-full md:w-[30%] text-center  font-semibold'>Por favor seleccione un curso</h2>
+                        <h2 className='text-xl w-full md:w-[30%] text-center  font-semibold'>
+                            <Concept>
+                                <Expression lang='es'>Por favor seleccione un curso</Expression>
+                                <Expression lang='en'>Please select a course</Expression>
+                            </Concept>        
+                        </h2>
                         <br/>
                         <CursosParaJóvenes/>
                         <Button
@@ -393,7 +465,10 @@ const Inscripcion = () => {
                             onClick={() => {if (phases.Programas.valid) setPhase('Revisión')}
                             }
                             >
-                                Siguiente
+                                <Concept>
+                                    <Expression lang='es'>Siguiente</Expression>
+                                    <Expression lang='en'>Next</Expression>
+                                </Concept>
                         </Button> 
                     </div>
 
@@ -405,24 +480,72 @@ const Inscripcion = () => {
                         <div // General
                         className='grid border-2 border-white bg-black text-white rounder-md p-5 self-center rounded-md'
                         >
-                            <span><b>Nombre:</b> {generalData.name}</span>
-                            <span><b>Dirección:</b> {generalData.address}</span>
-                            <span><b>Cumpleaños:</b> {generalData.birthdate}</span>
-                            <span><b>Ciudad:</b> {generalData.city}</span>
-                            <span><b>País:</b> {generalData.country}</span>
-                            <span><b>Correo Electrónico:</b> {generalData.email}</span>
-                            <span><b>Número de Teléfono:</b> {generalData.phoneNumber}</span>
-                            <span><b>Dónde nos conoció:</b> {generalData.acknowledgementSource}</span>
+                            <span><b>
+                                <Concept>
+                                    <Expression lang='es'>Nombre:</Expression>
+                                    <Expression lang='en'>Name:</Expression>
+                                </Concept>
+                            </b> {generalData.name}</span>
+                            <span><b>
+                                <Concept>
+                                    <Expression lang='es'>Dirección:</Expression>
+                                    <Expression lang='en'>Address:</Expression>
+                                </Concept>
+                            </b> {generalData.address}</span>
+                            <span><b>
+                                <Concept>
+                                    <Expression lang='es'>Cumpleaños:</Expression>
+                                    <Expression lang='en'>Birthdate:</Expression>
+                                </Concept>
+                            </b> {generalData.birthdate}</span>
+                            <span><b>
+                                <Concept>
+                                    <Expression lang='es'>Ciudad:</Expression>
+                                    <Expression lang='en'>City:</Expression>
+                                </Concept>
+                            </b> {generalData.city}</span>
+                            <span><b>
+                                <Concept>
+                                    <Expression lang='es'>País:</Expression>
+                                    <Expression lang='en'>Country:</Expression>
+                                </Concept>
+                            </b> {generalData.country}</span>
+                            <span><b>
+                                <Concept>
+                                    <Expression lang='es'>Correo Electrónico:</Expression>
+                                    <Expression lang='en'>Email:</Expression>
+                                </Concept>
+                            </b> {generalData.email}</span>
+                            <span><b>
+                                <Concept>
+                                    <Expression lang='es'>Número de Teléfono:</Expression>
+                                    <Expression lang='en'>Phone Number:</Expression>
+                                </Concept>
+                            </b> {generalData.phoneNumber}</span>
+                            <span><b>
+                                <Concept>
+                                    <Expression lang='es'>Dónde nos conoció:</Expression>
+                                    <Expression lang='en'>Where you met us:</Expression>
+                                </Concept>
+                            </b> {generalData.acknowledgementSource}</span>
                             <br/>
                             <Button
                             className="max-w-min place-self-end"
                             onClick={() => setPhase('General')}
                             >
-                                Editar
+                                <Concept>
+                                    <Expression lang='es'>Editar</Expression>
+                                    <Expression lang='en'>Edit</Expression>
+                                </Concept>
                             </Button>        
                             <br/>
                             <br/>
-                            <b>Programa de selección: </b>
+                            <b>
+                                <Concept>
+                                    <Expression lang='es'>Curso seleccionado: </Expression>
+                                    <Expression lang='en'>Selected course: </Expression>
+                                </Concept>
+                            </b>
                             <br/>
                             <div className='font-bold text-center'>
                                 <Program/>
@@ -433,7 +556,10 @@ const Inscripcion = () => {
                             className="max-w-min place-self-end"
                             onClick={() => setPhase('Programas')}
                             >
-                                Editar
+                                <Concept>
+                                    <Expression lang='es'>Editar</Expression>
+                                    <Expression lang='en'>Edit</Expression>
+                                </Concept>
                             </Button>        
                         </div>
                         <br/>
@@ -453,32 +579,54 @@ const Inscripcion = () => {
                         //href=
                         //target="_blank" 
                         //rel="noopener noreferrer"
-                        value='Pagar'
-                        />                       
+                        value={language === 'es' ? 'Pagar' : language === 'en' ? 'Pay' : ''}
+                        />                  
                     </div>
                     </>
                     : null}
 
                     {phase == 'Pago'
                     ? <div className="w-full h-full">
-                    <stripe-pricing-table 
-                    pricing-table-id="prctbl_1LeU41H7SyURAolX30AK5BrS"
-                    publishable-key="pk_live_51LXVtjH7SyURAolXkp583tdsL098Dwcxaub0k4sC0D5AOlQ28ouuNiJxTTIwDxvW33YoOLDepqIv8iJfSggzZjPX00SUQ9B1y3">
-                    </stripe-pricing-table>
+                        <Concept>
+                            <Expression lang='es'>
+                                <stripe-pricing-table 
+                                pricing-table-id="prctbl_1LeU41H7SyURAolX30AK5BrS"
+                                publishable-key="pk_live_51LXVtjH7SyURAolXkp583tdsL098Dwcxaub0k4sC0D5AOlQ28ouuNiJxTTIwDxvW33YoOLDepqIv8iJfSggzZjPX00SUQ9B1y3">
+                                </stripe-pricing-table>
+                            </Expression>
+                            <Expression lang='en'>
+                                <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+                                <stripe-pricing-table pricing-table-id="prctbl_1Lh5ExH7SyURAolXaKbGRg3p"
+                                publishable-key="pk_live_51LXVtjH7SyURAolXkp583tdsL098Dwcxaub0k4sC0D5AOlQ28ouuNiJxTTIwDxvW33YoOLDepqIv8iJfSggzZjPX00SUQ9B1y3">
+                                </stripe-pricing-table>
+                            </Expression>
+                        </Concept>
                     <br/>
                     <div className="relative  text-center bg-black text-white rounded-md p-2">
-                        Una vez realizado el pago, recibirá un correo de confirmación.
-                        <br/>
-                        También recibirá otro correo con toda la información necesaria 1 o 2 días antes de la primera clase.
-                        <br/>
-                        Cualquier pregunta, problema o sugerencia, no dude en&nbsp;
-                        <Link href='contacto'><a className='text-blue font-semibold '>contactarnos</a></Link>.
+                        <Concept>
+                            <Expression lang='es'>
+                                Una vez realizado el pago, recibirá un correo de confirmación.
+                                <br/>
+                                También recibirá otro correo con toda la información necesaria 1 a 2 días antes de la primera clase.
+                                <br/>
+                                Cualquier pregunta, problema o sugerencia, no dude en&nbsp;
+                                <Link href='contacto'><a className='text-blue font-semibold '>contactarnos</a></Link>.
+                            </Expression>
+                            <Expression lang='en'>
+                                Once payment is processed, you will receive a confirmation email.
+                                <br/>
+                                You will also receive another email with all the information needed 1 to 2 days prior to the first class.
+                                <br/>
+                                If any question, issue or suggestion arises, do not doubt to&nbsp;
+                                <Link href='contacto'><a className='text-blue font-semibold '>get in touch</a></Link>.
+                            </Expression>
+                        </Concept>
                     </div>
                     </div>
                     : null}
-                
-
                 </form>
+                <br/>
+                <br/>
                 <br/>
                 <br/>
             </div>
@@ -498,6 +646,8 @@ export default Inscripcion;
 
 import React, { useState, DOMAttributes }  from 'react';
 import Script from "next/script";
+import Concept, { Expression } from "../components/Concept";
+import { useLanguage } from "../context/LanguageContext";
 
 type CustomElement<T> = Partial<T & DOMAttributes<T> & { children: any }>;
 

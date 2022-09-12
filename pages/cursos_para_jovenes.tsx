@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Router, useRouter } from "next/router";
 import Button from "../components/Button";
+import Concept, { Expression } from "../components/Concept";
 import CursosParaJóvenes from "../components/CursosParaJóvenes";
 
  
@@ -15,17 +16,25 @@ const CursosParaJovenesPage = () => {
             </Head>
             <br/>
             <br/>
-            <h1 className='text-3xl text-white text-center font-semibold'>Cursos para Jóvenes</h1>
+            <h1 className='text-3xl text-white text-center font-semibold'>
+                <Concept>
+                    <Expression lang='es'>Cursos para Jóvenes</Expression>
+                    <Expression lang='en'>Courses for the Young</Expression>
+                </Concept>
+            </h1>
             <div className="p-8">
                 <div className="flex flex-col">
                     <CursosParaJóvenes/>
                 </div>
             </div>
             <Button
-            className="max-w-min mt-5 relative place-self-center"
+            className=" mt-5 relative place-self-center"
             onClick={() => router.push('/inscripcion')}
-            >
-                Inscribirse
+            >   
+                <Concept>
+                    <Expression lang='es'>Inscribirse</Expression>
+                    <Expression lang='en'>Sign Up</Expression>
+                </Concept>
             </Button>
             <br/>
             <br/>
