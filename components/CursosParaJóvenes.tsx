@@ -96,12 +96,12 @@ export default function CursosParaJóvenes () {
                                 <Expression lang='en'>Looking for a different course?</Expression>
                             </Concept>
                         </b> 
-                        <Link href='contacto'><a className="text-blue font-semibold">
+                        
                             <Concept>
-                                <Expression lang='es'> Contáctanos</Expression>
-                                <Expression lang='en'> Contact us</Expression>
+                                <Expression lang='es'><Link href='contacto'><a className="text-blue font-semibold"> Contáctanos</a></Link></Expression>
+                                <Expression lang='en'><Link href='contact'><a className="text-blue font-semibold"> Contact us</a></Link></Expression>
                             </Concept>
-                        </a></Link>
+                        
                     </span>
                 </div>
                 <div 
@@ -177,12 +177,11 @@ export default function CursosParaJóvenes () {
                                 <Expression lang='es'>¿Interesado en otro horario? </Expression>
                                 <Expression lang='en'>Interested in another schedule? </Expression>
                             </Concept>
-                            <Link href='contacto'><a className="text-blue font-semibold">
+                            
                                 <Concept>
-                                    <Expression lang='es'> Contáctanos</Expression>
-                                    <Expression lang='en'> Contact us</Expression>
+                                    <Expression lang='es'><Link href='contacto'><a className="text-blue font-semibold"> Contáctanos</a></Link></Expression>
+                                    <Expression lang='en'><Link href='contact'><a className="text-blue font-semibold"> Contact us</a></Link></Expression>
                                 </Concept>
-                            </a></Link>
                         </span>
                         <Concept>
                             <Expression lang='es'>

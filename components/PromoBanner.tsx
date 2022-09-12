@@ -1,7 +1,11 @@
 import Link from "next/link";
+import { useLanguage } from "../context/LanguageContext";
 import Concept, { Expression } from "./Concept";
 
 export default function PromoBanner () {
+
+    const language = useLanguage()[0];
+
     return(
         <div 
         className="grid overflow-hidden  grid-flow-col grid-cols-2 items-center py-2  text-base  z-20 bg-yellow text-black bottom-0 w-full "
@@ -28,7 +32,7 @@ export default function PromoBanner () {
                         </Concept>
                     </span> 
                     &nbsp;
-                    <b className="hover:bg-white hover:text-blue text-xl"><Link href='inscripcion'>&nbsp;SINTAXIS20&nbsp;</Link></b>
+                    <b className="hover:bg-white hover:text-blue text-xl"><Link href={language === 'es' ? 'inscripcion' : language === 'en' ? 'signup' : ''}>&nbsp;SINTAXIS20&nbsp;</Link></b>
                     &nbsp;
                     <span className="md:hidden">
                         <Concept>

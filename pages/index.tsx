@@ -16,6 +16,7 @@ import 'animate.css';
 import FlashyDiv from '../components/FlashyDiv';
 import Script from 'next/script';
 import Concept, { Expression } from '../components/Concept';
+import { useLanguage } from '../context/LanguageContext';
 
 const Home: NextPage = () => {
 
@@ -54,6 +55,7 @@ const Home: NextPage = () => {
     }
   }
 
+  const language = useLanguage()[0];
 
   const router = useRouter();
 
@@ -135,10 +137,11 @@ const Home: NextPage = () => {
         <div className='overflow-y-auto h-full w-full relative bg-white '>
           <Head>
             <title>
-              <Concept>
-                <Expression lang='es'>Sintaxis | Aprende a Programar</Expression>
-                <Expression lang='en'>Sintaxis | Learn to Code</Expression>
-              </Concept>
+              {language === 'es' 
+              ? 'Sintaxis | Aprende a Programar'
+              : language === 'en'
+              ? 'Sintaxis | Learn to Code'
+              : ''}
             </title>
             <meta name='description' content='La primera academia de programación de Nicaragua'/>
             <meta property='og:title' content='Sintaxis | Aprende a Programar'/>
@@ -205,17 +208,27 @@ const Home: NextPage = () => {
                 </Concept>
                 
               </p>
-              <Button
-              className='mt-5'
-              onClick={() => {
-                router.push('/inscripcion');
-              }}
-              >
-                <Concept>
-                  <Expression lang='es'>Inscribirse</Expression>
-                  <Expression lang='en'>Sign Up</Expression>
+              <Concept>
+                  <Expression lang='es'>
+                    <Button
+                    className='mt-5'
+                    onClick={() => {
+                      router.push('/inscripcion');
+                    }}
+                    >
+                    Inscribirse
+                    </Button>
+                  </Expression>
+                  <Expression lang='en'>
+                    <Button
+                      className='mt-5'
+                      onClick={() => {
+                        router.push('/signup');
+                      }}
+                      >Sign Up
+                    </Button>
+                  </Expression>
                 </Concept>
-              </Button>
             </div>
           </div>
           <br/>         
@@ -313,7 +326,7 @@ const Home: NextPage = () => {
               </div>
               <br/>
               <div className='flex flex-row w-full justify-around'>
-                <Link href='cursos_para_jovenes' ><a className='hover:decoration-white'><i className=' font-bold '>
+                <Link href={language === 'es' ? 'cursos_para_jovenes' : language === 'en' ? 'courses_for_the_young' : ''} ><a className='hover:decoration-white'><i className=' font-bold '>
                   <Concept>
                     <Expression lang='es'>Más información</Expression>
                     <Expression lang='en'>More information</Expression>
@@ -323,7 +336,7 @@ const Home: NextPage = () => {
             </div>
             <FlashyDiv
             onClick={ () => {
-              router.push('/inscripcion');
+              router.push(language === 'es' ? '/inscripcion' : language === 'en' ? '/signup' : '');
             }}
             className='min-h-[230px] flex flex-col items-end relative justify-end bg-black'
             >
@@ -331,7 +344,6 @@ const Home: NextPage = () => {
                 src={PythonPhoto}
                 layout='fill'
                 objectFit={screenSize[0] < 1150 ? 'contain' : 'cover'}
-                //className=''
                 loading='eager'
                 placeholder='blur'
                 objectPosition={'center'}
@@ -340,7 +352,7 @@ const Home: NextPage = () => {
                 <Button
                   className='float-right grid w-max h-max relative m-5'
                   onClick={() => {
-                    router.push('/inscripcion');
+                    router.push(language === 'es' ? '/inscripcion' : language === 'en' ? '/signup' : '');
                   }}
                   >
                     <Concept>
@@ -364,7 +376,6 @@ const Home: NextPage = () => {
               className='invisible coursesImage'
               loading='eager'
               placeholder='blur'
-              //onClick={() => router.push('/instructores')}
               objectPosition={'center'}
               alt='Foto de Minecraft'
               />
@@ -381,7 +392,7 @@ const Home: NextPage = () => {
               </i>  
             </div>
             <FlashyDiv
-            onClick={() => router.push('/cursos_para_jovenes')}
+            onClick={() => router.push(language === 'es' ? '/cursos_para_jovenes' : language === 'en' ? '/courses_for_the_young' : '')}
             className='relative grid content-between h-full w-full p-5  bg-opacity-70'
             >
               <Image
@@ -438,7 +449,7 @@ const Home: NextPage = () => {
           <br/>
           <div className='text-center relative text-black'>
             <h2 className='text-4xl md:text-5xl  font-bold' >
-              <Link href={'instructores'} scroll={true}>
+              <Link href={language === 'es' ? 'instructores' : language === 'en' ? 'instructors' : ''} scroll={true}>
                 <a className='hover:decoration-[10px]'>
                   <Concept>
                     <Expression lang='es'>Conoce a tus instructores</Expression>
@@ -450,7 +461,7 @@ const Home: NextPage = () => {
             <br/>
             <br/>
             <FlashyDiv
-            onClick={() => router.push('/instructores')}
+            onClick={() => router.push(language === 'es' ? '/instructores' : language === 'en' ? '/instructors' : '')}
             className='relative h-[500px]'
             >
               <Image

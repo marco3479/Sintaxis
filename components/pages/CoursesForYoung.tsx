@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Router, useRouter } from "next/router";
+import { useLanguage } from "../../context/LanguageContext";
 import Button from "../Button";
 import Concept, { Expression } from "../Concept";
 import CursosParaJóvenes from "../CursosParaJóvenes";
@@ -7,6 +8,7 @@ import CursosParaJóvenes from "../CursosParaJóvenes";
 export default function CoursesForYoung () {
     
     const router = useRouter();
+    const language = useLanguage()[0];
 
     return (
         <div className="grid grid-flow-row h-full overflow-y-auto">
@@ -28,7 +30,7 @@ export default function CoursesForYoung () {
             </div>
             <Button
             className=" mt-5 relative place-self-center"
-            onClick={() => router.push('/inscripcion')}
+            onClick={() => router.push(language === 'es' ? 'inscripcion' : language === 'en' ? 'signup' : '')}
             >   
                 <Concept>
                     <Expression lang='es'>Inscribirse</Expression>

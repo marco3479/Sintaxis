@@ -45,14 +45,22 @@ export default function Layout ({ children }:any) {
                     className='font-semibold right-2'
                     onClick={closeMenu}
                     >
-                        <Link href='inscripcion'>
-                            <a>
-                                <Concept>
-                                    <Expression lang='es'>Inscribirse</Expression>
-                                    <Expression lang='en'>Sign Up</Expression>
-                                </Concept>
-                            </a>
-                        </Link>
+                        <Concept>
+                            <Expression lang='es'>
+                                <Link href='inscripcion'>
+                                    <a>
+                                        Inscribirse
+                                    </a>
+                                </Link>
+                        </Expression>
+                        <Expression lang='en'>
+                            <Link href='signup'>
+                                <a>
+                                    Sign Up
+                                </a>
+                            </Link>        
+                        </Expression>
+                        </Concept>
                     </h2>
                     <br/>
                     <h2
@@ -83,7 +91,7 @@ export default function Layout ({ children }:any) {
                             </a>
                         </Link>
                         <Link
-                        href='cursos_para_jovenes'
+                        href={language === 'es' ? 'cursos_para_jovenes' : language === 'en' ? 'courses_for_the_young' : ''}
                         >
                             <a
                             onClick={closeMenu}
@@ -114,7 +122,7 @@ export default function Layout ({ children }:any) {
                     onClick={closeMenu}
                     >
                         <Link 
-                        href='instructores'
+                        href={language === 'es' ? 'instructores' : language === 'en' ? 'instructors' : ''}
                         >
                             <a>
                                 <Concept>
@@ -129,7 +137,7 @@ export default function Layout ({ children }:any) {
                     className='font-semibold right-2'
                     onClick={closeMenu}
                     >
-                        <Link href='contacto'>
+                        <Link href={language === 'es' ? 'contacto' : language === 'en' ? 'contact' : ''}>
                             <a>
                                 <Concept>
                                     <Expression lang='es'>Contacto</Expression>

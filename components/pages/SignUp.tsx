@@ -607,7 +607,7 @@ export default function SignUp () {
                                 También recibirá otro correo con toda la información necesaria 1 a 2 días antes de la primera clase.
                                 <br/>
                                 Cualquier pregunta, problema o sugerencia, no dude en&nbsp;
-                                <Link href='contacto'><a className='text-blue font-semibold '>contactarnos</a></Link>.
+                                <Link href={'contacto'}><a className='text-blue font-semibold '>contactarnos</a></Link>.
                             </Expression>
                             <Expression lang='en'>
                                 Once payment is processed, you will receive a confirmation email.
@@ -615,7 +615,7 @@ export default function SignUp () {
                                 You will also receive another email with all the information needed 1 to 2 days prior to the first class.
                                 <br/>
                                 If any question, issue or suggestion arises, do not doubt to&nbsp;
-                                <Link href='contacto'><a className='text-blue font-semibold '>get in touch</a></Link>.
+                                <Link href='contact'><a className='text-blue font-semibold '>get in touch</a></Link>.
                             </Expression>
                         </Concept>
                     </div>

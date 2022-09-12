@@ -105,7 +105,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link
-                    href={'cursos_para_jovenes'}
+                    href={language === 'es' ? 'cursos_para_jovenes' : language === 'en' ? 'courses_for_the_young' : ''}
                     >
                         <a
                         onClick={() => {
@@ -137,7 +137,7 @@ const Navbar = () => {
             className=' hidden lg:flex place-items-center mr-12 font-semibold'
             >
             <Link 
-            href='instructores'
+            href={language === 'es' ? 'instructores' : language === 'en' ? 'instructors' : ''}
             >
                 <a>
                 <Concept>
@@ -150,7 +150,7 @@ const Navbar = () => {
             <h2
             className='hidden lg:flex place-items-center mr-12 font-semibold'
             >
-            <Link href='contacto'>
+            <Link href={language === 'es' ? 'contacto' : language === 'en' ? 'contact' : ''}>
                 <a>
                 <Concept>
                     <Expression lang='es'>Contacto</Expression>
@@ -163,7 +163,7 @@ const Navbar = () => {
                 <Button
                     className="m-0"
                     onClick={() => {
-                    router.push('/inscripcion');
+                    router.push(language === 'es' ? 'inscripcion' : language === 'en' ? 'signup' : '');
                     }}
                     >
                     <Concept>
@@ -178,13 +178,6 @@ const Navbar = () => {
                 const menu = document.getElementById('menuOptions') as HTMLElement;
                 menu.classList.toggle('hidden');
                 menu.classList.toggle('flex');
-                /*if (menu.classList.contains('flex')) {
-                    menu.onmouseleave = () => {
-                        menu.classList.toggle('hidden');
-                        menu.classList.toggle('flex');  
-                        menu.onmouseleave = null;
-                    }
-                }*/
             }}
             >
                 <i
