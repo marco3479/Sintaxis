@@ -19,6 +19,8 @@ function LanguageWrapper ({defaultLanguage, children}: LanguageWrapperProps) {
         }
         else if (/^en\b/.test(navigator.language)) {
             defaultLanguage = 'en';
+        } else {
+            defaultLanguage = 'es';
         }
     }, [])
 
