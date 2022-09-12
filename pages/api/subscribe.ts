@@ -17,7 +17,8 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     let csvContent = "" + rows.map(e => e.join(",")).join("\n");
 
     const mailData = {
-        from: 'sintaxisacademy@gmail.com',
+        from: 'contact@sintaxis.io',
+        reply: 'sintaxisacademy@gmail.com',
         to: 'sintaxisacademy@gmail.com', //data.email,
         subject: `${data.name} Subscribed`,
         text: `${data.name} has subscribed to sintaxis academy`,
@@ -58,8 +59,8 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         host: 'smtp.sendgrid.net',
         secure: true,
         auth: {
-            user: process.env.SENDGRID_API_KEY,//'sintaxisacademy@gmail.com',
-            pass: process.env.SENDGRID_PASSWORD
+            user: "apikey",
+            pass: process.env.SENDGRID_API_KEY,//'sintaxisacademy@gmail.com',
         },
         //tls: {
         //    rejectUnauthorized: false
