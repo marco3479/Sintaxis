@@ -46,7 +46,12 @@ export default function Layout ({ children }:any) {
                     onClick={closeMenu}
                     >
                         <Link href='inscripcion'>
-                            Inscribirse
+                            <a>
+                                <Concept>
+                                    <Expression lang='es'>Inscribirse</Expression>
+                                    <Expression lang='en'>Sign Up</Expression>
+                                </Concept>
+                            </a>
                         </Link>
                     </h2>
                     <br/>
@@ -57,7 +62,10 @@ export default function Layout ({ children }:any) {
                         href=''
                         >
                         <a className="hover:decoration-transparent hover:cursor-default">
-                            Cursos
+                            <Concept>
+                                <Expression lang='es'>Cursos</Expression>
+                                <Expression lang='en'>Courses</Expression>
+                            </Concept>
                         </a>
                         </Link>
                     </h2>
@@ -68,7 +76,10 @@ export default function Layout ({ children }:any) {
                         href=''
                         >
                             <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
-                                Niños
+                                <Concept>
+                                    <Expression lang='es'>Niños</Expression>
+                                    <Expression lang='en'>Kids</Expression>
+                                </Concept>
                             </a>
                         </Link>
                         <Link
@@ -77,14 +88,20 @@ export default function Layout ({ children }:any) {
                             <a
                             onClick={closeMenu}
                             >
-                                Jóvenes
+                                <Concept>
+                                    <Expression lang='es'>Jóvenes</Expression>
+                                    <Expression lang='en'>Youth</Expression>
+                                </Concept>
                             </a>
                         </Link>
                         <Link
                         href=''
                         >
                             <a className="text-gray-500 hover:cursor-default hover:decoration-transparent">
-                                Profesionales
+                                <Concept>
+                                    <Expression lang='es'>Profesionales</Expression>
+                                    <Expression lang='en'>Professionals</Expression>
+                                </Concept>
                             </a>
                         </Link>
                         
@@ -99,7 +116,12 @@ export default function Layout ({ children }:any) {
                         <Link 
                         href='instructores'
                         >
-                            Instructores
+                            <a>
+                                <Concept>
+                                    <Expression lang='es'>Instructores</Expression>
+                                    <Expression lang='en'>Instructors</Expression>
+                                </Concept>
+                            </a>
                         </Link>
                     </h2>
                     <br/>
@@ -108,7 +130,12 @@ export default function Layout ({ children }:any) {
                     onClick={closeMenu}
                     >
                         <Link href='contacto'>
-                            Contacto
+                            <a>
+                                <Concept>
+                                    <Expression lang='es'>Contacto</Expression>
+                                    <Expression lang='en'>Contact</Expression>
+                                </Concept>
+                            </a>
                         </Link>
                     </h2>
                     <br/>
