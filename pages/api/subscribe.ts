@@ -58,9 +58,9 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         port: 465,
         secure: true,
         auth: {
-            user: "apikey",
-            pass: process.env.SENDGRID_API_KEY,
-        },
+            user: 'apikey',
+            pass: process.env.SENDGRID_API_KEY
+        }
     });
 
     /*await new Promise((resolve, reject) => {
