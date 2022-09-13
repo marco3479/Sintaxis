@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { useLanguage } from "../context/LanguageContext";
+import { PreferencesType, usePreferences } from "../context/UserPreferences";
 import Concept, { Expression } from "./Concept";
 
 export default function PromoBanner () {
 
-    const language = useLanguage()[0];
+    const {language}: PreferencesType = usePreferences();
 
     return(
         <div 

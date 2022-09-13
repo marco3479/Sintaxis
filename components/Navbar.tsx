@@ -2,11 +2,11 @@ import Link from "next/link"
 import Image from 'next/image'
 import LogoType from '../public/images/LogoType.png'
 import LogoMark from '../public/images/LogoMark.png'
-import { useEffect, useLayoutEffect, useState } from "react"
+import { useLayoutEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Button from "./Button"
-import { useLanguage } from "../context/LanguageContext"
 import Concept, { Expression } from "./Concept"
+import { PreferencesType, usePreferences } from "../context/UserPreferences"
 
 
 const Navbar = () => {
@@ -17,8 +17,7 @@ const Navbar = () => {
     const [showCursosMenu, setShowCursosMenu] = useState<boolean>(false);
     const [showLangMenu, setShowLangMenu] = useState<boolean>(false);
 
-    const [language, setLanguage] = useLanguage();
-
+    const {language, setLanguage}: PreferencesType = usePreferences();
 
     useLayoutEffect(() => {
         setScreenSize(window.innerWidth);

@@ -2,13 +2,8 @@
 
 
 import { Children, ReactElement, ReactNode } from "react";
-import { LanguageContextType, useLanguage } from "../context/LanguageContext";
+import { PreferencesType, usePreferences } from "../context/UserPreferences";
 
-// useLanguage() hook - is it necessary?
-
-// const [language, setLanguage] = useLangage('en')
-
-//type LexicalForm = ReactNode
 
 interface ExpressionProps {
     lang: Language,
@@ -38,10 +33,10 @@ interface ConceptProps {
 
 const Concept = ({lang, children, ...props}: ConceptProps) => {
 
-    const langInContext: LanguageContextType[0] = useLanguage()[0];
+    const {language}: PreferencesType = usePreferences();
 
     if (typeof lang === 'undefined') {
-        lang = langInContext;
+        lang = language;
     }
 
     if (Array.isArray(children)) {
@@ -56,11 +51,18 @@ const Concept = ({lang, children, ...props}: ConceptProps) => {
             }
         }
         
+        let childrenChanged = false;
 
         for (let lexicalForm of children) {
             if (lexicalForm.props.lang === lang) {
                 children = lexicalForm;
+                childrenChanged = true;
+                break
             }
+        }
+        
+        if (!childrenChanged) {
+            children = <></>;
         }
 
     } else {

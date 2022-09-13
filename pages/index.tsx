@@ -16,7 +16,7 @@ import 'animate.css';
 import FlashyDiv from '../components/FlashyDiv';
 import Script from 'next/script';
 import Concept, { Expression } from '../components/Concept';
-import { useLanguage } from '../context/LanguageContext';
+import { PreferencesType, usePreferences } from '../context/UserPreferences';
 
 const Home: NextPage = () => {
 
@@ -55,8 +55,7 @@ const Home: NextPage = () => {
     }
   }
 
-  const language = useLanguage()[0];
-
+  const {language}: PreferencesType = usePreferences();
   const router = useRouter();
 
   const Highlighted = ({children}:any) => {

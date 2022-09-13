@@ -22,7 +22,7 @@ export default function SignUp () {
     
     const Context: SubscriptionContextType = useSubscription();
 
-    const language = useLanguage()[0];
+    const {language}: PreferencesType = usePreferences();
 
     const {
         generalData,
@@ -640,7 +640,7 @@ export default function SignUp () {
 import React, { useState, DOMAttributes }  from 'react';
 import Script from "next/script";
 import Concept, { Expression } from "../Concept";
-import { useLanguage } from "../../context/LanguageContext";
+import { PreferencesType, usePreferences } from "../../context/UserPreferences";
 
 type CustomElement<T> = Partial<T & DOMAttributes<T> & { children: any }>;
 

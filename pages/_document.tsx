@@ -1,10 +1,10 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
-import { useLanguage } from '../context/LanguageContext'
+import { PreferencesType, usePreferences } from '../context/UserPreferences'
 
 export default function Document() {
 
-  const language = useLanguage()[0];
+  const {language}: PreferencesType = usePreferences();
 
   return (
     <Html lang={language}>  {/**NOT WORKING */}

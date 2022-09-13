@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { Router, useRouter } from "next/router";
-import { useLanguage } from "../../context/LanguageContext";
+import { useRouter } from "next/router";
+import { PreferencesType, usePreferences } from "../../context/UserPreferences";
 import Button from "../Button";
 import Concept, { Expression } from "../Concept";
 import CursosParaJóvenes from "../CursosParaJóvenes";
@@ -8,7 +8,7 @@ import CursosParaJóvenes from "../CursosParaJóvenes";
 export default function CoursesForYoung () {
     
     const router = useRouter();
-    const language = useLanguage()[0];
+    const {language}: PreferencesType = usePreferences();
 
     return (
         <div className="grid grid-flow-row h-full overflow-y-auto">

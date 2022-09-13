@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
+import { PreferencesType, usePreferences } from "../context/UserPreferences";
 import Concept, { Expression } from "./Concept";
+import CookiesWarning from "./CookiesWarning";
 import Navbar from "./Navbar";
 import PromoBanner from "./PromoBanner";
 
 export default function Layout ({ children }:any) {
 
 
-    const [language, setLanguage] = useLanguage();
-
+    const {language, setLanguage}: PreferencesType = usePreferences();
 
 
     const [showCursosMenu, setShowCursosMenu] = useState<boolean>(true);
@@ -19,7 +19,6 @@ export default function Layout ({ children }:any) {
         const menu = document.getElementById('menuOptions') as HTMLElement;
         menu.classList.toggle('hidden');
         menu.classList.toggle('flex');
-
     }
 
     return (
@@ -34,6 +33,7 @@ export default function Layout ({ children }:any) {
                 <main
                 className='bg-blue w-full h-[93%] overflow-y-auto   absolute bottom-0'
                 >
+                    <CookiesWarning/>
                     {children}
                 </main>
                 <div
