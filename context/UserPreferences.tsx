@@ -48,7 +48,11 @@ function UserPreferencesWrapper ({defaultLanguage, children}: UserPreferencesWra
     const [acceptCookies, _setAcceptCookies] = useState<boolean>();
 
     const setAcceptCookies = (acceptCookies: boolean): void => {
-        createCookie('acceptCookies', acceptCookies.toString(), 30);
+        if (acceptCookies) {
+            createCookie('acceptCookies', acceptCookies.toString(), 30);
+        } else {
+            createCookie('acceptCookies', acceptCookies.toString(), 1);
+        }
         _setAcceptCookies(acceptCookies);
     }
 
