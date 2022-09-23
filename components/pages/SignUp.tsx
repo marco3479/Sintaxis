@@ -378,7 +378,7 @@ export default function SignUp () {
                                 }))}}
                                 value={generalData.acknowledgementSource === 'Otro' || (['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Instagram'].every((value: string) => {if (value === generalData.acknowledgementSource) return false})) || !['', 'Facebook', 'LinkedIn', 'Google', 'Conocido', 'Otro', 'Instagram'].includes(generalData.acknowledgementSource) || (acknowledgementSourceSelectRef.current?.value === 'Otro' && generalData.acknowledgementSource === '')  ? 'Otro' : generalData.acknowledgementSource }
                                 >
-                                    <option aria-invalid='true' defaultChecked className="text-opacity-50" value=''>
+                                    <option defaultChecked className="text-opacity-50" value=''>
                                     </option>
                                     <option value='Facebook'>
                                         Facebook

@@ -19,6 +19,7 @@ export default function Instructors () {
     }, []);
   
 
+
     return (
         <div className='text-center h-full  overflow-y-auto'>
             <Head>
@@ -27,7 +28,7 @@ export default function Instructors () {
             <br/>
             <br/>
             <h1 className='text-3xl text-white font-semibold'>
-                <Concept>
+                <Concept >
                     <Expression lang='es'>Conoce a tus instructores</Expression>
                     <Expression lang='en'>Meet your instructors</Expression>
                 </Concept>

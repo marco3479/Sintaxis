@@ -16,7 +16,8 @@ export default function Contact () {
                 <h2 className="text-2xl font-semibold self-center w-[18rem] text-white text-center">
                     <Concept>
                         <Expression lang="es">Contactanos por cualquiera de estas vías</Expression>
-                        <Expression lang="en">Contact us by any of the following means</Expression>
+                        <Expression lang="es">Contact us by any of the following means</Expression>
+                        <Expression lang="jp">wergsdfs</Expression>
                     </Concept>
                 </h2>
                 <br/>

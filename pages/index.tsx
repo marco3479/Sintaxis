@@ -305,13 +305,15 @@ const Home: NextPage = () => {
               <Concept>
                 <Expression lang='es'>
                   Nuestro primer curso, 
-                  <b> Introducción a Programación con Python, </b>
-                  empieza el <b>sábado 24 de septiembre</b>. 
+                  <b> Introducción a Programación con Python </b>
+                  transcurren sábados de 3-5 pm {'('}GMT-6{')'}
+                  {/*empieza el <b>sábado 24 de septiembre</b>.*/}                            
                 </Expression>
                 <Expression lang='en'>
                   Our first course, 
-                  <b> Introduction to Programming with Python, </b>
-                  starts <b>Saturday, September 24th</b>. 
+                  <b> Introduction to Programming with Python </b>
+                  ongo on Saturdays from 3-5 pm MT
+                  {/*starts <b>Saturday, September 24th</b>. */}
                 </Expression>
               </Concept>
               <br/>

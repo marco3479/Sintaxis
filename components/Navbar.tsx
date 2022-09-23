@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from 'next/image'
 import LogoType from '../public/images/LogoType.png'
 import LogoMark from '../public/images/LogoMark.png'
-import { useLayoutEffect, useState } from "react"
+import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState } from "react"
 import { useRouter } from "next/router"
 import Button from "./Button"
 import Concept, { Expression } from "./Concept"
@@ -26,7 +26,12 @@ const Navbar = () => {
         })
     }, [])
 
+    const ref = useRef<HTMLHeadingElement>(null)
 
+    useEffect(() => {
+
+        ref.current?.classList
+    })
     return (
       <div
       className=' bg-black z-[4] top-0  text-white w-full font-semibold h-[7%] min-h-[58px] sticky flex flex-row text-2xl justify-between items-center drop-shadow-lg '
@@ -73,6 +78,7 @@ const Navbar = () => {
             onMouseLeave={() => setShowCursosMenu(false)}
             >
                 <h2
+                ref={ref}
                 className='hidden lg:flex  justify-center font-semibold'
                 onClick={() => {
                     setShowCursosMenu(!showCursosMenu);
