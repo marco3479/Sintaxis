@@ -19,8 +19,10 @@ export default function PromoBanner () {
                 <span className="text-right hidden md:block">
                     <i>
                         <Concept>
-                            <Expression lang='es'>Obtené 20% de descuento con el código</Expression>    
-                            <Expression lang='en'>Get 20% discount with the code</Expression>    
+                            <Expression lang='es'>Primeros 5 estudiantes obtienen curso GRATIS con código</Expression>
+                            <Expression lang='en'>First 5 students get FREE course with the code</Expression>
+                            {/*<Expression lang='es'>Obtené 20% de descuento con el código</Expression>    
+                            <Expression lang='en'>Get 20% discount with the code</Expression>*/}    
                         </Concept>
                     </i>
                 </span>
@@ -28,7 +30,7 @@ export default function PromoBanner () {
                     <span className="md:hidden">
                         <Concept>
                             <Expression lang='es'>Primeros 5 estudiantes obtienen curso GRATIS con código</Expression>
-                            <Expression lang='es'>First 5 students get FREE course with the code</Expression>
+                            <Expression lang='en'>First 5 students get FREE course with the code</Expression>
                             {/*<Expression lang='es'>Obtené 20% de descuento con el código</Expression>
                             <Expression lang='en'>Get 20% discount with the code</Expression>*/}
                         </Concept>
@@ -38,7 +40,7 @@ export default function PromoBanner () {
                     &nbsp;
                     <span className="md:hidden">
                         <Concept>
-                            <Expression lang='es'>{/*en* el curso/} <b> &nbsp;Introducción a Programación con Python</b> </Expression>     
+                            <Expression lang='es'>{/*en* el curso*/} <b> &nbsp;Introducción a Programación con Python</b> </Expression>     
                             <Expression lang='en'>{/*in the course*/} <b> &nbsp;Introduction to Programming with Python</b> </Expression>     
                         </Concept>
                     </span> 
