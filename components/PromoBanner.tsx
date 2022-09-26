@@ -34,7 +34,7 @@ export default function PromoBanner () {
                         </Concept>
                     </span> 
                     &nbsp;
-                    <b className="hover:bg-white hover:text-blue text-xl"><Link href={language === 'es' ? 'inscripcion' : language === 'en' ? 'signup' : ''}>&nbsp;SINTAXIS20&nbsp;</Link></b>
+                    <b className="hover:bg-white hover:text-blue text-xl"><Link href={language === 'es' ? 'inscripcion' : language === 'en' ? 'signup' : ''}>&nbsp;SINTAXIS100&nbsp;</Link></b>
                     &nbsp;
                     <span className="md:hidden">
                         <Concept>
