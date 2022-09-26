@@ -320,8 +320,10 @@ const Home: NextPage = () => {
               <br/>
               <div className='bg-black text-white p-3 rounded-md'>
                 <Concept>
-                  <Expression lang='es'>¡Inscribite ahora y usa el código<b> SINTAXIS20 </b>para un 20% de descuento! </Expression>
-                  <Expression lang='en'>Sign up now and use the code<b> SINTAXIS20 </b>for a 20% discount! </Expression>
+                  {/*<Expression lang='es'>¡Inscribite ahora y usa el código<b> SINTAXIS20 </b>para un 20% de descuento! </Expression>
+                  <Expression lang='en'>Sign up now and use the code<b> SINTAXIS20 </b>for a 20% discount! </Expression>*/}
+                  <Expression lang='es'>¡Primeros 5 en inscribirse y usan el código<b> SINTAXIS100 </b>obtienen el curso GRATIS! </Expression>
+                  <Expression lang='en'>First 5 to sign up and use the code<b> SINTAXIS100 </b>get the course for FREE! </Expression>
                 </Concept>
                 
               </div>
