@@ -1,5 +1,5 @@
 import { Context, createContext, ReactNode, useContext, useLayoutEffect, useState } from 'react';
-import { Language } from '../components/Concept';
+import type { Language } from '../components/Concept';
 import { createCookie, readCookie } from '../utils/cookiesHelpers';
 
 export const UserPreferences: Context<PreferencesType> = createContext({} as PreferencesType)

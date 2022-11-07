@@ -8,12 +8,11 @@ type ButtonProps = {
     className?: string;
     children: any;
     href: string;
-    type?: string;
     target?: string;
     rel?: string;
 }
 
-const A = ({children, className, href, onClick, type, target, rel}: ButtonProps) => {
+const A = ({children, className, href, onClick, target, rel}: ButtonProps) => {
     return (
         <a
         className={`bg-white text-blue font-semibold rounded-md max-w-min p-2 text-lg border-none  hover:shadow-xl shadow-black ${className}`}

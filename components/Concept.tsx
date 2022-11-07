@@ -1,11 +1,11 @@
 
 
 
-import { Children, ReactElement, ReactFragment, ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 import { PreferencesType, usePreferences } from "../context/UserPreferences";
 
 
-interface ExpressionProps {
+export interface ExpressionProps {
     lang: Language,
     children: ReactNode,
     id?: number  // or a string?

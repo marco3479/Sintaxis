@@ -1,9 +1,11 @@
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
+const Image = dynamic(() => import('next/image'));
 import PythonPhoto from "../public/images/Python.jpg"
 import {SubscriptionContextType, useSubscription} from "../context/SubscriptionContext";
-import Link from "next/link";
-import Concept, { Expression } from './Concept';
-
+import type { ExpressionProps } from './Concept';
+const Link = dynamic(() => import('next/link'));
+const Concept = dynamic(() => import('./Concept'));
+const Expression = dynamic<ExpressionProps>(() => import('./Concept').then(mod => mod.Expression));
 
 
 
@@ -148,8 +150,8 @@ export default function CursosParaJóvenes () {
                         <br/>
                         <span>
                             <Concept>
-                                <Expression lang='es'><b>Inversión:</b> $40 al mes</Expression>
-                                <Expression lang='en'><b>Investment:</b> $40 per month</Expression>
+                                <Expression lang='es'><b>Inversión:</b> $30 al mes</Expression>
+                                <Expression lang='en'><b>Investment:</b> $30 per month</Expression>
                             </Concept>
                         </span>
                         <span>

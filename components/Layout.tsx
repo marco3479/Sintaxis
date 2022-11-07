@@ -1,10 +1,13 @@
-import Link from "next/link";
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 import { useState } from "react";
 import { PreferencesType, usePreferences } from "../context/UserPreferences";
-import Concept, { Expression } from "./Concept";
-import CookiesWarning from "./CookiesWarning";
-import Navbar from "./Navbar";
-import PromoBanner from "./PromoBanner";
+const Concept = dynamic(() => import('./Concept'));
+import type { ExpressionProps } from './Concept';
+const Expression = dynamic<ExpressionProps>(() => import('./Concept').then(mod => mod.Expression));
+const CookiesWarning = dynamic(() => import('./CookiesWarning'));
+const Navbar = dynamic(() => import('./Navbar'));
+const PromoBanner = dynamic(() => import('./PromoBanner'));
 
 export default function Layout ({ children }:any) {
 
@@ -25,7 +28,7 @@ export default function Layout ({ children }:any) {
         <div
         className='absolute w-[100vw] h-[100vh] overflow-hidden'
         >
-            <PromoBanner/>
+            {/* <PromoBanner/> */}
             <div
             className='flex absolute flex-col w-[100vw] h-[100vh] overflow-hidden'
             >

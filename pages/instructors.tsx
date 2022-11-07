@@ -1,4 +1,5 @@
-import Instructors from "../components/pages/Instructors";
+import dynamic from 'next/dynamic';
+const Instructors = dynamic(() => import("../components/pages/Instructors"));
 
 
 const InstructorsPage = () => {

@@ -1,11 +1,8 @@
+import dynamic from 'next/dynamic';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-//import Head from 'next/head'
-import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
-import Button from '../components/Button';
 import HomePagePicture from '../public/images/Apoyo.jpg'
 import FotoInstructores from '../public/images/instructores-1.jpg' 
 import Minecraft from '../public/images/Minecraft.png' 
@@ -13,10 +10,15 @@ import YouthProgramming from '../public/images/YouthProgramming.jpg'
 import PythonPhoto from "../public/images/Python.jpg"
 import DataAnalysis from '../public/images/DataAnalysis.jpg' 
 import 'animate.css';
-import FlashyDiv from '../components/FlashyDiv';
-import Script from 'next/script';
-import Concept, { Expression } from '../components/Concept';
 import { PreferencesType, usePreferences } from '../context/UserPreferences';
+const Button = dynamic(() => import('../components/Button'));
+const Image = dynamic(() => import('next/image'));
+const Link = dynamic(() => import('next/link'));
+const FlashyDiv = dynamic(() => import('../components/FlashyDiv'));
+const Script = dynamic(() => import('next/script'));
+const Concept = dynamic(() => import('../components/Concept'));
+import { ExpressionProps } from '../components/Concept';
+const Expression = dynamic<ExpressionProps>(() => import('../components/Concept').then(mod => mod.Expression));
 
 const Home: NextPage = () => {
 
@@ -318,15 +320,13 @@ const Home: NextPage = () => {
               </Concept>
               <br/>
               <br/>
-              <div className='bg-black text-white p-3 rounded-md'>
+              {/* <div className='bg-black text-white p-3 rounded-md'>
                 <Concept>
-                  {/*<Expression lang='es'>¡Inscribite ahora y usa el código<b> SINTAXIS20 </b>para un 20% de descuento! </Expression>
-                  <Expression lang='en'>Sign up now and use the code<b> SINTAXIS20 </b>for a 20% discount! </Expression>*/}
                   <Expression lang='es'>¡Primeros 5 en inscribirse y usan el código<b> SINTAXIS100 </b>obtienen el curso GRATIS! </Expression>
                   <Expression lang='en'>First 5 to sign up and use the code<b> SINTAXIS100 </b>get the course for FREE! </Expression>
                 </Concept>
                 
-              </div>
+              </div> */}
               <br/>
               <div className='flex flex-row w-full justify-around'>
                 <Link href={language === 'es' ? 'cursos_para_jovenes' : language === 'en' ? 'courses_for_the_young' : ''} ><a className='hover:decoration-white'><i className=' font-bold '>

@@ -1,11 +1,14 @@
-import Link from "next/link"
-import Image from 'next/image'
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
+const Image = dynamic(() => import('next/image'));
 import LogoType from '../public/images/LogoType.png'
 import LogoMark from '../public/images/LogoMark.png'
-import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { useRouter } from "next/router"
-import Button from "./Button"
-import Concept, { Expression } from "./Concept"
+const Button = dynamic(() => import('./Button'));
+const Concept = dynamic(() => import('./Concept'));
+import type { ExpressionProps } from './Concept';
+const Expression = dynamic<ExpressionProps>(() => import('./Concept').then(mod => mod.Expression));
 import { PreferencesType, usePreferences } from "../context/UserPreferences"
 
 

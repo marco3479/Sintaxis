@@ -1,6 +1,10 @@
-import Link from "next/link";
+import dynamic from 'next/dynamic';
+const Link = dynamic(() => import('next/link'));
 import { PreferencesType, usePreferences } from "../context/UserPreferences";
-import Concept, { Expression } from "./Concept";
+const Concept = dynamic(() => import('./Concept'));
+import type { ExpressionProps } from './Concept';
+const Expression = dynamic<ExpressionProps>(() => import('./Concept').then(mod => mod.Expression));
+
 
 export default function PromoBanner () {
 

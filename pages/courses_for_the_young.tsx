@@ -1,5 +1,5 @@
-import CoursesForYoung from "../components/pages/CoursesForYoung";
-
+import dynamic from 'next/dynamic';
+const CoursesForYoung = dynamic(() => import("../components/pages/CoursesForYoung"));
 
  
 const CoursesForTheYoungPage = () => {

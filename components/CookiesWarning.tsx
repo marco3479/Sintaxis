@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { PreferencesType, usePreferences } from "../context/UserPreferences";
 import { readCookie } from "../utils/cookiesHelpers";
-import Button from "./Button";
+import dynamic from 'next/dynamic';
+const Button = dynamic(() => import('./Button'));
 import Concept, { Expression } from "./Concept";
 
 export default function CookiesWarning() {
